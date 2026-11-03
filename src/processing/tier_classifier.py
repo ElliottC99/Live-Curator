@@ -292,6 +292,16 @@ class TierClassifier:
             tier_1_matches = elliott_matches + chloe_matches
             if tier_1_matches:
                 event.tier = TierCategory.TIER_1_DIRECT
+                # Tag mutual matches prominently when both users matched
+                if elliott_matches and chloe_matches:
+                    mutual_rationale = MatchRationale(
+                        tier=TierCategory.TIER_1_DIRECT,
+                        source=MatchSource.SPOTIFY_SAVED,
+                        matched_act=event.primary_act,
+                        user="Mutual",
+                        description="🔥 MUTUAL MATCH: In Both Your Playlists / Liked Songs!",
+                    )
+                    tier_1_matches.insert(0, mutual_rationale)
                 event.matches = tier_1_matches
                 return event
 

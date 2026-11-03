@@ -117,6 +117,10 @@ def split_lineup(event_title: str) -> List[str]:
     for suffix in EVENT_SUFFIX_PATTERNS:
         cleaned_title = re.sub(suffix, "", cleaned_title, flags=re.IGNORECASE)
 
+    # Strip Songkick "@ Venue" or "at Venue" suffix
+    if " @ " in cleaned_title:
+        cleaned_title = cleaned_title.split(" @ ", 1)[0].strip()
+
     # Check if the title matches a known protected monolithic name
     normalized_whole = normalize_artist_name(cleaned_title)
     if normalized_whole in PROTECTED_AMPERSAND_ARTISTS:

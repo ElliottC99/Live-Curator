@@ -3526,5 +3526,41 @@
     "start_time": "2026-11-11T23:00:00+00:00",
     "ticket_url": "https://dice.fm/event/6aea213c73dd350001ada423",
     "platform": "dice"
+  },
+  {
+    "id": "songkick:songkick_631191531026957356",
+    "title": "Fontaines D.C. + Little Simz + Viagra Boys @ London Stadium",
+    "venue_name": "London Stadium",
+    "venue_area": "Stratford / Olympic Park",
+    "start_time": "2027-07-09T17:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43397416-fontaines-dc-at-london-stadium-queen-elizabeth?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_7446540302792086271",
+    "title": "TAKE THAT - THE CIRCUS LIVE - Summer 2026 @ London Stadium, Queen Elizabeth",
+    "venue_name": "London Stadium",
+    "venue_area": "Stratford / Olympic Park",
+    "start_time": "2026-06-25T17:00:00",
+    "ticket_url": "http://www.songkick.com/festivals/3750054-take-that-the-circus-live-summer/id/43078887-take-that--the-circus-live--summer-2026?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5018409748624385284",
+    "title": "The Weeknd @ London Stadium, Queen Elizabeth",
+    "venue_name": "London Stadium",
+    "venue_area": "Stratford / Olympic Park",
+    "start_time": "2023-07-08T16:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/40773278-weeknd-at-london-stadium-queen-elizabeth?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_2743183056001476958",
+    "title": "The Weeknd @ London Stadium, Queen Elizabeth",
+    "venue_name": "London Stadium",
+    "venue_area": "Stratford / Olympic Park",
+    "start_time": "2023-07-07T16:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/40765738-weeknd-at-london-stadium-queen-elizabeth?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
   }
 ]

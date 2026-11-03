@@ -5,12 +5,9 @@
 
 elliott:
   name: "Elliott"
-  direct_artists:
+  # Artists specifically saved/liked by Elliott
+  saved_artists:
     - "The Avalanches"
-    - "Fat Dog"
-    - "Getdown Services"
-    - "Lambrini Girls"
-    - "Gang of Youths"
     - "Fontaines D.C."
     - "Fontaines DC"
     - "IDLES"
@@ -19,9 +16,16 @@ elliott:
     - "Joy Orbison"
     - "Overmono"
     - "Fred again.."
-    - "Maribou State"
     - "Bicep"
     - "Yard Act"
+    - "Gang of Youths"
+    - "Oasis"
+  # Artists in Elliott's curated playlists (Lambrini Girls belongs here, NOT in saved_artists)
+  playlist_artists:
+    - "Lambrini Girls"
+    - "Fat Dog"
+    - "Getdown Services"
+    - "Maribou State"
     - "Squid"
     - "Shame"
     - "English Teacher"
@@ -34,10 +38,15 @@ elliott:
     - "4am Kru"
     - "Temples"
     - "Widowspeak"
-    - "Oasis"
     - "Saccades"
     - "C.O.F.F.I.N"
     - "Party Dozen"
+  top_artists:
+    - "Fontaines D.C."
+    - "The Avalanches"
+    - "Overmono"
+    - "IDLES"
+    - "The Smile"
   discovery_artists:
     - "Greg Mendez"
     - "Elephant Stone"
@@ -48,22 +57,23 @@ elliott:
 
 chloe:
   name: "Chloe"
-  direct_artists:
+  saved_artists:
     - "Wasia Project"
+    - "Little Simz"
     - "Kelela"
     - "Tove Lo"
     - "Blondshell"
     - "Angèle"
-    - "The Mary Wallopers"
     - "Wet Leg"
-    - "Little Simz"
     - "Ezra Collective"
     - "Self Esteem"
     - "Arlo Parks"
     - "Big Thief"
+    - "RAYE"
+  playlist_artists:
+    - "The Mary Wallopers"
     - "The Japanese House"
     - "HAIM"
-    - "RAYE"
     - "The Last Dinner Party"
     - "Olivia Dean"
     - "Ibibio Sound Machine"
@@ -71,6 +81,11 @@ chloe:
     - "Pearl and The Oysters"
     - "Kurupt FM"
     - "Ella Raphael"
+  top_artists:
+    - "Wasia Project"
+    - "Little Simz"
+    - "Wet Leg"
+    - "Blondshell"
   discovery_artists:
     - "Chloe Slater"
     - "Zinadelphia"

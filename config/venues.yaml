@@ -273,7 +273,7 @@ venues:
 
   - name: "London Stadium"
     platform: "songkick"
-    songkick_url: "https://www.songkick.com/venues/1817448-london-stadium-queen-elizabeth-olympic-park"
+    songkick_url: "https://www.songkick.com/venues/3174414-london-stadium-queen-elizabeth"
     tm_venue_id: "KovZpZAE7vlA"
     tm_keyword: "London Stadium"
     area: "Stratford / Olympic Park"
@@ -282,7 +282,7 @@ venues:
 
   - name: "Tottenham Hotspur Stadium"
     platform: "songkick"
-    songkick_url: "https://www.songkick.com/venues/3983276-tottenham-hotspur-stadium"
+    songkick_url: "https://www.songkick.com/venues/4368336-tottenham-hotspur-stadium"
     tm_venue_id: "KovZ917AoGf"
     tm_keyword: "Tottenham Hotspur Stadium"
     area: "Tottenham"

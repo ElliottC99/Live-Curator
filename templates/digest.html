@@ -245,8 +245,8 @@
                                 </span>
                                 {% endif %}
                                 {% for match in event.matches %}
-                                <span style="display: inline-block; background-color: #065f46; color: #d1fae5; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                  {% if match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB;{% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8;{% else %}&#x2728;{% endif %} {{ match.description }}
+                                <span style="display: inline-block; background-color: {% if match.user == 'Mutual' %}#991b1b; border: 1px solid #ef4444; color: #fef2f2; font-weight: 800;{% elif match.user == 'Elliott' %}#065f46; color: #d1fae5; border: 1px solid #047857;{% elif match.user == 'Chloe' %}#581c87; color: #f3e8ff; border: 1px solid #7e22ce;{% else %}#065f46; color: #d1fae5;{% endif %} font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  {% if match.user == 'Mutual' %}&#x1F525; Both of You &bull;{% elif match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB;{% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8;{% else %}&#x2728;{% endif %} {{ match.description }}
                                 </span>
                                 {% endfor %}
 

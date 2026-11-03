@@ -24,6 +24,7 @@ if str(PROJECT_ROOT) not in sys.path:
 import yaml
 from src.__version__ import __version__
 from src.core.models import Event, MonthlyDigest, Venue
+from src.core.normalizer import normalize_artist_name, split_lineup
 from src.delivery.template_engine import TemplateEngine
 from src.ingestion.review_parser import ReviewDatabase
 from src.ingestion.spotify_engine import load_seed_taste_profile
@@ -81,14 +82,19 @@ def load_events_from_history() -> list[Event]:
                 area = item.get("venue_area") or "East London"
                 if area.lower() == "east london" and "wembley" in item.get("venue_name", "").lower():
                     area = "Wembley"
+                title = item.get("title", "")
+                performers = item.get("performers") or split_lineup(title)
+                norm_performers = [normalize_artist_name(p) for p in performers if p]
                 events.append(
                     Event(
                         id=item.get("id"),
-                        title=item.get("title", ""),
+                        title=title,
                         venue_name=item.get("venue_name", ""),
                         venue_area=area,
                         start_time=dt,
                         date_str=dt.strftime("%a %d %b %Y, %H:%M"),
+                        performers=performers,
+                        normalized_performers=norm_performers,
                         ticket_url=item.get("ticket_url") or "https://dice.fm",
                         platform=item.get("platform") or "dice",
                     )
