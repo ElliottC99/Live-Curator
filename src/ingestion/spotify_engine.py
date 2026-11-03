@@ -87,7 +87,7 @@ class SpotifyEngine:
                     break
 
                 for item in items:
-                    track = item.get("track")
+                    track = item.get("track") or item.get("item")
                     if track and track.get("artists"):
                         for art in track["artists"]:
                             norm = normalize_artist_name(art.get("name", ""))
@@ -120,7 +120,7 @@ class SpotifyEngine:
     def _fetch_playlist_and_discovery_artists(
         self,
         sp: spotipy.Spotify,
-        max_playlists: int = 15,
+        max_playlists: int = 50,
         tracks_per_playlist: int = 100,
     ) -> tuple[Set[str], Set[str]]:
         """
@@ -145,7 +145,7 @@ class SpotifyEngine:
                 try:
                     tracks_resp = sp.playlist_tracks(playlist_id, limit=tracks_per_playlist)
                     for track_item in tracks_resp.get("items", []):
-                        track = track_item.get("track")
+                        track = track_item.get("track") or track_item.get("item")
                         if track and track.get("artists"):
                             for art in track["artists"]:
                                 norm = normalize_artist_name(art.get("name", ""))
