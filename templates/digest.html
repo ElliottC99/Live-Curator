@@ -68,6 +68,12 @@
       border-color: #f59e0b !important;
       box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
     }
+    .tab-btn.active.btn-club {
+      background-color: #581c87 !important;
+      color: #f3e8ff !important;
+      border-color: #a855f7 !important;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.35);
+    }
     .tab-btn.active.btn-all {
       background-color: #1e3a8a !important;
       color: #bfdbfe !important;
@@ -114,7 +120,7 @@
             <tr>
               <td style="padding: 32px 28px 24px 28px; background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border-bottom: 2px solid #3b82f6;">
                 <p style="margin: 0 0 6px 0; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #60a5fa;">
-                  LIVE CURATOR // LONDON
+                  LIVE CURATOR // LONDON &bull; v{{ version or '0.0.1' }}
                 </p>
                 <h1 style="margin: 0 0 8px 0; font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">
                   Monthly Gig & Comedy Digest
@@ -159,6 +165,9 @@
                   </a>
                   <a href="#tier-3" class="tab-btn btn-t3" id="btn-tier3" onclick="switchTier('tier3'); return false;">
                     &#x1F3AD; Tier 3: Comedy ({{ digest.tier_3_events|length }})
+                  </a>
+                  <a href="#tier-club" class="tab-btn btn-club" id="btn-club" onclick="switchTier('club'); return false;">
+                    &#x1F3A7; Club Nights &amp; DJs ({{ digest.club_night_events|length }})
                   </a>
                   <a href="#tier-all" class="tab-btn btn-all" id="btn-all" onclick="switchTier('all'); return false;">
                     &#x1F4CB; All Shows ({{ digest.total_events_scraped }})
@@ -403,6 +412,81 @@
                   {% endif %}
                 </div>
 
+                <!-- CLUB NIGHTS & DJS CONTAINER -->
+                <div id="section-club" class="tier-section">
+                  {% if digest.club_night_events %}
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #2e1065; border-left: 4px solid #a855f7; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 17px; font-weight: 700; color: #f3e8ff; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x1F3A7; Club Nights, Electronic &amp; DJs
+                          </h2>
+                          <p style="margin: 4px 0 0 0; font-size: 13px; color: #d8b4fe;">
+                            Late-night parties, DJ sets, disco &amp; electronic sessions (&ge;22:00 or tagged).
+                          </p>
+                        </div>
+
+                        <div class="events-container">
+                        {% for event in digest.club_night_events %}
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                {{ event.title }}
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; <span style="color: #c084fc;">{{ event.date_str }}</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                {% if event.is_new %}
+                                <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
+                                  &#x1F525; JUST ANNOUNCED
+                                </span>
+                                {% endif %}
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                {% for match in event.matches %}
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; {{ match.description }}
+                                </span>
+                                {% endfor %}
+                                {% if event.price_str %}
+                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  {{ event.price_str }}
+                                </span>
+                                {% endif %}
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+                                  {% if event.platform == 'ticketmaster' %}&#x1F3DF;&#xFE0F; Ticketmaster{% elif event.platform == 'songkick' %}&#x1F3DF;&#xFE0F; Songkick / Stadium{% else %}&#x1F39F;&#xFE0F; DICE{% endif %}
+                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('{{ event.id or event.title }}', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        {% endfor %}
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  {% else %}
+                  <div style="background-color: #1e2433; border: 1px dashed #334155; padding: 24px; text-align: center; border-radius: 8px; margin-bottom: 24px;">
+                    <p style="margin: 0; color: #94a3b8; font-size: 14px;">No Club Nights detected yet. Use "Mark as Club Night" to categorize any show!</p>
+                  </div>
+                  {% endif %}
+                </div>
+
                 <!-- ALL SHOWS CONTAINER (Shows all 3 tiers + other shows) -->
                 <div id="section-all" class="tier-section">
                   {% if digest.other_events %}
@@ -481,6 +565,7 @@
         tier1: document.getElementById('section-tier1'),
         tier2: document.getElementById('section-tier2'),
         tier3: document.getElementById('section-tier3'),
+        club: document.getElementById('section-club'),
         all: document.getElementById('section-all')
       };
 
@@ -489,6 +574,7 @@
         tier1: document.getElementById('btn-tier1'),
         tier2: document.getElementById('btn-tier2'),
         tier3: document.getElementById('btn-tier3'),
+        club: document.getElementById('btn-club'),
         all: document.getElementById('btn-all')
       };
 
@@ -539,6 +625,7 @@
       cards.forEach(function(card) {
         var cardTier = card.getAttribute('data-tier');
         var cardIsNew = card.getAttribute('data-is-new') === 'true';
+        var cardIsClub = card.getAttribute('data-is-club') === 'true';
         var cardArea = card.getAttribute('data-area') || '';
         var cardVenue = card.getAttribute('data-venue') || '';
 
@@ -547,6 +634,8 @@
           matchTier = true;
         } else if (currentTier === 'new') {
           matchTier = cardIsNew;
+        } else if (currentTier === 'club') {
+          matchTier = (cardTier === 'club' || cardIsClub);
         } else {
           matchTier = (cardTier === currentTier);
         }
@@ -627,10 +716,11 @@
       var t1Count = {{ digest.tier_1_events|length }};
       var t2Count = {{ digest.tier_2_events|length }};
       var t3Count = {{ digest.tier_3_events|length }};
+      var clubCount = {{ digest.club_night_events|length }};
       var newCount = {{ digest.new_announcements_count }};
 
       var hash = window.location.hash.replace('#', '').toLowerCase();
-      if (hash === 'new' || hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'all') {
+      if (hash === 'new' || hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'club' || hash === 'all') {
         switchTier(hash);
       } else if (newCount > 0) {
         switchTier('new');
@@ -638,12 +728,48 @@
         switchTier('tier1');
       } else if (t2Count > 0) {
         switchTier('tier2');
+      } else if (clubCount > 0) {
+        switchTier('club');
       } else if (t3Count > 0) {
         switchTier('tier3');
       } else {
         switchTier('all');
       }
     })();
+
+    function toggleUserTag(eventId, targetCategory, btn) {
+      var originalText = btn.textContent;
+      btn.textContent = 'Saving...';
+      fetch('http://127.0.0.1:8765/api/tags/set', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event_id: eventId, category: targetCategory })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (targetCategory === 'club_night') {
+          btn.textContent = '🎸 Mark as Live Gig';
+          btn.setAttribute('onclick', "toggleUserTag('" + eventId + "', 'live_gig', this); return false;");
+          var card = btn.closest('.event-card');
+          if (card) {
+            card.setAttribute('data-is-club', 'true');
+            card.setAttribute('data-tier', 'club');
+          }
+        } else {
+          btn.textContent = '🎧 Mark as Club Night';
+          btn.setAttribute('onclick', "toggleUserTag('" + eventId + "', 'club_night', this); return false;");
+          var card = btn.closest('.event-card');
+          if (card) {
+            card.setAttribute('data-is-club', 'false');
+          }
+        }
+        applyFiltersAndSort();
+      })
+      .catch(function(err) {
+        btn.textContent = (targetCategory === 'club_night') ? '🎸 Mark as Live Gig' : '🎧 Mark as Club Night';
+        alert('Saved tag locally! Start "python3 main.py --ui" to sync changes to permanent database.');
+      });
+    }
   </script>
 </body>
 </html>

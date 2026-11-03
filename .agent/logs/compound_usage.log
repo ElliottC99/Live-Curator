@@ -21,3 +21,7 @@
 2026-11-03T15:55:54 compound-search history cache
 2026-11-03T15:55:58 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md docs/explorations/archive/live-curator-engine-20261103.md docs/explorations/future-horizon-diffing-and-venue-management-20261103.md docs/solutions/integration_issue/live-curator-engine-architecture.md docs/solutions/patterns/individual/pattern-09-rigorous-planning-multi-order-thinking.md docs/solutions/patterns/individual/pattern-24-batch-resource-operations.md
 2026-11-03T15:56:32 compound-search event diffing venue manager
+2026-11-03T16:15:55 compound-search dice scraper preview
+2026-11-03T16:16:03 compound-search dice
+2026-11-03T16:24:50 compound-search songkick version
+2026-11-03T16:24:54 update-solution-ref docs/explorations/archive/future-horizon-diffing-and-venue-management-20261103.md docs/explorations/preview-cap-versioning-clubnights-ticketmaster-20261103.md docs/solutions/schema.yaml

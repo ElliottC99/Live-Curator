@@ -11,6 +11,7 @@ class TierCategory(str, Enum):
     TIER_1_DIRECT = "Tier 1: Direct Matches"
     TIER_2_DISCOVERY = "Tier 2: Discovery Matches"
     TIER_3_COMEDY = "Tier 3: Comedy & Alternative"
+    CLUB_NIGHT = "Club Nights & DJs"
     UNMATCHED = "Unmatched"
 
 
@@ -28,6 +29,8 @@ class MatchSource(str, Enum):
     REVIEW_TLOBF = "review_tlobf"
     REVIEW_LOUD_AND_QUIET = "review_loud_and_quiet"
     COMEDY_KEYWORD = "comedy_keyword"
+    USER_TAG = "user_tag"
+    CLUB_NIGHT_HEURISTIC = "club_night_heuristic"
 
 
 class MatchRationale(BaseModel):
@@ -54,12 +57,14 @@ class Review(BaseModel):
 
 
 class Venue(BaseModel):
-    """Configured target venue across DICE and Ticketmaster."""
+    """Configured target venue across DICE, Ticketmaster and Songkick."""
     name: str
     dice_slug: Optional[str] = None
-    platform: str = "dice"  # "dice", "ticketmaster", or "both"
+    platform: str = "dice"  # "dice", "ticketmaster", "songkick", or "both"
     tm_venue_id: Optional[str] = None
     tm_keyword: Optional[str] = None
+    songkick_url: Optional[str] = None
+    songkick_venue_id: Optional[str] = None
     area: str = "East London"
     address: Optional[str] = None
     genre_focus: List[str] = Field(default_factory=list)
@@ -70,7 +75,7 @@ class Venue(BaseModel):
 
 
 class Event(BaseModel):
-    """Live event scraped from DICE or Ticketmaster."""
+    """Live event scraped from DICE, Ticketmaster, or Songkick."""
     id: Optional[str] = None
     title: str
     venue_name: str
@@ -80,13 +85,14 @@ class Event(BaseModel):
     performers: List[str] = Field(default_factory=list)
     normalized_performers: List[str] = Field(default_factory=list)
     ticket_url: str
-    platform: str = "dice"  # "dice" or "ticketmaster"
+    platform: str = "dice"  # "dice", "ticketmaster", or "songkick"
     price_str: Optional[str] = None
     description: Optional[str] = None
     image_url: Optional[str] = None
     tier: TierCategory = TierCategory.UNMATCHED
     matches: List[MatchRationale] = Field(default_factory=list)
     is_new: bool = False
+    is_club_night: bool = False
     first_seen_at: Optional[datetime] = None
 
     @property
@@ -126,9 +132,11 @@ class MonthlyDigest(BaseModel):
     month_name: str
     year: int
     generated_at: datetime
+    version: str = "0.0.1"
     tier_1_events: List[Event] = Field(default_factory=list)
     tier_2_events: List[Event] = Field(default_factory=list)
     tier_3_events: List[Event] = Field(default_factory=list)
+    club_night_events: List[Event] = Field(default_factory=list)
     other_events: List[Event] = Field(default_factory=list)
     new_announcements: List[Event] = Field(default_factory=list)
     total_events_scraped: int = 0

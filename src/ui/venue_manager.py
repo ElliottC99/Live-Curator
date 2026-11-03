@@ -19,6 +19,8 @@ import yaml
 
 from src.core.config import Config, load_config
 from src.core.models import Venue
+from src.__version__ import __version__
+from src.processing.user_tag_engine import UserTagEngine
 
 logger = logging.getLogger("VenueManager")
 
@@ -162,6 +164,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
     }
     .platform-dice { background-color: #1e1b4b; color: #a5b4fc; border: 1px solid #4338ca; }
     .platform-tm { background-color: #0f172a; color: #38bdf8; border: 1px solid #0284c7; }
+    .platform-sk { background-color: #451a03; color: #fde68a; border: 1px solid #b45309; }
     .grid-form {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -199,7 +202,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
 
   <header>
     <div>
-      <div class="badge">LIVE CURATOR ENGINE // CONTROL PANEL</div>
+      <div class="badge">LIVE CURATOR ENGINE // CONTROL PANEL &bull; v{{VERSION}}</div>
       <h1>Venue &amp; Neighbourhood Manager</h1>
     </div>
     <div style="display: flex; gap: 10px;">
@@ -222,12 +225,17 @@ HTML_DASHBOARD = """<!DOCTYPE html>
           <label>Platform</label>
           <select id="new-platform" onchange="togglePlatformInputs()">
             <option value="dice">DICE.fm</option>
+            <option value="songkick">Songkick (Keyless Stadiums/Arenas)</option>
             <option value="ticketmaster">Ticketmaster</option>
           </select>
         </div>
         <div class="form-group" id="group-slug">
           <label>DICE Slug</label>
           <input type="text" id="new-slug" placeholder="e.g. the-waiting-room-9x9x">
+        </div>
+        <div class="form-group" id="group-sk" style="display:none;">
+          <label>Songkick URL</label>
+          <input type="text" id="new-sk" placeholder="e.g. https://www.songkick.com/venues/33134-wembley-stadium">
         </div>
         <div class="form-group" id="group-tm" style="display:none;">
           <label>Ticketmaster Keyword</label>
@@ -293,6 +301,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
     function togglePlatformInputs() {
       var p = document.getElementById('new-platform').value;
       document.getElementById('group-slug').style.display = (p === 'dice') ? 'block' : 'none';
+      document.getElementById('group-sk').style.display = (p === 'songkick') ? 'block' : 'none';
       document.getElementById('group-tm').style.display = (p === 'ticketmaster') ? 'block' : 'none';
     }
 
@@ -331,10 +340,17 @@ HTML_DASHBOARD = """<!DOCTYPE html>
         tr.className = 'venue-row';
         tr.setAttribute('data-name', venue.name.toLowerCase());
 
-        var badgeClass = (venue.platform === 'ticketmaster') ? 'platform-tm' : 'platform-dice';
-        var badgeText = (venue.platform === 'ticketmaster') ? 'Ticketmaster' : 'DICE';
+        var badgeClass = 'platform-dice';
+        var badgeText = 'DICE';
+        if (venue.platform === 'ticketmaster') {
+          badgeClass = 'platform-tm';
+          badgeText = 'Ticketmaster';
+        } else if (venue.platform === 'songkick') {
+          badgeClass = 'platform-sk';
+          badgeText = 'Songkick';
+        }
 
-        var slugOrKey = venue.dice_slug || venue.tm_keyword || venue.tm_venue_id || '';
+        var slugOrKey = venue.dice_slug || venue.songkick_url || venue.tm_keyword || venue.tm_venue_id || '';
 
         tr.innerHTML = `
           <td><strong>${venue.name}</strong></td>
@@ -371,6 +387,7 @@ HTML_DASHBOARD = """<!DOCTYPE html>
       var name = document.getElementById('new-name').value.trim();
       var platform = document.getElementById('new-platform').value;
       var slug = document.getElementById('new-slug').value.trim();
+      var sk = document.getElementById('new-sk') ? document.getElementById('new-sk').value.trim() : '';
       var tm = document.getElementById('new-tm').value.trim();
       var area = document.getElementById('new-area').value.trim();
       var address = document.getElementById('new-address').value.trim();
@@ -385,6 +402,8 @@ HTML_DASHBOARD = """<!DOCTYPE html>
 
       if (platform === 'dice') {
         newVenue.dice_slug = slug;
+      } else if (platform === 'songkick') {
+        newVenue.songkick_url = sk;
       } else {
         newVenue.tm_keyword = tm;
       }
@@ -459,7 +478,7 @@ class VenueManagerHandler(BaseHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
 
         if parsed.path == "/" or parsed.path == "/index.html":
-            body = HTML_DASHBOARD.encode("utf-8")
+            body = HTML_DASHBOARD.replace("{{VERSION}}", __version__).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
@@ -473,6 +492,11 @@ class VenueManagerHandler(BaseHTTPRequestHandler):
                     data = yaml.safe_load(f) or {}
                     venues_list = data.get("venues", [])
             self._send_json({"status": "ok", "venues": venues_list})
+
+        elif parsed.path == "/api/tags":
+            tags_db = Path(__file__).resolve().parent.parent.parent / "data" / "cache" / "user_event_tags.sqlite"
+            tag_engine = UserTagEngine(tags_db)
+            self._send_json({"status": "ok", "tags": tag_engine.get_all_tags()})
 
         else:
             self.send_response(404)
@@ -498,6 +522,10 @@ class VenueManagerHandler(BaseHTTPRequestHandler):
                     }
                     if v.get("dice_slug"):
                         item["dice_slug"] = v["dice_slug"].strip()
+                    if v.get("songkick_url"):
+                        item["songkick_url"] = v["songkick_url"].strip()
+                    if v.get("songkick_venue_id"):
+                        item["songkick_venue_id"] = v["songkick_venue_id"].strip()
                     if v.get("tm_keyword"):
                         item["tm_keyword"] = v["tm_keyword"].strip()
                     if v.get("tm_venue_id"):
@@ -515,6 +543,21 @@ class VenueManagerHandler(BaseHTTPRequestHandler):
 
             except Exception as e:
                 logger.error(f"Error saving venues: {e}")
+                self._send_json({"status": "error", "message": str(e)}, status=500)
+
+        elif parsed.path == "/api/tags/set":
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_body = self.rfile.read(content_length)
+            try:
+                payload = json.loads(post_body.decode("utf-8"))
+                event_id = payload.get("event_id")
+                category = payload.get("category")
+                title = payload.get("title")
+                tags_db = Path(__file__).resolve().parent.parent.parent / "data" / "cache" / "user_event_tags.sqlite"
+                tag_engine = UserTagEngine(tags_db)
+                tag_engine.set_tag(event_id, category, title)
+                self._send_json({"status": "ok", "event_id": event_id, "category": category})
+            except Exception as e:
                 self._send_json({"status": "error", "message": str(e)}, status=500)
 
         elif parsed.path == "/api/run":

@@ -18,6 +18,7 @@ from src.core.models import (
 from src.core.normalizer import matches_artist_set, normalize_artist_name
 from src.ingestion.review_parser import ReviewDatabase
 from src.processing.event_diff_engine import EventDiffEngine
+from src.processing.user_tag_engine import UserTagEngine
 
 logger = logging.getLogger(__name__)
 
@@ -45,6 +46,21 @@ DEFAULT_COMEDY_KEYWORDS = [
     "open mic comedy",
 ]
 
+DEFAULT_CLUB_KEYWORDS = [
+    "club night",
+    "dj set",
+    "afterparty",
+    "after party",
+    "rave",
+    "disco",
+    "house & techno",
+    "all-nighter",
+    "club",
+    "techno",
+    "dance party",
+    "electronic night",
+]
+
 
 class TierClassifier:
     """
@@ -52,6 +68,7 @@ class TierClassifier:
     - Tier 1: Direct Matches (in Elliott or Chloe's saved tracks, playlists, or top artists)
     - Tier 2: Discovery Matches (in Discover Weekly / Release Radar, or high-rated UK reviews)
     - Tier 3: Comedy & Alternative (matched against comedy/stand-up keywords)
+    - Club Nights: Late night (>= 22:00) or DJ/rave/dance keywords, or tagged by user
     - Unmatched: Remaining events
     """
 
@@ -61,14 +78,28 @@ class TierClassifier:
         review_db: Optional[ReviewDatabase] = None,
         recommended_review_artists: Optional[Set[str]] = None,
         comedy_keywords: Optional[List[str]] = None,
+        club_keywords: Optional[List[str]] = None,
+        user_tag_engine: Optional[UserTagEngine] = None,
     ):
         self.taste_profile = taste_profile
         self.review_db = review_db
         self.comedy_keywords = comedy_keywords or DEFAULT_COMEDY_KEYWORDS
+        self.club_keywords = club_keywords or DEFAULT_CLUB_KEYWORDS
+        self.user_tag_engine = user_tag_engine
+        self.user_tags: Dict[str, str] = {}
+        if self.user_tag_engine:
+            try:
+                self.user_tags = self.user_tag_engine.get_all_tags()
+            except Exception as e:
+                logger.warning(f"Could not load user tags: {e}")
 
         # Precompile comedy keyword regex with word boundaries
         escaped_patterns = [r"\b" + re.escape(kw.strip()) + r"\b" for kw in self.comedy_keywords if kw.strip()]
         self.comedy_regex = re.compile("|".join(escaped_patterns), re.IGNORECASE) if escaped_patterns else None
+
+        # Precompile club keyword regex with word boundaries
+        escaped_club = [r"\b" + re.escape(kw.strip()) + r"\b" for kw in self.club_keywords if kw.strip()]
+        self.club_regex = re.compile("|".join(escaped_club), re.IGNORECASE) if escaped_club else None
 
         # Load recommended review artists
         if recommended_review_artists is not None:
@@ -205,18 +236,49 @@ class TierClassifier:
             )
         return None
 
+    def _matches_club_keywords(self, event: Event) -> bool:
+        """Check if an event matches club, DJ, rave, or disco keywords."""
+        if not self.club_regex:
+            return False
+        text_to_search = f"{event.title} {event.description or ''}"
+        return bool(self.club_regex.search(text_to_search))
+
     def classify_event(self, event: Event) -> Event:
         """
-        Classify a single event into Tier 1, Tier 2, Tier 3, or Unmatched,
-        attaching match rationales.
+        Classify a single event into Tier 1, Tier 2, Tier 3, Club Night, or Unmatched,
+        attaching match rationales and respecting user tags.
         """
+        event.matches = []
+        event_id = event.id or UserTagEngine.get_canonical_id(event)
+        user_tag = self.user_tags.get(event_id) if self.user_tags else None
+
+        # Check explicit user tags
+        if user_tag == "club_night":
+            event.is_club_night = True
+            event.tier = TierCategory.CLUB_NIGHT
+            event.matches = [
+                MatchRationale(
+                    tier=TierCategory.CLUB_NIGHT,
+                    source=MatchSource.USER_TAG,
+                    matched_act=event.primary_act,
+                    description="User tagged as Club Night",
+                )
+            ]
+            return event
+        elif user_tag == "live_gig":
+            event.is_club_night = False
+
+        # Evaluate automated club night heuristics (unless explicitly overridden by live_gig tag)
+        is_late_night = (event.start_time.hour >= 22) or (0 <= event.start_time.hour < 5)
+        matches_club_kw = self._matches_club_keywords(event)
+        if user_tag != "live_gig" and (is_late_night or matches_club_kw):
+            event.is_club_night = True
+
         # Ensure we have normalized performers to inspect
         norm_acts = list(event.normalized_performers)
         title_norm = normalize_artist_name(event.title)
         if title_norm and title_norm not in norm_acts:
             norm_acts.append(title_norm)
-
-        event.matches = []
 
         # 1. Tier 1: Direct Spotify Matches (Elliott & Chloe)
         if self.taste_profile:
@@ -258,7 +320,21 @@ class TierClassifier:
             event.matches = [comedy_match]
             return event
 
-        # 4. Unmatched
+        # 4. Club Nights (Heuristic match not caught by direct music tiers)
+        if event.is_club_night:
+            event.tier = TierCategory.CLUB_NIGHT
+            reason = "Late Night Party (≥22:00)" if is_late_night else "Club / DJ Night"
+            event.matches = [
+                MatchRationale(
+                    tier=TierCategory.CLUB_NIGHT,
+                    source=MatchSource.CLUB_NIGHT_HEURISTIC,
+                    matched_act=event.primary_act,
+                    description=reason,
+                )
+            ]
+            return event
+
+        # 5. Unmatched
         event.tier = TierCategory.UNMATCHED
         return event
 
@@ -286,6 +362,7 @@ class TierClassifier:
         tier_1: List[Event] = []
         tier_2: List[Event] = []
         tier_3: List[Event] = []
+        club_nights: List[Event] = []
         other: List[Event] = []
 
         for raw_event in events:
@@ -299,19 +376,27 @@ class TierClassifier:
                 tier_2.append(classified)
             elif classified.tier == TierCategory.TIER_3_COMEDY:
                 tier_3.append(classified)
+            elif classified.tier == TierCategory.CLUB_NIGHT:
+                club_nights.append(classified)
             else:
                 other.append(classified)
+
+            # If an event in another tier is also a club night, include in club night collection
+            if classified.is_club_night and classified not in club_nights:
+                club_nights.append(classified)
 
         # Sort chronologically by start_time
         tier_1.sort(key=lambda e: e.start_time)
         tier_2.sort(key=lambda e: e.start_time)
         tier_3.sort(key=lambda e: e.start_time)
+        club_nights.sort(key=lambda e: e.start_time)
         other.sort(key=lambda e: e.start_time)
         new_announcements.sort(key=lambda e: e.start_time)
 
         logger.info(
             f"Digest classification complete: {len(tier_1)} Tier 1, "
-            f"{len(tier_2)} Tier 2, {len(tier_3)} Tier 3, {len(other)} Unmatched. "
+            f"{len(tier_2)} Tier 2, {len(tier_3)} Tier 3, "
+            f"{len(club_nights)} Club Nights, {len(other)} Unmatched. "
             f"🆕 New Announcements since last run: {len(new_announcements)} "
             f"(Total: {len(events)})"
         )
@@ -323,6 +408,7 @@ class TierClassifier:
             tier_1_events=tier_1,
             tier_2_events=tier_2,
             tier_3_events=tier_3,
+            club_night_events=club_nights,
             other_events=other,
             new_announcements=new_announcements,
             total_events_scraped=len(events),

@@ -1,7 +1,7 @@
 # Plan: Keyless Stadium Discovery, Club Night Categorization, GitHub Setup & Versioning
 
 > Created: 2026-11-03  
-> Status: Draft  
+> Status: Completed ✓  
 > Exploration Ref: [docs/explorations/preview-cap-versioning-clubnights-ticketmaster-20261103.md](../docs/explorations/preview-cap-versioning-clubnights-ticketmaster-20261103.md)  
 > Architectural Decisions: [docs/decisions/001-engine-architecture-and-data-ingestion.md](../docs/decisions/001-engine-architecture-and-data-ingestion.md), [docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md](../docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md)
 
@@ -85,33 +85,33 @@ Expand and streamline the **Live Curator Engine** across four high-value capabil
 ## Acceptance Criteria
 
 ### Keyless Stadium Ingestion
-- [ ] `src/ingestion/songkick_engine.py` implemented:
+- [x] `src/ingestion/songkick_engine.py` implemented:
   - Ingests concerts from major London stadiums/arenas via public Schema.org JSON-LD.
   - Extracts title, lineup, dates, start times, and ticket URLs without requiring any API key or login.
   - Filters out sports fixtures automatically.
-- [ ] Venues in `config/venues.yaml` updated with `songkick_url` and `platform: "songkick"`.
-- [ ] Unit tests in `tests/test_songkick_engine.py`.
+- [x] Venues in `config/venues.yaml` updated with `songkick_url` and `platform: "songkick"`.
+- [x] Unit tests in `tests/test_songkick_engine.py`.
 
 ### Club Nights Category & User Tagging
-- [ ] `TierClassifier` automatically detects club nights (start time $\ge \text{22:00}$ or club keywords).
-- [ ] SQLite user tag storage (`data/cache/user_event_tags.sqlite`) remembers custom user categorizations.
-- [ ] `MonthlyDigest` includes `club_night_events`.
-- [ ] `templates/digest.html` displays:
+- [x] `TierClassifier` automatically detects club nights (start time $\ge \text{22:00}$ or club keywords).
+- [x] SQLite user tag storage (`data/cache/user_event_tags.sqlite`) remembers custom user categorizations.
+- [x] `MonthlyDigest` includes `club_night_events`.
+- [x] `templates/digest.html` displays:
   - `[🎧 Club Nights & DJs (N)]` interactive tab pill.
   - Distinct styling for club nights.
   - Quick action to toggle/tag events as Club Night or Live Gig.
 
 ### Semantic Versioning & GitHub Setup
-- [ ] `src/__version__.py` created with `__version__ = "0.0.1"`.
-- [ ] Version tag displayed in:
+- [x] `src/__version__.py` created with `__version__ = "0.0.1"`.
+- [x] Version tag displayed in:
   - Digest header banner.
   - Venue Manager UI header banner.
   - CLI banner and `--help`.
-- [ ] `scripts/bump_version.py` utility increments versions cleanly.
-- [ ] `scripts/setup_github.sh` utility configures GitHub remote and pushes code.
+- [x] `scripts/bump_version.py` utility increments versions cleanly.
+- [x] `scripts/setup_github.sh` utility configures GitHub remote and pushes code.
 
 ### DICE Multi-Page Ingestion
-- [ ] `DiceScraper` scrolls/paginates to collect more than the default 30 events on high-volume venue pages.
+- [x] `DiceScraper` scrolls/paginates to collect more than the default 30 events on high-volume venue pages.
 
 ---
 

@@ -197,3 +197,55 @@ class TestTierClassifier:
         # Check chronological ordering
         assert digest.tier_1_events[0].title == "The Smile"
         assert digest.tier_1_events[1].title == "Fontaines D.C."
+
+    def test_club_night_heuristics_and_user_tags(self, tmp_path):
+        from src.processing.user_tag_engine import UserTagEngine
+        tag_db = tmp_path / "tags.sqlite"
+        tag_engine = UserTagEngine(tag_db)
+
+        classifier = TierClassifier(user_tag_engine=tag_engine)
+
+        # 1. Late night event (starts at 23:00)
+        dt_late = datetime.now().replace(hour=23, minute=0, second=0, microsecond=0)
+        late_event = Event(
+            id="e_late",
+            title="House Vibrations",
+            venue_name="The Shacklewell Arms",
+            start_time=dt_late,
+            date_str="Tonight 23:00",
+            ticket_url="https://dice.fm/e/late",
+        )
+        c1 = classifier.classify_event(late_event)
+        assert c1.is_club_night is True
+        assert c1.tier == TierCategory.CLUB_NIGHT
+
+        # 2. Club keyword event at 20:00 (DJ Set)
+        dt_early = datetime.now().replace(hour=20, minute=0, second=0, microsecond=0)
+        dj_event = Event(
+            id="e_dj",
+            title="Awesome DJ Set & Dance Party",
+            venue_name="MOTH Club",
+            start_time=dt_early,
+            date_str="Tonight 20:00",
+            ticket_url="https://dice.fm/e/dj",
+        )
+        c2 = classifier.classify_event(dj_event)
+        assert c2.is_club_night is True
+        assert c2.tier == TierCategory.CLUB_NIGHT
+
+        # 3. User override: mark 23:00 event as live_gig
+        tag_engine.set_tag("e_late_band", "live_gig")
+        late_band = Event(
+            id="e_late_band",
+            title="Late Headline Band",
+            venue_name="Cafe OTO",
+            start_time=dt_late,
+            date_str="Tonight 23:00",
+            ticket_url="https://dice.fm/e/late-band",
+        )
+        # Re-initialize classifier so it picks up tags
+        classifier_with_tags = TierClassifier(user_tag_engine=tag_engine)
+        c3 = classifier_with_tags.classify_event(late_band)
+        assert c3.is_club_night is False
+        assert c3.tier != TierCategory.CLUB_NIGHT
+

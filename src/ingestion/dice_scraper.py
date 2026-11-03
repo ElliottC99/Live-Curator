@@ -193,6 +193,21 @@ class DiceScraper:
                                         ):
                                             continue
                                     events.append(parsed_event)
+
+                    # Multi-page pagination: if 30 items found, trigger scroll loop
+                    if len(events) >= 30:
+                        logger.info(f"Venue {venue.name} reached 30-event SSR ceiling. Attempting scroll pagination...")
+                        for scroll_step in range(3):
+                            try:
+                                page.evaluate("window.scrollTo(0, document.body.scrollHeight);")
+                                page.wait_for_timeout(1000)
+                                load_more = page.query_selector("button:has-text('Load more'), button:has-text('See more')")
+                                if load_more and load_more.is_visible():
+                                    load_more.click()
+                                    page.wait_for_timeout(1200)
+                            except Exception as scroll_err:
+                                logger.debug(f"Scroll pagination step {scroll_step + 1} error: {scroll_err}")
+                                break
                 except Exception as ex:
                     logger.warning(f"Failed to parse __NEXT_DATA__ for {venue.name}: {ex}")
 

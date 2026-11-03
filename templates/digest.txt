@@ -53,6 +53,20 @@ Stand-up, improv, work-in-progress, and cabaret:
 {% endfor %}
 {% endif %}
 
+{% if digest.club_night_events %}
+----------------------------------------------------------------------
+🎧 CLUB NIGHTS & DJS
+----------------------------------------------------------------------
+Late-night parties, DJ sets, disco & electronic sessions (≥22:00 or tagged):
+
+{% for event in digest.club_night_events %}
+* {{ event.title }}
+  Venue: {{ event.venue_name }} — {{ event.date_str }}{% if event.price_str %} ({{ event.price_str }}){% endif %}
+  Tickets: {{ event.ticket_url }}
+
+{% endfor %}
+{% endif %}
+
 ======================================================================
 Live Curator Engine • Automatically curated on the 1st of every month.
 Venues: The Shacklewell Arms, MOTH Club, Oslo Hackney, The Waiting Room,

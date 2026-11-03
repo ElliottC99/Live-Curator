@@ -21,14 +21,17 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from src.core.config import Config, load_config
 from src.core.models import CombinedTasteProfile, MonthlyDigest, UserTasteProfile
+from src.__version__ import __version__
 from src.delivery.digest_mailer import DigestMailer
 from src.delivery.template_engine import TemplateEngine
 from src.ingestion.dice_scraper import DiceScraper
 from src.ingestion.review_parser import ReviewAggregator
+from src.ingestion.songkick_engine import SongkickEngine
 from src.ingestion.spotify_engine import SpotifyEngine
 from src.ingestion.ticketmaster_engine import TicketmasterEngine
 from src.processing.event_diff_engine import EventDiffEngine
 from src.processing.tier_classifier import TierClassifier
+from src.processing.user_tag_engine import UserTagEngine
 
 logging.basicConfig(
     level=logging.INFO,
@@ -40,7 +43,7 @@ logger = logging.getLogger("LiveCurator")
 
 def print_banner(month: str, year: int):
     print("=" * 72)
-    print(f"  LIVE CURATOR ENGINE // LONDON — {month.upper()} {year}")
+    print(f"  LIVE CURATOR ENGINE // LONDON — {month.upper()} {year} (v{__version__})")
     print("=" * 72)
 
 
@@ -53,6 +56,7 @@ def print_digest_summary(digest: MonthlyDigest):
     print(f"🔥 Tier 1 (Direct Matches): {len(digest.tier_1_events)}")
     print(f"✨ Tier 2 (Discovery):      {len(digest.tier_2_events)}")
     print(f"🎭 Tier 3 (Comedy & Alt):   {len(digest.tier_3_events)}")
+    print(f"🎧 Club Nights & DJs:      {len(digest.club_night_events)}")
     print(f"   Other Unmatched Shows:  {len(digest.other_events)}")
     print("=" * 72)
 
@@ -169,6 +173,18 @@ def run_pipeline(
         logger.info(f"Extracted {len(tm_events)} events from Ticketmaster.")
         all_events.extend(tm_events)
 
+    # Ingest Songkick venues (Keyless Stadiums & Arenas)
+    songkick_venues = [
+        v for v in target_venues
+        if v.platform == "songkick" or (v.songkick_url and v.platform not in ["dice", "ticketmaster"])
+    ]
+    if songkick_venues:
+        logger.info(f"Ingesting keyless concert calendars from Songkick ({len(songkick_venues)} stadiums/arenas)...")
+        sk_engine = SongkickEngine()
+        sk_events = sk_engine.fetch_all_venues(songkick_venues)
+        logger.info(f"Extracted {len(sk_events)} events from Songkick.")
+        all_events.extend(sk_events)
+
     logger.info(f"Total live events harvested across all platforms: {len(all_events)}")
 
     # 4. 3-Tier Categorization & Historical Delta Diffing
@@ -176,11 +192,15 @@ def run_pipeline(
     history_db = PROJECT_ROOT / "data" / "cache" / "digest_history.sqlite"
     diff_engine = EventDiffEngine(history_db)
 
+    tags_db = PROJECT_ROOT / "data" / "cache" / "user_event_tags.sqlite"
+    user_tag_engine = UserTagEngine(tags_db)
+
     classifier = TierClassifier(
         taste_profile=taste_profile,
         review_db=review_aggregator.db,
         recommended_review_artists=recommended_artists,
         comedy_keywords=config.classification.comedy_keywords,
+        user_tag_engine=user_tag_engine,
     )
     digest = classifier.build_digest(
         all_events, month_name=month_name, year=year, diff_engine=diff_engine
@@ -215,7 +235,12 @@ def run_pipeline(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Live Curator Engine — Monthly London Gig & Comedy Digest"
+        description=f"Live Curator Engine v{__version__} — London Gig, Comedy & Club Night Discovery"
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
     )
     parser.add_argument(
         "--ui",
@@ -240,7 +265,7 @@ def main():
     parser.add_argument(
         "--platform",
         type=str,
-        choices=["all", "dice", "ticketmaster"],
+        choices=["all", "dice", "songkick", "ticketmaster"],
         default="all",
         help="Filter by ticketing platform (default: all)",
     )

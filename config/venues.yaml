@@ -263,7 +263,8 @@ venues:
   # MAJOR LONDON STADIUMS & ARENAS (TICKETMASTER DISCOVERY API)
   # ============================================================================
   - name: "Wembley Stadium"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/33134-wembley-stadium"
     tm_venue_id: "KovZpZAJledA"
     tm_keyword: "Wembley Stadium"
     area: "Wembley"
@@ -271,7 +272,8 @@ venues:
     genre_focus: ["major tours", "pop", "rock", "stadium"]
 
   - name: "London Stadium"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/1817448-london-stadium-queen-elizabeth-olympic-park"
     tm_venue_id: "KovZpZAE7vlA"
     tm_keyword: "London Stadium"
     area: "Stratford / Olympic Park"
@@ -279,7 +281,8 @@ venues:
     genre_focus: ["stadium headliners", "rock", "pop"]
 
   - name: "Tottenham Hotspur Stadium"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/3983276-tottenham-hotspur-stadium"
     tm_venue_id: "KovZ917AoGf"
     tm_keyword: "Tottenham Hotspur Stadium"
     area: "Tottenham"
@@ -287,7 +290,8 @@ venues:
     genre_focus: ["stadium concerts", "headliners", "r&b", "rock"]
 
   - name: "The O2 Arena"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/17522-the-o2-arena"
     tm_venue_id: "KovZpZAEkEvA"
     tm_keyword: "The O2"
     area: "Greenwich"
@@ -295,36 +299,48 @@ venues:
     genre_focus: ["arena", "global headliners", "pop", "rock", "hip-hop"]
 
   - name: "OVO Arena Wembley"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/31333-ovo-arena-wembley"
     tm_venue_id: "KovZpZAJleaA"
     tm_keyword: "OVO Arena Wembley"
     area: "Wembley"
     address: "Arena Square, Engineers Way, Wembley HA9 0AA"
     genre_focus: ["arena", "rock", "metal", "pop", "comedy"]
 
+  - name: "Alexandra Palace"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/398-alexandra-palace"
+    area: "Alexandra Palace"
+    address: "Alexandra Palace Way, London N22 7AY"
+    genre_focus: ["arena", "indie", "electronic", "rock"]
+
   - name: "Finsbury Park"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/19154-finsbury-park"
     tm_keyword: "Finsbury Park"
     area: "Finsbury Park"
     address: "Endymion Rd, London N4 1EE"
     genre_focus: ["outdoor festival", "indie", "rock", "summer headliners"]
 
   - name: "Hyde Park"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/17582-hyde-park"
     tm_keyword: "BST Hyde Park"
     area: "Central London"
     address: "Hyde Park, London W2 2UH"
     genre_focus: ["outdoor festivals", "bst hyde park", "rock legends", "pop"]
 
   - name: "Royal Albert Hall"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/1131-royal-albert-hall"
     tm_keyword: "Royal Albert Hall"
     area: "South Kensington"
     address: "Kensington Gore, South Kensington, London SW7 2AP"
     genre_focus: ["classical", "rock", "choral", "legacy", "headliners"]
 
   - name: "Twickenham Stadium"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/38827-twickenham-stadium"
     tm_venue_id: "KovZpZAEknEA"
     tm_keyword: "Twickenham Stadium"
     area: "Twickenham"
@@ -332,7 +348,8 @@ venues:
     genre_focus: ["stadium", "rock", "pop"]
 
   - name: "Copper Box Arena"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/1817443-copper-box-arena"
     tm_venue_id: "KovZpZAEAv1A"
     tm_keyword: "Copper Box Arena"
     area: "Stratford / Olympic Park"
@@ -340,14 +357,16 @@ venues:
     genre_focus: ["arena", "electronic", "indie"]
 
   - name: "Drumsheds"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/4462678-drumsheds"
     tm_keyword: "Drumsheds"
     area: "Tottenham / Meridian Water"
     address: "6 Glover Dr, London N18 3HF"
     genre_focus: ["electronic", "dance", "warehouse", "festival"]
 
   - name: "O2 Forum Kentish Town"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/1261-o2-forum-kentish-town"
     tm_venue_id: "KovZpZAEkEnA"
     tm_keyword: "O2 Forum Kentish Town"
     area: "Kentish Town"
@@ -355,7 +374,8 @@ venues:
     genre_focus: ["indie", "rock", "alternative", "headliners"]
 
   - name: "O2 Shepherd's Bush Empire"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/1247-o2-shepherds-bush-empire"
     tm_venue_id: "KovZpZAEkElA"
     tm_keyword: "O2 Shepherd's Bush Empire"
     area: "Shepherd's Bush"
@@ -363,14 +383,16 @@ venues:
     genre_focus: ["indie", "rock", "pop", "comedy"]
 
   - name: "Electric Brixton"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/1507628-electric-brixton"
     tm_keyword: "Electric Brixton"
     area: "Brixton"
     address: "Town Hall Parade, Brixton, London SW2 1RJ"
     genre_focus: ["electronic", "indie", "club", "hip-hop"]
 
   - name: "Koko"
-    platform: "ticketmaster"
+    platform: "songkick"
+    songkick_url: "https://www.songkick.com/venues/3224-koko"
     tm_keyword: "KOKO London"
     area: "Camden"
     address: "1A Camden High St, London NW1 7JE"

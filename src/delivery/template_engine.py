@@ -6,6 +6,7 @@ from typing import Optional, Tuple
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from src.core.models import MonthlyDigest
+from src.__version__ import __version__
 
 logger = logging.getLogger(__name__)
 
@@ -27,12 +28,12 @@ class TemplateEngine:
     def render_html(self, digest: MonthlyDigest) -> str:
         """Render the HTML digest email."""
         template = self.env.get_template("digest.html")
-        return template.render(digest=digest)
+        return template.render(digest=digest, version=__version__)
 
     def render_text(self, digest: MonthlyDigest) -> str:
         """Render the plain-text fallback digest email."""
         template = self.env.get_template("digest.txt")
-        return template.render(digest=digest)
+        return template.render(digest=digest, version=__version__)
 
     def render_all(self, digest: MonthlyDigest) -> Tuple[str, str]:
         """Return (html_content, text_content)."""
