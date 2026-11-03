@@ -51,6 +51,12 @@ This directory contains automation scripts that power the agent workflows. They 
 - **`update-spec-phase.sh`**: Manages specification lifecycles.
 - **`next-todo-id.sh`**: Generates unique IDs for todos.
 
+## Component Details
+
+- `scripts/build_pages.py`: Compiles static GitHub Pages site from SQLite database and seed events.
+- `scripts/bump_version.py`: Atomic semantic version bumper across models, code, and HTML templates.
+- `scripts/harvest_songkick_events.py`: Scrapes and ingests stadium and arena events into SQLite cache.
+
 ## Usage
 
 Most scripts are designed to be run via the agent workflows (e.g. `/work`, `/housekeeping`), but can be run manually for debugging.
@@ -61,5 +67,10 @@ Most scripts are designed to be run via the agent workflows (e.g. `/work`, `/hou
 
 ## Changelog
 
-- **2025-12-27**: Added git worktree automation scripts.
+### 2026-11-03
+- Added atomic version bump script and price/sold-out persistence in static build pipeline.
+- Added Songkick stadium event harvester with schema migration.
+
+### 2025-12-27
+- Added git worktree automation scripts.
 ```

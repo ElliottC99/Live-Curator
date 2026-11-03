@@ -143,8 +143,8 @@ is_todo_complete() {
 is_plan_complete() {
   local file="$1"
   
-  # Check for "Status: Implemented" in markdown
-  if grep -qiE "^>?\s*Status:.*Implemented" "$file" 2>/dev/null; then
+  # Check for "Status: Implemented" or "Status: Completed" in markdown (with optional bolding)
+  if grep -qiE "^>?\s*(\*\*)?Status:(\*\*)?.*(Implemented|Complete)" "$file" 2>/dev/null; then
     return 0
   fi
   

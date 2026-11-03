@@ -1,5 +1,10 @@
 # Compound Engineering Workflows
 
+## Purpose
+Systematic command workflows guiding agents through exploratory investigation, multi-perspective planning, rigorous execution, comprehensive review, knowledge compounding, and pre-push housekeeping.
+
+## Key Components
+
 > **Quick Start:** New to this project? Read [critical-patterns.md](../docs/solutions/patterns/critical-patterns.md) first.
 > **Technical Architecture:** For the complete system architecture, see [docs/architecture/compound-system.md](../docs/architecture/compound-system.md).
 
@@ -139,6 +144,18 @@ docs/specs/           # Multi-session specifications
 6. **Housekeeping before push** - Run `/housekeeping` to archive completed work
 7. **Route trackers semantically** - `/tracker-routing` before creating or moving work objects; promotion between Linear and GitHub is not synchronization
 
+## Component Details
+- `/explore`: Structured pre-planning problem discovery and architectural root cause analysis.
+- `/plan` & `/plan-review`: Implementation plan generation and multi-perspective quality assessment.
+- `/work`: Rigorous step-by-step task execution with continuous testing.
+- `/review`: 5-pass code review (Security, Performance, Architecture, Data Integrity, Simplicity).
+- `/compound`: Solution capture and schema-validated persistence.
+- `/housekeeping`: Pre-push cleanup, state synchronization, and document archiving.
+
+## Changelog
+### 2026-11-03
+- Validated all core workflows with version bump v0.0.2 and multi-source event pipelines.
+
 ---
 
-*Last updated: 2026-08-14*
+*Last updated: 2026-11-03*

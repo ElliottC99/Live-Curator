@@ -38,6 +38,8 @@ find . -type f \
     -not -path "./.next/*" \
     -not -path "*/venv/*" \
     -not -path "./venv/*" \
+    -not -path "*/.venv/*" \
+    -not -path "./.venv/*" \
     -not -path "*/backend/venv/*" \
     -not -path "./backend/venv/*" \
     -not -path "*/.hypothesis/*" \
@@ -49,10 +51,14 @@ find . -type f \
     -not -path "*/docs/specs/archive/*" \
     -not -path "*/backend/tests/fixtures/*" \
     -not -path "*/.agent/logs/*" \
+    -not -path "*/public/*" \
     -not -name ".DS_Store" \
+    -not -name ".gitkeep" \
+    -not -name ".nojekyll" \
     -not -name "package-lock.json" \
     -not -name "*.tsbuildinfo" \
     -not -name "*.log" \
+    -size +0c \
     -exec shasum -a 256 {} + > "$HASH_FILE"
 
 DUPLICATES=$(awk '{print $1}' "$HASH_FILE" | sort | uniq -d)
@@ -112,7 +118,7 @@ fi
 # --- 4. Misplaced Root Files ---
 echo -e "\n${BLUE}📁 Check 4: Misplaced Root Files${NC}"
 # Standard root docs that are allowed
-STANDARD_DOCS=("README.md" "CHANGELOG.md" "GEMINI.md" "JULES_SETUP.md")
+STANDARD_DOCS=("README.md" "CHANGELOG.md" "GEMINI.md" "JULES_SETUP.md" "CONTRIBUTING.md")
 MISPLACED_FILES=$(find . -maxdepth 1 -name "*.md" -type f | sed 's|^\./||')
 
 FOUND_MISPLACED=false
