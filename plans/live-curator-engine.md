@@ -1,7 +1,7 @@
 # Live Curator Engine Implementation Plan
 
 > Created: 2026-11-03  
-> Status: Approved ✓  
+> Status: Completed ✓  
 > Exploration Ref: [docs/explorations/live-curator-engine-20261103.md](../docs/explorations/live-curator-engine-20261103.md)  
 > Architectural Decision: [docs/decisions/001-engine-architecture-and-data-ingestion.md](../docs/decisions/001-engine-architecture-and-data-ingestion.md)
 
@@ -112,7 +112,7 @@ Live Curator Engine
 ## Acceptance Criteria
 
 ### Ingestion Modules
-- [ ] `venues.yaml` contains all 9 seed venues:
+- [x] `venues.yaml` contains all 9 seed venues:
   1. The Shacklewell Arms
   2. Oslo Hackney
   3. The Waiting Room
@@ -122,13 +122,13 @@ Live Curator Engine
   7. Hand of Glory
   8. EartH
   9. Next Door Records Two
-- [ ] `dice_scraper.py` successfully navigates to all 9 venue pages using `playwright` + `playwright-stealth`, extracts upcoming monthly events (title, date/time, performers, ticket link, price) without Cloudflare 403 blocks.
-- [ ] `spotify_engine.py` authenticates both Elliott and Chloe via stored refresh tokens, extracting:
+- [x] `dice_scraper.py` successfully navigates to all 9 venue pages using `playwright` + `playwright-stealth`, extracts upcoming monthly events (title, date/time, performers, ticket link, price) without Cloudflare 403 blocks.
+- [x] `spotify_engine.py` authenticates both Elliott and Chloe via stored refresh tokens, extracting:
   - Saved Tracks / Liked Songs
   - Custom Playlist tracks
   - Top Artists
   - Discover Weekly & Release Radar tracks
-- [ ] `review_parser.py` ingests recent reviews from:
+- [x] `review_parser.py` ingests recent reviews from:
   - The Guardian (API/RSS)
   - AnyDecentMusic? ($\ge 7.5$)
   - DIY Magazine
@@ -139,14 +139,14 @@ Live Curator Engine
   and stores them in `data/cache/reviews.sqlite`.
 
 ### Processing & Classification
-- [ ] `normalizer.py` cleans artist strings, strips leading articles ("The "), strips accents ("Beyoncé" $\rightarrow$ "beyonce"), and accurately splits co-bills (`"Pond + Warmduscher"` $\rightarrow$ `["Pond", "Warmduscher"]`).
-- [ ] `tier_classifier.py` classifies every scraped event into Tier 1, Tier 2, or Tier 3 (or unclassified).
+- [x] `normalizer.py` cleans artist strings, strips leading articles ("The "), strips accents ("Beyoncé" $\rightarrow$ "beyonce"), and accurately splits co-bills (`"Pond + Warmduscher"` $\rightarrow$ `["Pond", "Warmduscher"]`).
+- [x] `tier_classifier.py` classifies every scraped event into Tier 1, Tier 2, or Tier 3 (or unclassified).
 
 ### Delivery & Automation
-- [ ] `template_engine.py` generates a clean, mobile-responsive HTML email digest grouped by Tier 1, Tier 2, and Tier 3 with date, venue, direct ticket links, and match rationale (e.g., *"In Chloe's Liked Songs"*, *"4★ Guardian Review"*).
-- [ ] `digest_mailer.py` delivers the email via Gmail SMTP App Password or SendGrid.
-- [ ] `main.py` provides `--dry-run` and `--preview-html` flags to inspect output locally without sending real emails.
-- [ ] macOS scheduling script (`setup_cron.sh`) creates a working `launchd` plist / `cron` entry for monthly execution.
+- [x] `template_engine.py` generates a clean, mobile-responsive HTML email digest grouped by Tier 1, Tier 2, and Tier 3 with date, venue, direct ticket links, and match rationale (e.g., *"In Chloe's Liked Songs"*, *"4★ Guardian Review"*).
+- [x] `digest_mailer.py` delivers the email via Gmail SMTP App Password or SendGrid.
+- [x] `main.py` provides `--dry-run` and `--preview-html` flags to inspect output locally without sending real emails.
+- [x] macOS scheduling script (`setup_cron.sh`) creates a working `launchd` plist / `cron` entry for monthly execution.
 
 ---
 

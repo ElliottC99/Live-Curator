@@ -188,6 +188,6 @@ Live Curator/
 ---
 
 ## Next Steps
-- [ ] Run `/plan` to generate a phased, test-driven implementation plan.
-- [ ] Scaffold project directory and dependency specifications.
-- [ ] Implement and test `dice_scraper.py` spike.
+- [x] Run `/plan` to generate a phased, test-driven implementation plan.
+- [x] Scaffold project directory and dependency specifications.
+- [x] Implement and test `dice_scraper.py` spike.
