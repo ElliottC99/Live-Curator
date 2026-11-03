@@ -73,6 +73,7 @@ class Config(BaseModel):
     elliott_spotify_refresh_token: Optional[str] = None
     chloe_spotify_refresh_token: Optional[str] = None
     guardian_api_key: Optional[str] = None
+    ticketmaster_api_key: Optional[str] = None
     gmail_user: Optional[str] = None
     gmail_app_password: Optional[str] = None
     digest_recipients: List[str] = Field(default_factory=list)
@@ -125,6 +126,7 @@ def load_config(
         elliott_spotify_refresh_token=os.getenv("ELLIOTT_SPOTIFY_REFRESH_TOKEN"),
         chloe_spotify_refresh_token=os.getenv("CHLOE_SPOTIFY_REFRESH_TOKEN"),
         guardian_api_key=os.getenv("GUARDIAN_API_KEY"),
+        ticketmaster_api_key=os.getenv("TICKETMASTER_API_KEY"),
         gmail_user=os.getenv("GMAIL_USER"),
         gmail_app_password=os.getenv("GMAIL_APP_PASSWORD"),
         digest_recipients=recipients,

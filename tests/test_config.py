@@ -5,7 +5,7 @@ from src.core.config import load_config
 
 def test_load_config_venues():
     config = load_config()
-    assert len(config.venues) == 9
+    assert len(config.venues) >= 30
 
     venue_names = [v.name for v in config.venues]
     expected_venues = [
@@ -18,14 +18,25 @@ def test_load_config_venues():
         "Hand of Glory",
         "EartH",
         "Next Door Records Two",
+        "The Bill Murray",
+        "Wembley Stadium",
+        "The O2 Arena",
+        "Tottenham Hotspur Stadium",
     ]
     for expected in expected_venues:
         assert expected in venue_names
 
-    # Check DICE slugs
+    # Check platforms and DICE slugs
+    platforms = {v.platform for v in config.venues}
+    assert "dice" in platforms
+    assert "ticketmaster" in platforms
+
     for venue in config.venues:
-        assert venue.dice_slug != ""
-        assert venue.dice_url.startswith("https://dice.fm/venue/")
+        if venue.platform in ["dice", "both"]:
+            assert venue.dice_slug is not None
+            assert venue.dice_url.startswith("https://dice.fm/venue/")
+        elif venue.platform == "ticketmaster":
+            assert venue.tm_venue_id is not None or venue.tm_keyword is not None
 
 
 def test_load_settings():

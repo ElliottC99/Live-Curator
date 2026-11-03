@@ -54,20 +54,23 @@ class Review(BaseModel):
 
 
 class Venue(BaseModel):
-    """Configured target venue."""
+    """Configured target venue across DICE and Ticketmaster."""
     name: str
-    dice_slug: str
+    dice_slug: Optional[str] = None
+    platform: str = "dice"  # "dice", "ticketmaster", or "both"
+    tm_venue_id: Optional[str] = None
+    tm_keyword: Optional[str] = None
     area: str = "East London"
     address: Optional[str] = None
     genre_focus: List[str] = Field(default_factory=list)
 
     @property
-    def dice_url(self) -> str:
-        return f"https://dice.fm/venue/{self.dice_slug}"
+    def dice_url(self) -> Optional[str]:
+        return f"https://dice.fm/venue/{self.dice_slug}" if self.dice_slug else None
 
 
 class Event(BaseModel):
-    """Live event scraped from DICE."""
+    """Live event scraped from DICE or Ticketmaster."""
     id: Optional[str] = None
     title: str
     venue_name: str
@@ -77,6 +80,7 @@ class Event(BaseModel):
     performers: List[str] = Field(default_factory=list)
     normalized_performers: List[str] = Field(default_factory=list)
     ticket_url: str
+    platform: str = "dice"  # "dice" or "ticketmaster"
     price_str: Optional[str] = None
     description: Optional[str] = None
     image_url: Optional[str] = None

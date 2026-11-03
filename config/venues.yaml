@@ -1,54 +1,384 @@
 venues:
+  # ============================================================================
+  # DALSTON & HACKNEY (DICE.fm)
+  # ============================================================================
   - name: "The Shacklewell Arms"
     dice_slug: "the-shacklewell-arms-z82z"
+    platform: "dice"
     area: "Dalston"
     address: "71 Shacklewell Lane, London E8 2EB"
     genre_focus: ["indie", "punk", "garage", "alternative", "electronic"]
 
-  - name: "Oslo Hackney"
-    dice_slug: "oslo-hackney-je6z"
-    area: "Hackney Central"
-    address: "1A Amhurst Rd, London E8 1LL"
-    genre_focus: ["indie", "electronic", "rock", "pop"]
-
-  - name: "The Waiting Room"
-    dice_slug: "the-waiting-room-jxea"
-    area: "Stoke Newington"
-    address: "175 Stoke Newington High St, London N16 0NY"
-    genre_focus: ["electronic", "indie", "experimental", "post-punk"]
-
   - name: "MOTH Club"
     dice_slug: "moth-club-43ox"
+    platform: "dice"
     area: "Hackney Central"
     address: "Old Trades Hall, Valette St, London E9 6NU"
     genre_focus: ["indie", "comedy", "alternative", "psych", "pop"]
 
+  - name: "Oslo Hackney"
+    dice_slug: "oslo-hackney-je6z"
+    platform: "dice"
+    area: "Hackney Central"
+    address: "1A Amhurst Rd, London E8 1LL"
+    genre_focus: ["indie", "electronic", "rock", "pop"]
+
   - name: "The Victoria"
     dice_slug: "the-victoria-j5wd"
+    platform: "dice"
     area: "Dalston"
     address: "451 Queensbridge Rd, London E8 3AS"
     genre_focus: ["indie", "post-punk", "garage", "electronic"]
 
   - name: "EartH"
     dice_slug: "earth-76a7"
+    platform: "dice"
     area: "Dalston"
     address: "11-17 Stoke Newington Rd, London N16 8BH"
     genre_focus: ["alternative", "electronic", "jazz", "global", "comedy"]
 
+  - name: "Cafe OTO"
+    dice_slug: "cafe-oto-kx8p"
+    platform: "dice"
+    area: "Dalston"
+    address: "18-22 Ashwin St, London E8 3DL"
+    genre_focus: ["experimental", "avant-garde", "jazz", "ambient", "improv"]
+
+  - name: "SJQ (Servant Jazz Quarters)"
+    dice_slug: "servant-jazz-quarters-r735"
+    platform: "dice"
+    area: "Dalston"
+    address: "10A Bradbury St, London N16 8JN"
+    genre_focus: ["jazz", "soul", "indie", "acoustic"]
+
+  - name: "The Jago"
+    dice_slug: "the-jago-dalston-j897"
+    platform: "dice"
+    area: "Dalston"
+    address: "440 Kingsland Rd, London E8 4AA"
+    genre_focus: ["afrobeat", "jazz", "global", "funk", "fusion"]
+
+  - name: "Signature Brew Haggerston"
+    dice_slug: "signature-brew-haggerston-m7e9"
+    platform: "dice"
+    area: "Haggerston"
+    address: "Railway Arches, 340 Acton Mews, London E8 4EA"
+    genre_focus: ["punk", "indie", "rock", "alternative"]
+
   - name: "The George Tavern"
-    dice_slug: "the-george-tavern"
+    dice_slug: "the-george-tavern-l89p"
+    platform: "dice"
     area: "Shadwell / East London"
     address: "373 Commercial Rd, London E1 0LA"
     genre_focus: ["indie", "folk", "punk", "poetry", "spoken-word"]
 
   - name: "Hand of Glory"
     dice_slug: "hand-of-glory"
+    platform: "dice"
     area: "Dalston"
     address: "240 Amhurst Rd, London E8 2BS"
     genre_focus: ["indie", "folk", "acoustic", "alternative"]
 
+  # ============================================================================
+  # STOKE NEWINGTON (DICE.fm)
+  # ============================================================================
+  - name: "The Waiting Room"
+    dice_slug: "the-waiting-room-jxea"
+    platform: "dice"
+    area: "Stoke Newington"
+    address: "175 Stoke Newington High St, London N16 0NY"
+    genre_focus: ["electronic", "indie", "experimental", "post-punk"]
+
   - name: "Next Door Records Two"
     dice_slug: "next-door-records-two"
-    area: "Shepherd's Bush / East Pop-up"
+    platform: "dice"
+    area: "Stoke Newington"
+    address: "182 Stoke Newington Church St, London N16 0JL"
+    genre_focus: ["electronic", "jazz", "ambient", "indie", "in-store"]
+
+  - name: "The Old Church Stoke Newington"
+    dice_slug: "the-old-church-6oxv"
+    platform: "dice"
+    area: "Stoke Newington"
+    address: "Stoke Newington Church St, London N16 9ES"
+    genre_focus: ["acoustic", "folk", "choral", "ambient", "chamber"]
+
+  - name: "St Matthias Church"
+    dice_slug: "st-matthias-church-eebm"
+    platform: "dice"
+    area: "Stoke Newington"
+    address: "Wordsworth Rd, London N16 8DD"
+    genre_focus: ["classical", "ambient", "electronic", "acoustic"]
+
+  # ============================================================================
+  # ISLINGTON & ANGEL (DICE.fm)
+  # ============================================================================
+  - name: "The Bill Murray"
+    dice_slug: "the-bill-murray-k69v"
+    platform: "dice"
+    area: "Angel / Islington"
+    address: "39 Queen's Head St, London N1 8NQ"
+    genre_focus: ["comedy", "stand-up", "improv", "wip", "fringe"]
+
+  - name: "Union Chapel"
+    dice_slug: "union-chapel-jx9a"
+    platform: "dice"
+    area: "Islington"
+    address: "19b Compton Terrace, London N1 2UN"
+    genre_focus: ["acoustic", "indie", "folk", "classical", "headliners"]
+
+  - name: "The Garage"
+    dice_slug: "the-garage-9y2v"
+    platform: "dice"
+    area: "Highbury & Islington"
+    address: "20-22 Highbury Corner, London N5 1RD"
+    genre_focus: ["indie", "rock", "alternative", "club", "punk"]
+
+  - name: "The Grace"
+    dice_slug: "the-grace-m27o"
+    platform: "dice"
+    area: "Highbury & Islington"
+    address: "20-22 Highbury Corner, London N5 1RD"
+    genre_focus: ["emerging indie", "rock", "acoustic"]
+
+  - name: "Islington Assembly Hall"
+    dice_slug: "islington-assembly-hall-z8e2"
+    platform: "dice"
+    area: "Islington"
+    address: "Upper St, London N1 2UD"
+    genre_focus: ["indie", "alternative", "pop", "headliners"]
+
+  - name: "The Lexington"
+    dice_slug: "the-lexington-7e9b"
+    platform: "dice"
+    area: "Islington / Pentonville"
+    address: "96-98 Pentonville Rd, London N1 9JB"
+    genre_focus: ["indie rock", "post-punk", "americana", "alternative"]
+
+  # ============================================================================
+  # SHOREDITCH & HOXTON (DICE.fm)
+  # ============================================================================
+  - name: "Rough Trade East"
+    dice_slug: "rough-trade-east-london-4bwm"
+    platform: "dice"
+    area: "Shoreditch"
+    address: "Old Truman Brewery, 91 Brick Lane, London E1 6QL"
+    genre_focus: ["in-store", "indie", "album launch", "signing", "rock"]
+
+  - name: "Colours Hoxton"
+    dice_slug: "colours-hoxton-2a7o"
+    platform: "dice"
+    area: "Hoxton"
+    address: "2-4 Hoxton Square, London N1 6NU"
+    genre_focus: ["r&b", "hip-hop", "indie", "electronic", "club"]
+
+  - name: "Strongroom"
+    dice_slug: "strongroom-bar-7a5v"
+    platform: "dice"
+    area: "Shoreditch"
+    address: "120-124 Curtain Rd, London EC2A 3SQ"
+    genre_focus: ["electronic", "indie", "courtyard", "djs"]
+
+  # ============================================================================
+  # CAMDEN & KING'S CROSS (DICE.fm)
+  # ============================================================================
+  - name: "Scala"
+    dice_slug: "scala-j55d"
+    platform: "dice"
+    area: "King's Cross"
+    address: "275 Pentonville Rd, London N1 9NL"
+    genre_focus: ["indie", "alternative", "electronic", "club", "metal"]
+
+  - name: "Roundhouse"
+    dice_slug: "roundhouse-4296"
+    platform: "dice"
+    area: "Camden / Chalk Farm"
+    address: "Chalk Farm Rd, London NW1 8EH"
+    genre_focus: ["headliners", "theatre", "indie", "rock", "electronic"]
+
+  - name: "Electric Ballroom"
+    dice_slug: "electric-ballroom-38ao"
+    platform: "dice"
+    area: "Camden"
+    address: "184 Camden High St, London NW1 8QP"
+    genre_focus: ["rock", "metal", "indie", "punk"]
+
+  - name: "Dingwalls"
+    dice_slug: "dingwalls-6qav"
+    platform: "dice"
+    area: "Camden Lock"
+    address: "Middle Yard, Camden Lock, London NW1 8AB"
+    genre_focus: ["indie", "rock", "folk", "comedy"]
+
+  - name: "Camden Assembly"
+    dice_slug: "camden-assembly-l94v"
+    platform: "dice"
+    area: "Camden"
+    address: "49 Chalk Farm Rd, London NW1 8AN"
+    genre_focus: ["indie", "rock", "pop", "club"]
+
+  - name: "The Camden Head"
+    dice_slug: "the-camden-head-p37v"
+    platform: "dice"
+    area: "Camden / Angel"
+    address: "100 Camden High St, London NW1 0LU"
+    genre_focus: ["comedy", "stand-up", "pub-gigs"]
+
+  - name: "The Elephants Head"
+    dice_slug: "the-elephants-head-6dd93"
+    platform: "dice"
+    area: "Camden"
+    address: "224 Camden High St, London NW1 8QR"
+    genre_focus: ["rock'n'roll", "punk", "djs"]
+
+  # ============================================================================
+  # NORTH & SOUTH LONDON HUBS (DICE.fm & TICKETMASTER)
+  # ============================================================================
+  - name: "Alexandra Palace"
+    dice_slug: "alexandra-palace-j7v7"
+    platform: "both"
+    tm_keyword: "Alexandra Palace"
+    area: "North London"
+    address: "Alexandra Palace Way, London N22 7AY"
+    genre_focus: ["headliners", "festivals", "rock", "electronic", "indie"]
+
+  - name: "O2 Academy Brixton"
+    dice_slug: "o2-academy-brixton-bbav"
+    platform: "both"
+    tm_venue_id: "KovZpZAEkEEA"
+    tm_keyword: "O2 Academy Brixton"
+    area: "Brixton"
+    address: "211 Stockwell Rd, London SW9 9SL"
+    genre_focus: ["rock", "indie", "headliners", "hip-hop", "electronic"]
+
+  - name: "Troxy"
+    dice_slug: "troxy-8a4m"
+    platform: "both"
+    tm_keyword: "Troxy London"
+    area: "Limehouse / East London"
+    address: "490 Commercial Rd, London E1 0HX"
+    genre_focus: ["indie", "electronic", "headliners", "art-deco"]
+
+  # ============================================================================
+  # MAJOR LONDON STADIUMS & ARENAS (TICKETMASTER DISCOVERY API)
+  # ============================================================================
+  - name: "Wembley Stadium"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAJledA"
+    tm_keyword: "Wembley Stadium"
+    area: "Wembley"
+    address: "London HA9 0WS"
+    genre_focus: ["major tours", "pop", "rock", "stadium"]
+
+  - name: "London Stadium"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAE7vlA"
+    tm_keyword: "London Stadium"
+    area: "Stratford / Olympic Park"
+    address: "Queen Elizabeth Olympic Park, London E20 2ST"
+    genre_focus: ["stadium headliners", "rock", "pop"]
+
+  - name: "Tottenham Hotspur Stadium"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZ917AoGf"
+    tm_keyword: "Tottenham Hotspur Stadium"
+    area: "Tottenham"
+    address: "782 High Rd, London N17 0BX"
+    genre_focus: ["stadium concerts", "headliners", "r&b", "rock"]
+
+  - name: "The O2 Arena"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAEkEvA"
+    tm_keyword: "The O2"
+    area: "Greenwich"
+    address: "Peninsula Square, London SE10 0DX"
+    genre_focus: ["arena", "global headliners", "pop", "rock", "hip-hop"]
+
+  - name: "OVO Arena Wembley"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAJleaA"
+    tm_keyword: "OVO Arena Wembley"
+    area: "Wembley"
+    address: "Arena Square, Engineers Way, Wembley HA9 0AA"
+    genre_focus: ["arena", "rock", "metal", "pop", "comedy"]
+
+  - name: "Finsbury Park"
+    platform: "ticketmaster"
+    tm_keyword: "Finsbury Park"
+    area: "Finsbury Park"
+    address: "Endymion Rd, London N4 1EE"
+    genre_focus: ["outdoor festival", "indie", "rock", "summer headliners"]
+
+  - name: "Hyde Park"
+    platform: "ticketmaster"
+    tm_keyword: "BST Hyde Park"
+    area: "Central London"
+    address: "Hyde Park, London W2 2UH"
+    genre_focus: ["outdoor festivals", "bst hyde park", "rock legends", "pop"]
+
+  - name: "Royal Albert Hall"
+    platform: "ticketmaster"
+    tm_keyword: "Royal Albert Hall"
+    area: "South Kensington"
+    address: "Kensington Gore, South Kensington, London SW7 2AP"
+    genre_focus: ["classical", "rock", "choral", "legacy", "headliners"]
+
+  - name: "Twickenham Stadium"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAEknEA"
+    tm_keyword: "Twickenham Stadium"
+    area: "Twickenham"
+    address: "Whitton Rd, Twickenham TW2 7BA"
+    genre_focus: ["stadium", "rock", "pop"]
+
+  - name: "Copper Box Arena"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAEAv1A"
+    tm_keyword: "Copper Box Arena"
+    area: "Stratford / Olympic Park"
+    address: "Queen Elizabeth Olympic Park, London E20 3HB"
+    genre_focus: ["arena", "electronic", "indie"]
+
+  - name: "Drumsheds"
+    platform: "ticketmaster"
+    tm_keyword: "Drumsheds"
+    area: "Tottenham / Meridian Water"
+    address: "6 Glover Dr, London N18 3HF"
+    genre_focus: ["electronic", "dance", "warehouse", "festival"]
+
+  - name: "O2 Forum Kentish Town"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAEkEnA"
+    tm_keyword: "O2 Forum Kentish Town"
+    area: "Kentish Town"
+    address: "9-17 Highgate Rd, London NW5 1JY"
+    genre_focus: ["indie", "rock", "alternative", "headliners"]
+
+  - name: "O2 Shepherd's Bush Empire"
+    platform: "ticketmaster"
+    tm_venue_id: "KovZpZAEkElA"
+    tm_keyword: "O2 Shepherd's Bush Empire"
+    area: "Shepherd's Bush"
+    address: "Shepherd's Bush Green, London W12 8TT"
+    genre_focus: ["indie", "rock", "pop", "comedy"]
+
+  - name: "Electric Brixton"
+    platform: "ticketmaster"
+    tm_keyword: "Electric Brixton"
+    area: "Brixton"
+    address: "Town Hall Parade, Brixton, London SW2 1RJ"
+    genre_focus: ["electronic", "indie", "club", "hip-hop"]
+
+  - name: "Koko"
+    platform: "ticketmaster"
+    tm_keyword: "KOKO London"
+    area: "Camden"
+    address: "1A Camden High St, London NW1 7JE"
+    genre_focus: ["indie", "electronic", "theatre", "club", "headliners"]
+
+  - name: "British Airways ARC"
+    platform: "ticketmaster"
+    tm_keyword: "British Airways ARC"
+    area: "London / Event Spaces"
     address: "London"
-    genre_focus: ["jazz", "electronic", "vinyl", "in-store", "experimental"]
+    genre_focus: ["events", "pop", "exhibitions"]
