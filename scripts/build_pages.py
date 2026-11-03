@@ -23,7 +23,6 @@ if str(PROJECT_ROOT) not in sys.path:
 
 import yaml
 from src.__version__ import __version__
-from src.core.config import load_config
 from src.core.models import Event, MonthlyDigest, Venue
 from src.delivery.template_engine import TemplateEngine
 from src.processing.tier_classifier import TierClassifier
