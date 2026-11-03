@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project implements the Compound Learning System for {PROJECT_NAME} - a self-improving knowledge system based on the "Compounding Engineering" philosophy.
+This project implements the Compound Learning System for Live Curator - a self-improving knowledge system based on the "Compounding Engineering" philosophy.
 
 ## Core Principle
 

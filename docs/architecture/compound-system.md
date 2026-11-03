@@ -1,6 +1,6 @@
 ---
 title: Compound System Architecture
-description: The single source of truth for the {PROJECT_NAME} Compound Learning System architecture.
+description: The single source of truth for the Live Curator Compound Learning System architecture.
 last_updated: 2025-12-23
 counts:
   skills: 7+
@@ -13,7 +13,7 @@ counts:
 
 > **Core Principle:** "Each unit of engineering work should make subsequent units of work easier—not harder."
 
-This document is the **Single Source of Truth** for the Compound System's technical architecture. It maps the skills, workflows, scripts, and patterns that drive the autonomous engineering capability of {PROJECT_NAME} agents.
+This document is the **Single Source of Truth** for the Compound System's technical architecture. It maps the skills, workflows, scripts, and patterns that drive the autonomous engineering capability of Live Curator agents.
 
 ## The Compounding Philosophy
 

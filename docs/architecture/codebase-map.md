@@ -1,4 +1,4 @@
-# {PROJECT_NAME} Codebase Map
+# Live Curator Codebase Map
 
 > **Purpose:** This document serves as the high-level entry point for understanding the system architecture and code organization.
 

@@ -1,6 +1,6 @@
 # Component Tier Classification Guide
 
-This guide defines the classification criteria for components in the {PROJECT_NAME} codebase. Tiers determine the required depth of documentation in folder-level `README.md` files.
+This guide defines the classification criteria for components in the Live Curator codebase. Tiers determine the required depth of documentation in folder-level `README.md` files.
 
 ## Summary Table
 

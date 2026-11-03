@@ -8,7 +8,7 @@ last_updated: 2025-12-20
 
 ## Overview
 
-Guidance and templates for testing in {PROJECT_NAME}. Covers React Component testing (Vitest/RTL) and Backend testing (Python/Pytest).
+Guidance and templates for testing in Live Curator. Covers React Component testing (Vitest/RTL) and Backend testing (Python/Pytest).
 
 ## When To Use
 

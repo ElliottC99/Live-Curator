@@ -26,8 +26,8 @@ fi
 log_file=".agent/logs/compound_usage.log"
 if [ -f "$log_file" ]; then
     usage_count=$(wc -l < "$log_file" | tr -d ' ')
-    search_count=$(grep -c "compound-search" "$log_file")
-    update_count=$(grep -c "update-solution-ref" "$log_file")
+    search_count=$(grep -c "compound-search" "$log_file" || true)
+    update_count=$(grep -c "update-solution-ref" "$log_file" || true)
 else
     usage_count=0
     search_count=0
