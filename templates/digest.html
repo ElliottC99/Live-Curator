@@ -142,7 +142,7 @@
                     CYCLE BY TIER:
                   </p>
                   <div>
-                    <a href="http://127.0.0.1:8765" target="_blank" style="display: inline-block; font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 3px 8px; border-radius: 6px; border: 1px solid #334155; text-decoration: none; margin-right: 6px;">
+                    <a href="venues.html" style="display: inline-block; font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 3px 8px; border-radius: 6px; border: 1px solid #334155; text-decoration: none; margin-right: 6px;">
                       &#x2699;&#xFE0F; Manage Venues
                     </a>
                     <span id="filter-count" style="font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 3px 8px; border-radius: 12px; border: 1px solid #334155;">
@@ -738,15 +738,16 @@
     })();
 
     function toggleUserTag(eventId, targetCategory, btn) {
-      var originalText = btn.textContent;
       btn.textContent = 'Saving...';
-      fetch('http://127.0.0.1:8765/api/tags/set', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ event_id: eventId, category: targetCategory })
-      })
-      .then(function(res) { return res.json(); })
-      .then(function(data) {
+
+      // Persist to localStorage for GitHub Pages static hosting
+      try {
+        var localTags = JSON.parse(localStorage.getItem('live_curator_tags') || '{}');
+        localTags[eventId] = targetCategory;
+        localStorage.setItem('live_curator_tags', JSON.stringify(localTags));
+      } catch (e) {}
+
+      function updateCardUI() {
         if (targetCategory === 'club_night') {
           btn.textContent = '🎸 Mark as Live Gig';
           btn.setAttribute('onclick', "toggleUserTag('" + eventId + "', 'live_gig', this); return false;");
@@ -764,10 +765,17 @@
           }
         }
         applyFiltersAndSort();
+      }
+
+      fetch('http://127.0.0.1:8765/api/tags/set', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event_id: eventId, category: targetCategory })
       })
+      .then(function(res) { return res.json(); })
+      .then(function(data) { updateCardUI(); })
       .catch(function(err) {
-        btn.textContent = (targetCategory === 'club_night') ? '🎸 Mark as Live Gig' : '🎧 Mark as Club Night';
-        alert('Saved tag locally! Start "python3 main.py --ui" to sync changes to permanent database.');
+        updateCardUI(); // Works seamlessly on GitHub Pages
       });
     }
   </script>

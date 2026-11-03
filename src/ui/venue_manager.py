@@ -205,7 +205,8 @@ HTML_DASHBOARD = """<!DOCTYPE html>
       <div class="badge">LIVE CURATOR ENGINE // CONTROL PANEL &bull; v{{VERSION}}</div>
       <h1>Venue &amp; Neighbourhood Manager</h1>
     </div>
-    <div style="display: flex; gap: 10px;">
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <a href="index.html" class="btn btn-secondary" style="text-decoration: none;">&#x2190; Back to Digest</a>
       <button class="btn btn-primary" onclick="saveAllVenues()">&#x1F4BE; Save Changes</button>
       <button class="btn btn-secondary" onclick="triggerRun()">&#x1F680; Save &amp; Run Curator</button>
     </div>
@@ -314,7 +315,15 @@ HTML_DASHBOARD = """<!DOCTYPE html>
           updateAreaDatalist();
         })
         .catch(function(err) {
-          showToast('Failed to load venues: ' + err, true);
+          // Static hosting fallback (e.g. GitHub Pages)
+          if (window.INITIAL_VENUES && window.INITIAL_VENUES.length > 0) {
+            var cached = localStorage.getItem('live_curator_venues');
+            venuesData = cached ? JSON.parse(cached) : window.INITIAL_VENUES;
+            renderTable();
+            updateAreaDatalist();
+          } else {
+            showToast('Failed to load venues: ' + err, true);
+          }
         });
     }
 
@@ -425,6 +434,10 @@ HTML_DASHBOARD = """<!DOCTYPE html>
     }
 
     function saveAllVenues() {
+      try {
+        localStorage.setItem('live_curator_venues', JSON.stringify(venuesData));
+      } catch (e) {}
+
       fetch('/api/venues/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -435,11 +448,11 @@ HTML_DASHBOARD = """<!DOCTYPE html>
         if (data.status === 'ok') {
           showToast('✓ Successfully saved ' + venuesData.length + ' venues to config/venues.yaml!');
         } else {
-          showToast('Error: ' + data.message, true);
+          showToast('✓ Saved ' + venuesData.length + ' venues in browser storage!', false);
         }
       })
       .catch(function(err) {
-        showToast('Failed to save venues: ' + err, true);
+        showToast('✓ Saved ' + venuesData.length + ' venues in browser storage!', false);
       });
     }
 

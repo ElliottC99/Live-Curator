@@ -385,13 +385,17 @@ class TierClassifier:
             if classified.is_club_night and classified not in club_nights:
                 club_nights.append(classified)
 
-        # Sort chronologically by start_time
-        tier_1.sort(key=lambda e: e.start_time)
-        tier_2.sort(key=lambda e: e.start_time)
-        tier_3.sort(key=lambda e: e.start_time)
-        club_nights.sort(key=lambda e: e.start_time)
-        other.sort(key=lambda e: e.start_time)
-        new_announcements.sort(key=lambda e: e.start_time)
+        # Sort chronologically by start_time (normalizing tz-aware and tz-naive)
+        def _get_sort_key(e: Event):
+            st = e.start_time
+            return st.replace(tzinfo=None) if st and st.tzinfo else st
+
+        tier_1.sort(key=_get_sort_key)
+        tier_2.sort(key=_get_sort_key)
+        tier_3.sort(key=_get_sort_key)
+        club_nights.sort(key=_get_sort_key)
+        other.sort(key=_get_sort_key)
+        new_announcements.sort(key=_get_sort_key)
 
         logger.info(
             f"Digest classification complete: {len(tier_1)} Tier 1, "

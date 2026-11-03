@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Curator // November 2026</title>
+  <style>
+    /* Reset & Base */
+    body, table, td, p, a, li, blockquote {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100% !important;
+      background-color: #0c0e14;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #e2e8f0;
+    }
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+    }
+    table {
+      border-collapse: collapse !important;
+    }
+
+    /* Interactive Tab Bar Styles */
+    .tab-btn {
+      cursor: pointer;
+      border: 1px solid #334155;
+      background-color: #1e2433;
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
+      outline: none;
+      display: inline-block;
+      text-decoration: none;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+    .tab-btn:hover {
+      background-color: #283046;
+      color: #ffffff;
+    }
+    .tab-btn.active.btn-t1 {
+      background-color: #064e3b !important;
+      color: #a7f3d0 !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+    }
+    .tab-btn.active.btn-t2 {
+      background-color: #312e81 !important;
+      color: #c7d2fe !important;
+      border-color: #6366f1 !important;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.35);
+    }
+    .tab-btn.active.btn-t3 {
+      background-color: #78350f !important;
+      color: #fde68a !important;
+      border-color: #f59e0b !important;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
+    }
+    .tab-btn.active.btn-club {
+      background-color: #581c87 !important;
+      color: #f3e8ff !important;
+      border-color: #a855f7 !important;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.35);
+    }
+    .tab-btn.active.btn-all {
+      background-color: #1e3a8a !important;
+      color: #bfdbfe !important;
+      border-color: #3b82f6 !important;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
+    }
+    .tab-btn.active.btn-new {
+      background-color: #831843 !important;
+      color: #fbcfe8 !important;
+      border-color: #ec4899 !important;
+      box-shadow: 0 0 10px rgba(236, 72, 153, 0.35);
+    }
+
+    /* Mobile styles */
+    @media screen and (max-width: 620px) {
+      .container {
+        width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+      }
+      .mobile-stack {
+        display: block !important;
+        width: 100% !important;
+      }
+      .event-title {
+        font-size: 17px !important;
+      }
+      .tab-btn {
+        font-size: 12px !important;
+        padding: 6px 10px !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0c0e14;">
+  <center>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #0c0e14;">
+      <tr>
+        <td align="center" style="padding: 24px 8px 40px 8px;">
+          <!-- Main Container -->
+          <table role="presentation" class="container" border="0" cellpadding="0" cellspacing="0" width="620" style="max-width: 620px; width: 100%; background-color: #161a24; border-radius: 12px; overflow: hidden; border: 1px solid #2d3748;">
+            
+            <!-- Header Banner -->
+            <tr>
+              <td style="padding: 32px 28px 24px 28px; background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border-bottom: 2px solid #3b82f6;">
+                <p style="margin: 0 0 6px 0; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #60a5fa;">
+                  LIVE CURATOR // LONDON &bull; v0.0.1
+                </p>
+                <h1 style="margin: 0 0 8px 0; font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">
+                  Monthly Gig & Comedy Digest
+                </h1>
+                <p style="margin: 0; font-size: 14px; color: #94a3b8; line-height: 1.5;">
+                  <strong>November 2026</strong> &bull; Dalston, Stoke Newington, Camden, Islington & Major Stadiums
+                </p>
+                <p style="margin: 8px 0 0 0; font-size: 12px; color: #64748b;">
+                  Surveyed 33 upcoming events &bull; <span style="color: #f472b6; font-weight: 700;">0 just announced</span> since last digest.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Interactive Tab Bar Controller & Filter Bar -->
+            <tr>
+              <td style="padding: 20px 24px 16px 24px; background-color: #12151e; border-bottom: 1px solid #283046;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                  <p style="margin: 0; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b;">
+                    CYCLE BY TIER:
+                  </p>
+                  <div>
+                    <a href="venues.html" style="display: inline-block; font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 3px 8px; border-radius: 6px; border: 1px solid #334155; text-decoration: none; margin-right: 6px;">
+                      &#x2699;&#xFE0F; Manage Venues
+                    </a>
+                    <span id="filter-count" style="font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 3px 8px; border-radius: 12px; border: 1px solid #334155;">
+                      33 shows
+                    </span>
+                  </div>
+                </div>
+
+                <div id="tab-nav">
+                  <a href="#tier-1" class="tab-btn btn-t1 active" id="btn-tier1" onclick="switchTier('tier1'); return false;">
+                    &#x1F525; Tier 1: Direct (0)
+                  </a>
+                  <a href="#tier-2" class="tab-btn btn-t2" id="btn-tier2" onclick="switchTier('tier2'); return false;">
+                    &#x2728; Tier 2: Discovery (0)
+                  </a>
+                  <a href="#tier-3" class="tab-btn btn-t3" id="btn-tier3" onclick="switchTier('tier3'); return false;">
+                    &#x1F3AD; Tier 3: Comedy (5)
+                  </a>
+                  <a href="#tier-club" class="tab-btn btn-club" id="btn-club" onclick="switchTier('club'); return false;">
+                    &#x1F3A7; Club Nights &amp; DJs (8)
+                  </a>
+                  <a href="#tier-all" class="tab-btn btn-all" id="btn-all" onclick="switchTier('all'); return false;">
+                    &#x1F4CB; All Shows (33)
+                  </a>
+                </div>
+
+                <!-- Secondary Filter & Sort Toolbar -->
+                <div id="filter-toolbar" style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed #283046; display: flex; flex-wrap: wrap; gap: 8px;">
+                  <!-- Area Filter -->
+                  <div style="flex: 1; min-width: 140px;">
+                    <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Neighbourhood</label>
+                    <select id="filter-area" onchange="applyFiltersAndSort()" style="width: 100%; background-color: #1e2433; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 12px;">
+                      <option value="all">All Neighbourhoods</option>
+                    </select>
+                  </div>
+
+                  <!-- Venue Filter -->
+                  <div style="flex: 1; min-width: 140px;">
+                    <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Venue</label>
+                    <select id="filter-venue" onchange="applyFiltersAndSort()" style="width: 100%; background-color: #1e2433; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 12px;">
+                      <option value="all">All Venues</option>
+                    </select>
+                  </div>
+
+                  <!-- Sort By -->
+                  <div style="flex: 1; min-width: 140px;">
+                    <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Sort By</label>
+                    <select id="sort-by" onchange="applyFiltersAndSort()" style="width: 100%; background-color: #1e2433; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 12px;">
+                      <option value="date-asc">Date: Soonest First</option>
+                      <option value="date-desc">Date: Furthest First</option>
+                      <option value="price-asc">Price: Low to High</option>
+                      <option value="price-desc">Price: High to Low</option>
+                    </select>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Content Area -->
+            <tr>
+              <td style="padding: 24px 24px 16px 24px;">
+
+                <!-- TIER 1 CONTAINER -->
+                <div id="section-tier1" class="tier-section">
+                  <div style="background-color: #1e2433; border: 1px dashed #334155; padding: 24px; text-align: center; border-radius: 8px; margin-bottom: 24px;">
+                    <p style="margin: 0; color: #94a3b8; font-size: 14px;">No Tier 1 Direct Matches found for this month yet.</p>
+                  </div>
+                </div>
+
+                <!-- TIER 2 CONTAINER -->
+                <div id="section-tier2" class="tier-section">
+                  <div style="background-color: #1e2433; border: 1px dashed #334155; padding: 24px; text-align: center; border-radius: 8px; margin-bottom: 24px;">
+                    <p style="margin: 0; color: #94a3b8; font-size: 14px;">No Tier 2 Discovery Matches found for this month yet.</p>
+                  </div>
+                </div>
+
+                <!-- TIER 3 CONTAINER -->
+                <div id="section-tier3" class="tier-section">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #78350f; border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #fde68a; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x1F3AD; Tier 3: Comedy & Alternative
+                          </h2>
+                          <p style="margin: 2px 0 0 0; font-size: 12px; color: #fcd34d;">
+                            Stand-up, improv, work-in-progress (WIP), and cabaret across London.
+                          </p>
+                        </div>
+
+                        <div class="events-container">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794423600.0" data-price="0" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 14px 16px;">
+                              <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
+                                Knock2Bag Comedy Night with Jamali Maddix
+                              </h3>
+                              <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Wed 11 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/6a8dbc4a0c16220001788e6c" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795028400.0" data-price="0" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 14px 16px;">
+                              <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
+                                Knock2Bag Comedy Night with Ivo Graham
+                              </h3>
+                              <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Wed 18 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/6a8dbc690d94ba00011f602b" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795460400.0" data-price="0" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 14px 16px;">
+                              <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
+                                K2B Presents... Harry Hill WIP
+                              </h3>
+                              <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Mon 23 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/6a8dbc8946e2570001f63884" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795546800.0" data-price="0" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 14px 16px;">
+                              <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
+                                K2B Presents... Harry Hill WIP
+                              </h3>
+                              <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Tue 24 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/6a8dbca20c16220001378ce2" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795633200.0" data-price="0" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 14px 16px;">
+                              <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
+                                K2B Presents... Harry Hill WIP
+                              </h3>
+                              <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Wed 25 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/6a8dbcbb0c162200014f5adb" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <!-- CLUB NIGHTS & DJS CONTAINER -->
+                <div id="section-club" class="tier-section">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #2e1065; border-left: 4px solid #a855f7; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 17px; font-weight: 700; color: #f3e8ff; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x1F3A7; Club Nights, Electronic &amp; DJs
+                          </h2>
+                          <p style="margin: 4px 0 0 0; font-size: 13px; color: #d8b4fe;">
+                            Late-night parties, DJ sets, disco &amp; electronic sessions (&ge;22:00 or tagged).
+                          </p>
+                        </div>
+
+                        <div class="events-container">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794006000.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                Rodeo Fever Queer Line Dancing &amp; Country Disco Club
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Fri 06 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/6aa57b7ae4d716000175a1a3" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:6aa57b7ae4d716000175a1a3', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794092400.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                Dancing In The Dark
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Sat 07 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/695f7b2e193787000113ffb9" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:695f7b2e193787000113ffb9', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794610800.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                THE CAVE CLUB
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Fri 13 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/69eb49a86278380001196a8b" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:69eb49a86278380001196a8b', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794697200.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                For The Love Of Pop
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Sat 14 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/695f7c6b0dd5de0001089b62" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:695f7c6b0dd5de0001089b62', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795215600.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                Deptford Northern Soul Club
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Fri 20 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/69bd0561b90b160001695362" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:69bd0561b90b160001695362', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795302000.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                Dancing In The Dark
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Sat 21 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/695f7b38878cc80001850380" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:695f7b38878cc80001850380', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795820400.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                Femininomenon
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Fri 27 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/695f7a000dd5de00010d4cc5" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:695f7a000dd5de00010d4cc5', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795906800.0" data-price="0" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                For The Love Of Pop
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; <span style="color: #c084fc;">Sat 28 Nov 2026, 23:00</span>
+                              </p>
+
+                              <!-- Badges -->
+                              <div style="margin-bottom: 12px;">
+                                <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
+                                  &#x1F3A7; CLUB NIGHT
+                                </span>
+                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; Late Night Party (≥22:00)
+                                </span>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+&#x1F39F;&#xFE0F; DICE                                </span>
+                              </div>
+
+                              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                <a href="https://dice.fm/event/695f7c8b00191f0001270119" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  Get Tickets &rarr;
+                                </a>
+                                <button type="button" onclick="toggleUserTag('dice:695f7c8b00191f0001270119', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
+                                  &#x1F3B8; Mark as Live Gig
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <!-- ALL SHOWS CONTAINER (Shows all 3 tiers + other shows) -->
+                <div id="section-all" class="tier-section">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #1e293b; border-left: 4px solid #64748b; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x1F3B6; Other Upcoming Shows
+                          </h2>
+                          <p style="margin: 2px 0 0 0; font-size: 12px; color: #94a3b8;">
+                            General lineup across surveyed London venues.
+                          </p>
+                        </div>
+
+                        <div class="events-container">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="East London" data-timestamp="1793721781.369869" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Band A
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (East London) &bull; Tue 03 Nov 2026, 16:03
+                              </p>
+                              <a href="https://dice.fm/event/123" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="Wembley Stadium" data-area="Wembley" data-timestamp="1793721781.374821" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Oasis Live
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">Wembley Stadium</strong> (Wembley) &bull; Tue 03 Nov 2026, 16:03
+                              </p>
+                              <a href="https://ticketmaster.co.uk/event/999" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1793734200.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Greg Mendez + Asher White + villagerrr
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Tue 03 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/69fddc2d38737e00014f5576" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1793820600.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Rockie Rode + The Healing Power of Horses + Any Young Mechanic
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Wed 04 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6a5f6f7f1378d1000112aafa" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1793907000.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Colin Miller + lifepath99 + h pruz + Elijah Wolf
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Thu 05 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/69fddc3a95ba0e0001b1c2bb" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1793991600.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Kiwi Jr + Alien Boy + Bone China
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Fri 06 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/69fddc3460f3180001a20da9" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794076200.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                A tribute to Leonard Cohen
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Sat 07 Nov 2026, 18:30
+                              </p>
+                              <a href="https://dice.fm/event/6ab3f1ea80f9a50001adf715" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794252600.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Saccades (The KVB)
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Mon 09 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6aaa2ab90e140c00013642c4" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794511800.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                FIRST FIFTY: Compost Compost Compost, Dumbhead, Die Twice
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Thu 12 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6aa8132e74cc340001b3cc8f" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794598200.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Pretty Green Introducing (LDN) w/ Balancing Act
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Fri 13 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6aa81325130c69000162640c" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794682800.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                PISS
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Sat 14 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/6a902a485cef950001a9846d" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794857400.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Elephant Stone
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Mon 16 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6a5f8caaa0caa50001e9ff07" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1794943800.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Keg - Relaxing Near the Hospital Album Tour
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Tue 17 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6a475fef1bd58800012e3342" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795116600.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Sarah Julia
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Thu 19 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/69cfe785f418b00001eb1198" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795203000.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                C.O.F.F.I.N + Sniffany &amp; The Nits
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Fri 20 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6a19705567f7a90001af363c" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795289400.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Silver Birch (Pete Wareham, Ruth Goller, Betamax, Chris Sharkey) + O.
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Sat 21 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/69dcb2ad2180f20001c2f24d" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795374000.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Pearl and The Oysters
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Sun 22 Nov 2026, 19:00
+                              </p>
+                              <a href="https://dice.fm/event/6a2e97f57aebdd0001d2d0ac" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795721400.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Ella Raphael
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Thu 26 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/693acba7e200df0001c8faa8" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795894200.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                Parviz
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Sat 28 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6a390ed380ed6200017ac316" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="false" data-venue="MOTH Club" data-area="Hackney Central" data-timestamp="1795980600.0" data-price="0" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                City Slang Xmas Party: Party Dozen + Die Anstalt
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">MOTH Club</strong> (Hackney Central) &bull; Sun 29 Nov 2026, 19:30
+                              </p>
+                              <a href="https://dice.fm/event/6accc0fe06ca060001aa2cee" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="padding: 24px 28px; background-color: #111520; border-top: 1px solid #2d3748; text-align: center;">
+                <p style="margin: 0 0 6px 0; font-size: 12px; color: #64748b; font-weight: 600;">
+                  LIVE CURATOR ENGINE &bull; LONDON MUSIC & COMEDY RADAR
+                </p>
+                <p style="margin: 0; font-size: 11px; color: #475569; line-height: 1.5;">
+                  Automatically curated on the 1st of every month across grassroots clubs & major stadiums.<br>
+                  Dispatched for Elliott & Chloe.
+                </p>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </center>
+
+  <!-- Interactive Tier Switching & Multi-Way Filtering/Sorting Script -->
+  <script>
+    var currentTier = 'all';
+
+    function switchTier(tierKey) {
+      currentTier = tierKey;
+      var sections = {
+        tier1: document.getElementById('section-tier1'),
+        tier2: document.getElementById('section-tier2'),
+        tier3: document.getElementById('section-tier3'),
+        club: document.getElementById('section-club'),
+        all: document.getElementById('section-all')
+      };
+
+      var buttons = {
+        new: document.getElementById('btn-new'),
+        tier1: document.getElementById('btn-tier1'),
+        tier2: document.getElementById('btn-tier2'),
+        tier3: document.getElementById('btn-tier3'),
+        club: document.getElementById('btn-club'),
+        all: document.getElementById('btn-all')
+      };
+
+      // If "all" or "new" selected, show all tier sections
+      if (tierKey === 'all' || tierKey === 'new') {
+        for (var k in sections) {
+          if (sections[k]) sections[k].style.display = 'block';
+        }
+      } else {
+        for (var k in sections) {
+          if (sections[k]) {
+            sections[k].style.display = (k === tierKey) ? 'block' : 'none';
+          }
+        }
+      }
+
+      // Update button active states
+      for (var b in buttons) {
+        if (buttons[b]) {
+          if (b === tierKey) {
+            buttons[b].classList.add('active');
+          } else {
+            buttons[b].classList.remove('active');
+          }
+        }
+      }
+
+      // Update URL hash without scroll jump
+      if (history.replaceState) {
+        history.replaceState(null, null, '#' + tierKey);
+      }
+
+      applyFiltersAndSort();
+    }
+
+    function applyFiltersAndSort() {
+      var areaSelect = document.getElementById('filter-area');
+      var venueSelect = document.getElementById('filter-venue');
+      var sortSelect = document.getElementById('sort-by');
+
+      var selectedArea = areaSelect ? areaSelect.value : 'all';
+      var selectedVenue = venueSelect ? venueSelect.value : 'all';
+      var sortBy = sortSelect ? sortSelect.value : 'date-asc';
+
+      var visibleCount = 0;
+      var cards = document.querySelectorAll('.event-card');
+
+      cards.forEach(function(card) {
+        var cardTier = card.getAttribute('data-tier');
+        var cardIsNew = card.getAttribute('data-is-new') === 'true';
+        var cardIsClub = card.getAttribute('data-is-club') === 'true';
+        var cardArea = card.getAttribute('data-area') || '';
+        var cardVenue = card.getAttribute('data-venue') || '';
+
+        var matchTier = false;
+        if (currentTier === 'all') {
+          matchTier = true;
+        } else if (currentTier === 'new') {
+          matchTier = cardIsNew;
+        } else if (currentTier === 'club') {
+          matchTier = (cardTier === 'club' || cardIsClub);
+        } else {
+          matchTier = (cardTier === currentTier);
+        }
+
+        var matchArea = (selectedArea === 'all' || cardArea === selectedArea);
+        var matchVenue = (selectedVenue === 'all' || cardVenue === selectedVenue);
+
+        if (matchTier && matchArea && matchVenue) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Sort items within each events-container
+      var containers = document.querySelectorAll('.events-container');
+      containers.forEach(function(container) {
+        var items = Array.from(container.querySelectorAll('.event-card'));
+        items.sort(function(a, b) {
+          if (sortBy === 'date-asc') {
+            return parseFloat(a.getAttribute('data-timestamp') || 0) - parseFloat(b.getAttribute('data-timestamp') || 0);
+          } else if (sortBy === 'date-desc') {
+            return parseFloat(b.getAttribute('data-timestamp') || 0) - parseFloat(a.getAttribute('data-timestamp') || 0);
+          } else if (sortBy === 'price-asc') {
+            return parseFloat(a.getAttribute('data-price') || 999999) - parseFloat(b.getAttribute('data-price') || 999999);
+          } else if (sortBy === 'price-desc') {
+            return parseFloat(b.getAttribute('data-price') || 999999) - parseFloat(a.getAttribute('data-price') || 999999);
+          }
+          return 0;
+        });
+
+        items.forEach(function(item) {
+          container.appendChild(item);
+        });
+      });
+
+      // Update counter pill
+      var counter = document.getElementById('filter-count');
+      if (counter) {
+        counter.textContent = visibleCount + ' shows visible';
+      }
+    }
+
+    // Initialize state & populate dropdowns on page load
+    (function initInteractiveControls() {
+      var cards = document.querySelectorAll('.event-card');
+      var areaSet = new Set();
+      var venueSet = new Set();
+
+      cards.forEach(function(card) {
+        var a = card.getAttribute('data-area');
+        var v = card.getAttribute('data-venue');
+        if (a) areaSet.add(a);
+        if (v) venueSet.add(v);
+      });
+
+      var areaSelect = document.getElementById('filter-area');
+      if (areaSelect) {
+        Array.from(areaSet).sort().forEach(function(area) {
+          var opt = document.createElement('option');
+          opt.value = area;
+          opt.textContent = area;
+          areaSelect.appendChild(opt);
+        });
+      }
+
+      var venueSelect = document.getElementById('filter-venue');
+      if (venueSelect) {
+        Array.from(venueSet).sort().forEach(function(venue) {
+          var opt = document.createElement('option');
+          opt.value = venue;
+          opt.textContent = venue;
+          venueSelect.appendChild(opt);
+        });
+      }
+
+      var t1Count = 0;
+      var t2Count = 0;
+      var t3Count = 5;
+      var clubCount = 8;
+      var newCount = 0;
+
+      var hash = window.location.hash.replace('#', '').toLowerCase();
+      if (hash === 'new' || hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'club' || hash === 'all') {
+        switchTier(hash);
+      } else if (newCount > 0) {
+        switchTier('new');
+      } else if (t1Count > 0) {
+        switchTier('tier1');
+      } else if (t2Count > 0) {
+        switchTier('tier2');
+      } else if (clubCount > 0) {
+        switchTier('club');
+      } else if (t3Count > 0) {
+        switchTier('tier3');
+      } else {
+        switchTier('all');
+      }
+    })();
+
+    function toggleUserTag(eventId, targetCategory, btn) {
+      btn.textContent = 'Saving...';
+
+      // Persist to localStorage for GitHub Pages static hosting
+      try {
+        var localTags = JSON.parse(localStorage.getItem('live_curator_tags') || '{}');
+        localTags[eventId] = targetCategory;
+        localStorage.setItem('live_curator_tags', JSON.stringify(localTags));
+      } catch (e) {}
+
+      function updateCardUI() {
+        if (targetCategory === 'club_night') {
+          btn.textContent = '🎸 Mark as Live Gig';
+          btn.setAttribute('onclick', "toggleUserTag('" + eventId + "', 'live_gig', this); return false;");
+          var card = btn.closest('.event-card');
+          if (card) {
+            card.setAttribute('data-is-club', 'true');
+            card.setAttribute('data-tier', 'club');
+          }
+        } else {
+          btn.textContent = '🎧 Mark as Club Night';
+          btn.setAttribute('onclick', "toggleUserTag('" + eventId + "', 'club_night', this); return false;");
+          var card = btn.closest('.event-card');
+          if (card) {
+            card.setAttribute('data-is-club', 'false');
+          }
+        }
+        applyFiltersAndSort();
+      }
+
+      fetch('http://127.0.0.1:8765/api/tags/set', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event_id: eventId, category: targetCategory })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) { updateCardUI(); })
+      .catch(function(err) {
+        updateCardUI(); // Works seamlessly on GitHub Pages
+      });
+    }
+  </script>
+</body>
+</html>
