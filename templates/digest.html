@@ -157,7 +157,10 @@
                     &#x1F525; Just Announced ({{ digest.new_announcements_count }})
                   </a>
                   {% endif %}
-                  <a href="#tier-1" class="tab-btn btn-t1 active" id="btn-tier1" onclick="switchTier('tier1'); return false;">
+                  <a href="#tier-all" class="tab-btn btn-all {% if not digest.tier_1_events %}active{% endif %}" id="btn-all" onclick="switchTier('all'); return false;">
+                    &#x1F4CB; All Shows ({{ digest.total_events_scraped }})
+                  </a>
+                  <a href="#tier-1" class="tab-btn btn-t1 {% if digest.tier_1_events %}active{% endif %}" id="btn-tier1" onclick="switchTier('tier1'); return false;">
                     &#x1F525; Tier 1: Direct ({{ digest.tier_1_events|length }})
                   </a>
                   <a href="#tier-2" class="tab-btn btn-t2" id="btn-tier2" onclick="switchTier('tier2'); return false;">
@@ -168,9 +171,6 @@
                   </a>
                   <a href="#tier-club" class="tab-btn btn-club" id="btn-club" onclick="switchTier('club'); return false;">
                     &#x1F3A7; Club Nights &amp; DJs ({{ digest.club_night_events|length }})
-                  </a>
-                  <a href="#tier-all" class="tab-btn btn-all" id="btn-all" onclick="switchTier('all'); return false;">
-                    &#x1F4CB; All Shows ({{ digest.total_events_scraped }})
                   </a>
                 </div>
 
@@ -560,6 +560,8 @@
     var currentTier = 'all';
 
     function switchTier(tierKey) {
+      if (!tierKey) tierKey = 'all';
+      tierKey = tierKey.toLowerCase().replace('tier-', 'tier').replace('tierall', 'all').replace('tiernew', 'new');
       currentTier = tierKey;
       var sections = {
         tier1: document.getElementById('section-tier1'),
@@ -719,19 +721,13 @@
       var clubCount = {{ digest.club_night_events|length }};
       var newCount = {{ digest.new_announcements_count }};
 
-      var hash = window.location.hash.replace('#', '').toLowerCase();
-      if (hash === 'new' || hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'club' || hash === 'all') {
+      var hash = window.location.hash.replace('#', '').toLowerCase().replace('tier-', 'tier').replace('tierall', 'all').replace('tiernew', 'new');
+      if (['new', 'tier1', 'tier2', 'tier3', 'club', 'all'].includes(hash)) {
         switchTier(hash);
       } else if (newCount > 0) {
         switchTier('new');
       } else if (t1Count > 0) {
         switchTier('tier1');
-      } else if (t2Count > 0) {
-        switchTier('tier2');
-      } else if (clubCount > 0) {
-        switchTier('club');
-      } else if (t3Count > 0) {
-        switchTier('tier3');
       } else {
         switchTier('all');
       }
