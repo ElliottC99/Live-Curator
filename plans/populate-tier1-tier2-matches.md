@@ -2,7 +2,7 @@
 
 > **Created:** 2026-11-03  
 > **Workflow:** `/plan`  
-> **Status:** Approved ✓  
+> **Status:** Implemented ✓  
 > **Investigation Reference:** [`docs/explorations/why-tier1-tier2-empty-20261103.md`](file:///Users/elliottcallender/Downloads/Live%20Curator/docs/explorations/why-tier1-tier2-empty-20261103.md)  
 > **Plan Review Reference:** [`plans/reviews/populate-tier1-tier2-matches-review.md`](file:///Users/elliottcallender/Downloads/Live%20Curator/plans/reviews/populate-tier1-tier2-matches-review.md)  
 > **ADR References:** [ADR-001](file:///Users/elliottcallender/Downloads/Live%20Curator/docs/decisions/001-engine-architecture-and-data-ingestion.md), [ADR-002](file:///Users/elliottcallender/Downloads/Live%20Curator/docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md)
