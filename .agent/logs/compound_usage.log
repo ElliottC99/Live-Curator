@@ -17,3 +17,7 @@
 2026-11-03T14:45:46 compound-search venues ticketmaster
 2026-11-03T14:45:51 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/explorations/archive/live-curator-engine-20261103.md docs/explorations/venue-expansion-ticketmaster-tier-cycling-20261103.md docs/solutions/integration_issue/live-curator-engine-architecture.md
 2026-11-03T15:04:53 suggest-skills
+2026-11-03T15:53:11 compound-search digest
+2026-11-03T15:55:54 compound-search history cache
+2026-11-03T15:55:58 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md docs/explorations/archive/live-curator-engine-20261103.md docs/explorations/future-horizon-diffing-and-venue-management-20261103.md docs/solutions/integration_issue/live-curator-engine-architecture.md docs/solutions/patterns/individual/pattern-09-rigorous-planning-multi-order-thinking.md docs/solutions/patterns/individual/pattern-24-batch-resource-operations.md
+2026-11-03T15:56:32 compound-search event diffing venue manager

@@ -86,6 +86,8 @@ class Event(BaseModel):
     image_url: Optional[str] = None
     tier: TierCategory = TierCategory.UNMATCHED
     matches: List[MatchRationale] = Field(default_factory=list)
+    is_new: bool = False
+    first_seen_at: Optional[datetime] = None
 
     @property
     def primary_act(self) -> str:
@@ -128,4 +130,9 @@ class MonthlyDigest(BaseModel):
     tier_2_events: List[Event] = Field(default_factory=list)
     tier_3_events: List[Event] = Field(default_factory=list)
     other_events: List[Event] = Field(default_factory=list)
+    new_announcements: List[Event] = Field(default_factory=list)
     total_events_scraped: int = 0
+
+    @property
+    def new_announcements_count(self) -> int:
+        return len(self.new_announcements)

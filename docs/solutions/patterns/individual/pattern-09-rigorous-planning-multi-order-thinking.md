@@ -1,7 +1,7 @@
 ---
 pattern_number: 9
 title: "Rigorous Planning (Multi-Order Thinking)"
-last_referenced: "2025-12-27"
+last_referenced: "2026-11-03"
 tags: [patterns, critical-patterns]
 ---
 

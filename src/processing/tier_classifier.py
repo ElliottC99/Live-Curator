@@ -17,6 +17,7 @@ from src.core.models import (
 )
 from src.core.normalizer import matches_artist_set, normalize_artist_name
 from src.ingestion.review_parser import ReviewDatabase
+from src.processing.event_diff_engine import EventDiffEngine
 
 logger = logging.getLogger(__name__)
 
@@ -266,13 +267,21 @@ class TierClassifier:
         events: List[Event],
         month_name: Optional[str] = None,
         year: Optional[int] = None,
+        diff_engine: Optional[EventDiffEngine] = None,
     ) -> MonthlyDigest:
         """
-        Classify all events and construct a sorted MonthlyDigest.
+        Classify all events, track deltas against previous digests, and construct a sorted MonthlyDigest.
         """
         now = datetime.now()
         target_month = month_name or now.strftime("%B")
         target_year = year or now.year
+
+        # 1. Statefully diff against previous runs if diff engine provided
+        new_announcements: List[Event] = []
+        if diff_engine is not None:
+            events = diff_engine.diff_and_record(
+                events, digest_label=f"{target_month} {target_year}"
+            )
 
         tier_1: List[Event] = []
         tier_2: List[Event] = []
@@ -281,6 +290,9 @@ class TierClassifier:
 
         for raw_event in events:
             classified = self.classify_event(raw_event)
+            if classified.is_new:
+                new_announcements.append(classified)
+
             if classified.tier == TierCategory.TIER_1_DIRECT:
                 tier_1.append(classified)
             elif classified.tier == TierCategory.TIER_2_DISCOVERY:
@@ -295,10 +307,12 @@ class TierClassifier:
         tier_2.sort(key=lambda e: e.start_time)
         tier_3.sort(key=lambda e: e.start_time)
         other.sort(key=lambda e: e.start_time)
+        new_announcements.sort(key=lambda e: e.start_time)
 
         logger.info(
             f"Digest classification complete: {len(tier_1)} Tier 1, "
-            f"{len(tier_2)} Tier 2, {len(tier_3)} Tier 3, {len(other)} Unmatched "
+            f"{len(tier_2)} Tier 2, {len(tier_3)} Tier 3, {len(other)} Unmatched. "
+            f"🆕 New Announcements since last run: {len(new_announcements)} "
             f"(Total: {len(events)})"
         )
 
@@ -310,5 +324,6 @@ class TierClassifier:
             tier_2_events=tier_2,
             tier_3_events=tier_3,
             other_events=other,
+            new_announcements=new_announcements,
             total_events_scraped=len(events),
         )

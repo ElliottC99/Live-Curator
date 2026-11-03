@@ -27,6 +27,7 @@ from src.ingestion.dice_scraper import DiceScraper
 from src.ingestion.review_parser import ReviewAggregator
 from src.ingestion.spotify_engine import SpotifyEngine
 from src.ingestion.ticketmaster_engine import TicketmasterEngine
+from src.processing.event_diff_engine import EventDiffEngine
 from src.processing.tier_classifier import TierClassifier
 
 logging.basicConfig(
@@ -48,6 +49,7 @@ def print_digest_summary(digest: MonthlyDigest):
     print(f"DIGEST SUMMARY — {digest.month_name} {digest.year}")
     print("=" * 72)
     print(f"Total Events Scraped:      {digest.total_events_scraped}")
+    print(f"🆕 Just Announced / New:    {len(digest.new_announcements)}")
     print(f"🔥 Tier 1 (Direct Matches): {len(digest.tier_1_events)}")
     print(f"✨ Tier 2 (Discovery):      {len(digest.tier_2_events)}")
     print(f"🎭 Tier 3 (Comedy & Alt):   {len(digest.tier_3_events)}")
@@ -169,15 +171,20 @@ def run_pipeline(
 
     logger.info(f"Total live events harvested across all platforms: {len(all_events)}")
 
-    # 4. 3-Tier Categorization
-    logger.info("Step 4/5: Categorizing events into 3 Tiers...")
+    # 4. 3-Tier Categorization & Historical Delta Diffing
+    logger.info("Step 4/5: Categorizing events and diffing against past digests...")
+    history_db = PROJECT_ROOT / "data" / "cache" / "digest_history.sqlite"
+    diff_engine = EventDiffEngine(history_db)
+
     classifier = TierClassifier(
         taste_profile=taste_profile,
         review_db=review_aggregator.db,
         recommended_review_artists=recommended_artists,
         comedy_keywords=config.classification.comedy_keywords,
     )
-    digest = classifier.build_digest(all_events, month_name=month_name, year=year)
+    digest = classifier.build_digest(
+        all_events, month_name=month_name, year=year, diff_engine=diff_engine
+    )
 
     print_digest_summary(digest)
 
@@ -209,6 +216,11 @@ def run_pipeline(
 def main():
     parser = argparse.ArgumentParser(
         description="Live Curator Engine — Monthly London Gig & Comedy Digest"
+    )
+    parser.add_argument(
+        "--ui",
+        action="store_true",
+        help="Launch the in-app Venue & Neighbourhood Manager web dashboard",
     )
     parser.add_argument(
         "--send-email",
@@ -258,6 +270,12 @@ def main():
     )
 
     args = parser.parse_args()
+
+    if args.ui:
+        from src.ui.venue_manager import run_venue_manager_server
+        run_venue_manager_server()
+        return
+
     config = load_config()
 
     is_dry_run = not args.send_email

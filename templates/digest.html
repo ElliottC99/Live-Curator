@@ -74,6 +74,12 @@
       border-color: #3b82f6 !important;
       box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
     }
+    .tab-btn.active.btn-new {
+      background-color: #831843 !important;
+      color: #fbcfe8 !important;
+      border-color: #ec4899 !important;
+      box-shadow: 0 0 10px rgba(236, 72, 153, 0.35);
+    }
 
     /* Mobile styles */
     @media screen and (max-width: 620px) {
@@ -117,7 +123,7 @@
                   <strong>{{ digest.month_name }} {{ digest.year }}</strong> &bull; Dalston, Stoke Newington, Camden, Islington & Major Stadiums
                 </p>
                 <p style="margin: 8px 0 0 0; font-size: 12px; color: #64748b;">
-                  Surveyed {{ digest.total_events_scraped }} upcoming events across DICE and Ticketmaster.
+                  Surveyed {{ digest.total_events_scraped }} upcoming events &bull; <span style="color: #f472b6; font-weight: 700;">{{ digest.new_announcements_count }} just announced</span> since last digest.
                 </p>
               </td>
             </tr>
@@ -129,12 +135,22 @@
                   <p style="margin: 0; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b;">
                     CYCLE BY TIER:
                   </p>
-                  <span id="filter-count" style="font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 2px 8px; border-radius: 12px; border: 1px solid #334155;">
-                    {{ digest.total_events_scraped }} shows
-                  </span>
+                  <div>
+                    <a href="http://127.0.0.1:8765" target="_blank" style="display: inline-block; font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 3px 8px; border-radius: 6px; border: 1px solid #334155; text-decoration: none; margin-right: 6px;">
+                      &#x2699;&#xFE0F; Manage Venues
+                    </a>
+                    <span id="filter-count" style="font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 3px 8px; border-radius: 12px; border: 1px solid #334155;">
+                      {{ digest.total_events_scraped }} shows
+                    </span>
+                  </div>
                 </div>
 
                 <div id="tab-nav">
+                  {% if digest.new_announcements_count > 0 %}
+                  <a href="#tier-new" class="tab-btn btn-new" id="btn-new" onclick="switchTier('new'); return false;">
+                    &#x1F525; Just Announced ({{ digest.new_announcements_count }})
+                  </a>
+                  {% endif %}
                   <a href="#tier-1" class="tab-btn btn-t1 active" id="btn-tier1" onclick="switchTier('tier1'); return false;">
                     &#x1F525; Tier 1: Direct ({{ digest.tier_1_events|length }})
                   </a>
@@ -202,7 +218,7 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_1_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier1" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier1" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 18px; font-weight: 700; color: #ffffff;">
@@ -214,6 +230,11 @@
 
                               <!-- Badges & Matches -->
                               <div style="margin-bottom: 12px;">
+                                {% if event.is_new %}
+                                <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
+                                  &#x1F525; JUST ANNOUNCED
+                                </span>
+                                {% endif %}
                                 {% for match in event.matches %}
                                 <span style="display: inline-block; background-color: #065f46; color: #d1fae5; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
                                   {% if match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB;{% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8;{% else %}&#x2728;{% endif %} {{ match.description }}
@@ -273,7 +294,7 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_2_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier2" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier2" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
@@ -285,6 +306,11 @@
 
                               <!-- Badges & Matches -->
                               <div style="margin-bottom: 12px;">
+                                {% if event.is_new %}
+                                <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
+                                  &#x1F525; JUST ANNOUNCED
+                                </span>
+                                {% endif %}
                                 {% for match in event.matches %}
                                 <span style="display: inline-block; background-color: #3730a3; color: #e0e7ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
                                   &#x2605; {{ match.description }}
@@ -344,9 +370,14 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_3_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 14px 16px;">
+                              {% if event.is_new %}
+                              <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
+                                &#x1F525; JUST ANNOUNCED
+                              </span>
+                              {% endif %}
                               <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
                                 {{ event.title }}
                               </h3>
@@ -389,9 +420,14 @@
 
                         <div class="events-container">
                         {% for event in digest.other_events[:50] %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 12px 14px;">
+                              {% if event.is_new %}
+                              <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
+                                &#x1F525; JUST ANNOUNCED
+                              </span>
+                              {% endif %}
                               <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
                                 {{ event.title }}
                               </p>
@@ -449,14 +485,15 @@
       };
 
       var buttons = {
+        new: document.getElementById('btn-new'),
         tier1: document.getElementById('btn-tier1'),
         tier2: document.getElementById('btn-tier2'),
         tier3: document.getElementById('btn-tier3'),
         all: document.getElementById('btn-all')
       };
 
-      // If "all" selected, show all tier sections
-      if (tierKey === 'all') {
+      // If "all" or "new" selected, show all tier sections
+      if (tierKey === 'all' || tierKey === 'new') {
         for (var k in sections) {
           if (sections[k]) sections[k].style.display = 'block';
         }
@@ -501,10 +538,19 @@
 
       cards.forEach(function(card) {
         var cardTier = card.getAttribute('data-tier');
+        var cardIsNew = card.getAttribute('data-is-new') === 'true';
         var cardArea = card.getAttribute('data-area') || '';
         var cardVenue = card.getAttribute('data-venue') || '';
 
-        var matchTier = (currentTier === 'all' || cardTier === currentTier);
+        var matchTier = false;
+        if (currentTier === 'all') {
+          matchTier = true;
+        } else if (currentTier === 'new') {
+          matchTier = cardIsNew;
+        } else {
+          matchTier = (cardTier === currentTier);
+        }
+
         var matchArea = (selectedArea === 'all' || cardArea === selectedArea);
         var matchVenue = (selectedVenue === 'all' || cardVenue === selectedVenue);
 
@@ -581,10 +627,13 @@
       var t1Count = {{ digest.tier_1_events|length }};
       var t2Count = {{ digest.tier_2_events|length }};
       var t3Count = {{ digest.tier_3_events|length }};
+      var newCount = {{ digest.new_announcements_count }};
 
       var hash = window.location.hash.replace('#', '').toLowerCase();
-      if (hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'all') {
+      if (hash === 'new' || hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'all') {
         switchTier(hash);
+      } else if (newCount > 0) {
+        switchTier('new');
       } else if (t1Count > 0) {
         switchTier('tier1');
       } else if (t2Count > 0) {

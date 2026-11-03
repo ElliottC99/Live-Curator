@@ -34,6 +34,9 @@ class DigestMailer:
         else:
             highlight = f"{digest.total_events_scraped} Upcoming Shows"
 
+        if digest.new_announcements_count > 0:
+            highlight += f" ({digest.new_announcements_count} New!)"
+
         return f"{prefix} {digest.month_name} {digest.year} — {highlight}"
 
     def send_via_gmail_smtp(
