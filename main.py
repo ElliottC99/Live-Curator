@@ -210,6 +210,48 @@ def run_pipeline(
     logger.info(f"Total live events harvested across all platforms: {len(deduped_events)} (deduplicated from {len(all_events)})")
     all_events = deduped_events
 
+    # Offline/CI Fallback: If 0 events harvested and no restricting filters were applied, load from seed_events.json
+    if not all_events and not (venue_filter or area_filter or (platform_filter and platform_filter != "all")):
+        seed_json_path = PROJECT_ROOT / "data" / "seed_events.json"
+        if seed_json_path.exists():
+            import json
+            logger.info("No events harvested from live platforms; loading fallback from data/seed_events.json...")
+            try:
+                with open(seed_json_path, "r", encoding="utf-8") as f:
+                    raw_events = json.load(f)
+                from src.core.models import Event
+                from src.core.normalizer import split_lineup
+                for item in raw_events:
+                    try:
+                        dt = datetime.fromisoformat(item["start_time"])
+                    except Exception:
+                        dt = datetime.now()
+                    area = item.get("venue_area") or "East London"
+                    if area.lower() == "east london" and "wembley" in item.get("venue_name", "").lower():
+                        area = "Wembley"
+                    title = item.get("title", "")
+                    performers = item.get("performers") or split_lineup(title)
+                    norm_performers = [normalize_artist_name(p) for p in performers if p]
+                    all_events.append(
+                        Event(
+                            id=item.get("id"),
+                            title=title,
+                            venue_name=item.get("venue_name", ""),
+                            venue_area=area,
+                            start_time=dt,
+                            date_str=dt.strftime("%a %d %b %Y, %H:%M"),
+                            performers=performers,
+                            normalized_performers=norm_performers,
+                            ticket_url=item.get("ticket_url") or "https://dice.fm",
+                            platform=item.get("platform") or "dice",
+                            price_str=item.get("price_str"),
+                            is_sold_out=bool(item.get("is_sold_out", False)),
+                        )
+                    )
+                logger.info(f"Loaded {len(all_events)} events from data/seed_events.json fallback.")
+            except Exception as ex:
+                logger.error(f"Failed to load seed_events.json fallback: {ex}")
+
     # 4. 3-Tier Categorization & Historical Delta Diffing
     logger.info("Step 4/5: Categorizing events and diffing against past digests...")
     history_db = PROJECT_ROOT / "data" / "cache" / "digest_history.sqlite"

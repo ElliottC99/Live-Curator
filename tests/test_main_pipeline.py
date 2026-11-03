@@ -182,3 +182,52 @@ def test_run_pipeline_area_filter(
     called_venues = mock_dice.scrape_all_venues.call_args[0][0]
     assert len(called_venues) == 1
     assert called_venues[0].name == "The Lexington"
+
+
+@patch("main.SpotifyEngine")
+@patch("main.ReviewAggregator")
+@patch("main.DiceScraper")
+@patch("main.TicketmasterEngine")
+@patch("main.SongkickEngine")
+@patch("main.DigestMailer")
+def test_run_pipeline_fallback_to_seed_events(
+    mock_mailer_cls,
+    mock_sk_cls,
+    mock_tm_cls,
+    mock_dice_cls,
+    mock_reviews_cls,
+    mock_spotify_cls,
+    mock_config,
+):
+    mock_spotify = MagicMock()
+    mock_spotify.get_combined_taste_profile.return_value = CombinedTasteProfile(
+        elliott=UserTasteProfile(user_name="Elliott"),
+        chloe=UserTasteProfile(user_name="Chloe"),
+    )
+    mock_spotify_cls.return_value = mock_spotify
+
+    mock_reviews = MagicMock()
+    mock_reviews.get_recommended_artists.return_value = {}
+    mock_reviews_cls.return_value = mock_reviews
+
+    mock_dice = MagicMock()
+    mock_dice.scrape_all_venues.return_value = []
+    mock_dice_cls.return_value = mock_dice
+
+    mock_tm = MagicMock()
+    mock_tm.fetch_all_venues.return_value = []
+    mock_tm_cls.return_value = mock_tm
+
+    mock_sk = MagicMock()
+    mock_sk.fetch_all_venues.return_value = []
+    mock_sk_cls.return_value = mock_sk
+
+    digest = run_pipeline(
+        config=mock_config,
+        dry_run=True,
+        preview_html=False,
+    )
+
+    # When all scrapers return empty and no filters were applied, fallback loads data/seed_events.json
+    assert digest.total_events_scraped > 0
+
