@@ -295,5 +295,3236 @@
     "start_time": "2026-11-29T19:30:00+00:00",
     "ticket_url": "https://dice.fm/event/6accc0fe06ca060001aa2cee",
     "platform": "dice"
+  },
+  {
+    "id": "dice:6adf1d63ef898800019a7818",
+    "title": "Hideous Panda",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-03T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6adf1d63ef898800019a7818",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a7f532ccd6a6a000158d773",
+    "title": "Superfriends + Fern Veh + Highstone",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-04T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a7f532ccd6a6a000158d773",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa64a7fe698de0001c9917b",
+    "title": "D\u00e9\u00e9fait + The Eurosuite",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-05T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa64a7fe698de0001c9917b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a3d136209bcab000133eeb8",
+    "title": "Tony Bontana + Shayk",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-06T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a3d136209bcab000133eeb8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a704f3365b47b00017eb864",
+    "title": "Diva Dungeon Deep Dive",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-06T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a704f3365b47b00017eb864",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6936f2d538aeb500012318f1",
+    "title": "Dance Yrself Clean Electroclash/Post Punk/New Wave",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-07T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6936f2d538aeb500012318f1",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aaa2f3469812200016caddf",
+    "title": "Fade Evare + Corin V",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-09T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aaa2f3469812200016caddf",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa13e8a67b446000178095e",
+    "title": "Big Softy + Aki Oke + Adult Woman",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-10T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa13e8a67b446000178095e",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8857b52f703900013cec71",
+    "title": "The Gnomes",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-11T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8857b52f703900013cec71",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa8226aff46e9000181655c",
+    "title": "FIRST FIFTY: State of Grace, Spanish Horses, Angelface",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa8226aff46e9000181655c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0de1ad95f16400013ca9b8",
+    "title": "Martial Arts + Guests",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-13T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0de1ad95f16400013ca9b8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6916f62c2d3b0600015b573d",
+    "title": "Algorithm Of The Night: 90s / 2000s / Y2K Dance",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-13T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6916f62c2d3b0600015b573d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab29e783aa9440001e5ffd0",
+    "title": "Garageland London \u2013 MAPACHE, EH, MERTXE!, TOBOG\u00c1N",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-14T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab29e783aa9440001e5ffd0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:691b515dbc542c0001aebd74",
+    "title": "N\u00fc Wavved: 80s New Wave, Italo Disco, Post Punk",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-14T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/691b515dbc542c0001aebd74",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad49016849ebe0001cc8403",
+    "title": "The Grass Museum",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-15T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad49016849ebe0001cc8403",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae9b8847c1cdb0001640489",
+    "title": "Troutflies",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-16T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae9b8847c1cdb0001640489",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa80e24170c6a0001ea592b",
+    "title": "FU YANG + VIM (Live)",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-17T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa80e24170c6a0001ea592b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab630bfeffe8e0001f437e5",
+    "title": "Genevieve Miles",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab630bfeffe8e0001f437e5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0ad463a37bee0001d3c080",
+    "title": "LA \u00c9LITE + Ice Baths",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-19T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0ad463a37bee0001d3c080",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a282c9773e7320001863bfb",
+    "title": "SLAG",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-20T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a282c9773e7320001863bfb",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad997d77e17530001b2d6ff",
+    "title": "C.O.F.F.I.N (DJ Set)",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-20T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad997d77e17530001b2d6ff",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace2f7ea8746800018b9da4",
+    "title": "Blousey + Small Pleasures + Lots Of",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-21T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace2f7ea8746800018b9da4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a881bf482b83a00016ed9b0",
+    "title": "Scared To Dance: Guest DJ Elis James",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-21T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a881bf482b83a00016ed9b0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace2db7cdefd0000174eaad",
+    "title": "The Tambourines",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-22T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace2db7cdefd0000174eaad",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace3181581988000119f531",
+    "title": "BERTHAJU",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-23T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace3181581988000119f531",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a90008a6ef8f80001fb099a",
+    "title": "Paycheque + Fiscal Harm",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-24T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a90008a6ef8f80001fb099a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab7b900d3d20600018e2965",
+    "title": "Cordelia Gartside + Trout + Jonique",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-25T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab7b900d3d20600018e2965",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69c3a477fd13df00017066ea",
+    "title": "pyncher",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69c3a477fd13df00017066ea",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a33da127b2a6a00012f8d5e",
+    "title": "Sweet Dreams Soul & Disco",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-27T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a33da127b2a6a00012f8d5e",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac8ce5d051f140001e9df25",
+    "title": "BAD VIBES November all-dayer: My Precious Bunny + Lindow Man + Scouts + Sugar Tax + Limes World",
+    "venue_name": "The Shacklewell Arms",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-28T17:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac8ce5d051f140001e9df25",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace4effe6779b0001b8dfa4",
+    "title": "Shameless - Y2K Anthems & Beyond",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-06T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace4effe6779b0001b8dfa4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a4f83d4ebf5b80001998fb9",
+    "title": "Ollie",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-07T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a4f83d4ebf5b80001998fb9",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace50582f9e66000178e6c3",
+    "title": "Locomotive Disco - Disco, House & Dancefloor Classics",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-07T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace50582f9e66000178e6c3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae0db71050d7e000165381a",
+    "title": "JERUB",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-09T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae0db71050d7e000165381a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2e97ee5f3fdd0001e5c92f",
+    "title": "Cowgirl Clue + Mayvi",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-10T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2e97ee5f3fdd0001e5c92f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a26836effd5140001ceba1a",
+    "title": "Quiet Light",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-11T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a26836effd5140001ceba1a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa8f27b1c3ced0001840b6c",
+    "title": "FIRST FIFTY: Esmeralda Road, Xanadu, Pack of Animals & Jordan Joy",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa8f27b1c3ced0001840b6c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69f9f25820bd860001282713",
+    "title": "DAVID MCCREDIE",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69f9f25820bd860001282713",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab26b16647583000117c11d",
+    "title": "Shameless - Y2K Anthems & Beyond",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-13T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab26b16647583000117c11d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad1e097c22acc000155de83",
+    "title": "Locomotive Disco - House, Disco & Dancefloor Classics",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-14T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad1e097c22acc000155de83",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69ba63d764e5bd0001eda502",
+    "title": "The Boo Radleys",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-15T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69ba63d764e5bd0001eda502",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2958c324f672000189b176",
+    "title": "ROMES",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-16T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2958c324f672000189b176",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a33d9f200591a0001629674",
+    "title": "Grandmas House",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-17T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a33d9f200591a0001629674",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a5fa1e2e1834200011c8f00",
+    "title": "This Is The Deep + Pheobe Coco + Isabelle Pead",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-20T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a5fa1e2e1834200011c8f00",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace4fd2e6779b0001542790",
+    "title": "Shameless - Y2K Anthems & Beyond",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-20T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace4fd2e6779b0001542790",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae872ab27da6e0001b53608",
+    "title": "Locomotive Disco - House, Disco & Dancefloor Classics",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-21T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae872ab27da6e0001b53608",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a16d6e8de1a06000178f90b",
+    "title": "SBP4 (Samoe Bolshoe Prostoe Chislo)",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-22T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a16d6e8de1a06000178f90b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aae719927956e0001557515",
+    "title": "Charlie Noordewier",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-24T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aae719927956e0001557515",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0381bb13b4960001384485",
+    "title": "deary",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-25T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0381bb13b4960001384485",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69f30a9eae3ebf000187afec",
+    "title": "King No-One",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-26T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69f30a9eae3ebf000187afec",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a916d1eea5f22000183a6a0",
+    "title": "bshp",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a916d1eea5f22000183a6a0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae8d94025be9b0001d6f0f8",
+    "title": "Shameless - Y2K Anthems & Beyond",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-27T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae8d94025be9b0001d6f0f8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae8d9628254ef00013e07b2",
+    "title": "Locomotive Disco - House, Disco & Dancefloor Classics",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-28T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae8d9628254ef00013e07b2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a492d59cbff2c0001caaf34",
+    "title": "La La Love You",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-29T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a492d59cbff2c0001caaf34",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa942d77fcf070001e56683",
+    "title": "Hollow Ship",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-12-02T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa942d77fcf070001e56683",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae9e222eede660001566e50",
+    "title": "Shameless - Y2K Anthems & Beyond",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-12-04T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae9e222eede660001566e50",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae9e2511ffd040001863b1f",
+    "title": "Locomotive Disco - House, Disco & Dancefloor Classics",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-12-05T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae9e2511ffd040001863b1f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a193cfab1c6b80001a7190d",
+    "title": "Marco Castello",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-12-06T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a193cfab1c6b80001a7190d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8f078ef7d5af0001ffb5d3",
+    "title": "Tasha & Tracie",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-12-08T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8f078ef7d5af0001ffb5d3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fb3621e6282000013d7f47",
+    "title": "Wings of Desire",
+    "venue_name": "Oslo Hackney",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-12-10T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fb3621e6282000013d7f47",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0f2446c0119b0001042439",
+    "title": "zzzahara + Stay In Nothing",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-03T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0f2446c0119b0001042439",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abd4430cd24d50001c90ec3",
+    "title": "\u00a32 WEDS: Mortagh + ASTRIID + Doubt Point",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-04T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abd4430cd24d50001c90ec3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abe7051409763000189778a",
+    "title": "Back to 2001",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-05T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abe7051409763000189778a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab6a9f34b561d000101cd07",
+    "title": "Rosanna In Waves + Fruit Band",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-05T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab6a9f34b561d000101cd07",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae0ad93a438d2000139ceed",
+    "title": "Cherry i / Not My Wife / Bugbear / Sundaughter",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae0ad93a438d2000139ceed",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abe67f62191b00001d08be7",
+    "title": "SERT",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-06T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abe67f62191b00001d08be7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad9dd967e1753000142eeb4",
+    "title": "Ray Von's Stimulant Disco",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-07T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad9dd967e1753000142eeb4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab518a31afcb00001828a1b",
+    "title": "Vitroles + Tom Boshier and the Heartbreak Kids + dj Nando Rosa",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-08T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab518a31afcb00001828a1b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0dde69d4a2b800013b6317",
+    "title": "Bleak Squad",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-11T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0dde69d4a2b800013b6317",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abe70523ba5f90001f0bffb",
+    "title": "Back to 2001",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abe70523ba5f90001f0bffb",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aaa5c3b7edfa20001b5d476",
+    "title": "FIRST FIFTY: Aubory Bugg + Gianna + Abbie Gordon",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aaa5c3b7edfa20001b5d476",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a47c20460e52400012df9f0",
+    "title": "TOO MANY THINGS + THE GLASS KEY + JOE PLASTIC",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-13T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a47c20460e52400012df9f0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad87d9e3fa13e00013d438f",
+    "title": "Y2K: Playing Britney, christina, Beyonce and more.",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-13T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad87d9e3fa13e00013d438f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6acf8da46eda9c00019fa980",
+    "title": "Sounds of Soviet Underground",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-14T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6acf8da46eda9c00019fa980",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad898af547bcd0001a15d54",
+    "title": "TMT Tuesday #14: The Maritime County + Guests",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-17T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad898af547bcd0001a15d54",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a425d24dbc72b00015ad383",
+    "title": "Edging + Ry Guy",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a425d24dbc72b00015ad383",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a96a7c5897a46000158aa58",
+    "title": "Soot Sprite",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a96a7c5897a46000158aa58",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abe70543ba5f90001214249",
+    "title": "Back to 2001",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-19T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abe70543ba5f90001214249",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69b03f0293237c0001b063ac",
+    "title": "The Jack Knives / Rudy Nu\u00f1o / The Young Hearts",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-20T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69b03f0293237c0001b063ac",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69944e663653b1000129815c",
+    "title": "Candide ('Looney Tunes' single launch) + Porchlight + Ali Blue",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-21T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69944e663653b1000129815c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa93dafc1d8870001b418aa",
+    "title": "Anything Goes With Disco_MarkY (Elvis To Bieber And Anything Inbetween)",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-21T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa93dafc1d8870001b418aa",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae8b40ac8929c00014356e8",
+    "title": "ONE NIGHT IN A BOOTH",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-22T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae8b40ac8929c00014356e8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae7604456200f000110f1f2",
+    "title": "Neuro Placid: Concussion Single Launch Party",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-23T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae7604456200f000110f1f2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aba44df012cf10001b66fb3",
+    "title": "A Thousand Mad Things",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-24T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aba44df012cf10001b66fb3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a7b072da46a3e0001edee1d",
+    "title": "Little Quirks",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-25T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a7b072da46a3e0001edee1d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abe70553ba5f900018f2cfd",
+    "title": "Back to 2001",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-26T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abe70553ba5f900018f2cfd",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6220e6222488000181507b",
+    "title": "Doggy Heaven: album release party with Sansha and Early Sans",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-26T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6220e6222488000181507b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae9cabb1ffd0400013d467f",
+    "title": "Jess Ball + Guests",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-27T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae9cabb1ffd0400013d467f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac4e511ef7cac0001bde859",
+    "title": "James McGovern (The Murder Capital) dj set",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-28T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac4e511ef7cac0001bde859",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae0b7f134def10001bd675b",
+    "title": "The Sunday Service presents Perfect Binding",
+    "venue_name": "The Victoria",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-29T15:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae0b7f134def10001bd675b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad1fb2dca4ce40001a30451",
+    "title": "Nicer Tuesdays: November",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-03T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad1fb2dca4ce40001a30451",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae35cc10c7d9f0001bd8034",
+    "title": "Porangu\u00ed: Serve the Music World Tour 2026",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae35cc10c7d9f0001bd8034",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fddc44f5fd3d00013baa6a",
+    "title": "LOS THUTHANAKA + Joshua Chuqimia Crampton",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-05T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fddc44f5fd3d00013baa6a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fddc0ea34b24000105313c",
+    "title": "Actress + KMRU + Joy Guidry",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-05T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fddc0ea34b24000105313c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2847366618730001f811a9",
+    "title": "MARIAM sings AMADOU & MARIAM",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2847366618730001f811a9",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a5e0143e3b4f60001ee66b9",
+    "title": "Macy Gray",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-06T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a5e0143e3b4f60001ee66b9",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac4cceaf6fd32000173d0bd",
+    "title": "Rex Orange County (performing solo): Album Release Show & In Conversation with Mustafa (Matinee)",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-08T17:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac4cceaf6fd32000173d0bd",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abe2d9420ab0a0001efbc2e",
+    "title": "Rex Orange County (performing solo): Album Release Show & In Conversation with Mustafa",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-08T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abe2d9420ab0a0001efbc2e",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0d93e10ebd99000100c48a",
+    "title": "The Music of Stranger Things: Performed by Kyle Dixon & Michael Stein",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-09T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0d93e10ebd99000100c48a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aaaba0eeacc0d00013c2118",
+    "title": "Angel Du$t and Homefront",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-13T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aaaba0eeacc0d00013c2118",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69bbed1c3cde72000146db51",
+    "title": "Emma-Jean Thackray: Dear Miles - A Love Letter",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-13T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69bbed1c3cde72000146db51",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a7f1be4cd6a6a0001878f59",
+    "title": "Pola & Bryson Live (World Debut)",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-14T22:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a7f1be4cd6a6a0001878f59",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a3415b38ebad700019ac70d",
+    "title": "Gigue Production Presents: Dolu Kadehi Ters Tut \u2013 Full Band Live in London!",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-15T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a3415b38ebad700019ac70d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fdc9000a02d4000104ec54",
+    "title": "Joyce Moreno",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-15T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fdc9000a02d4000104ec54",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac63d7089682000019a0f28",
+    "title": "Novara Media\u2019s Downstream IRL - The Fall of the West",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-16T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac63d7089682000019a0f28",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a284ed38ce95c0001705816",
+    "title": "Gigi Masin",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a284ed38ce95c0001705816",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad75081ca8e500001084255",
+    "title": "The Avalanches + Logic1000 + very special guest",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-20T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad75081ca8e500001084255",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aaa956794fa2300013b920d",
+    "title": "Balearic London x Jex Opolis",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-20T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aaa956794fa2300013b920d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa16c0a9217b0000179ce0f",
+    "title": "The Irrepressibles, a True Pride event",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-21T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa16c0a9217b0000179ce0f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1da5a4234c3600017972ed",
+    "title": "Mietze Conte",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-21T22:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1da5a4234c3600017972ed",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9a8bfcf17e370001f280c2",
+    "title": "feeble little horse",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-22T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a9a8bfcf17e370001f280c2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0c2a6e520e420001de2516",
+    "title": "feeble little horse",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-23T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0c2a6e520e420001de2516",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a16f4ea50daa70001855b0f",
+    "title": "Milkweed",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-26T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a16f4ea50daa70001855b0f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aad3b5f83965b0001f67f07",
+    "title": "Unsound London: Space Afrika + Nardus Williams, Ksi\u0119\u017cyc",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-28T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aad3b5f83965b0001f67f07",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aad41749f425500019b548b",
+    "title": "Unsound London: 'Dying Is The Internet' Simo Cell & Abdullah Miniawy, Anz, gyrofield, Tercet Imperial",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-28T22:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aad41749f425500019b548b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a71a5f398b4d800017a1376",
+    "title": "La Plan\u00e8te Sauvage screening with live score by HaHa Sounds Collective",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-11-29T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a71a5f398b4d800017a1376",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae356b16cc74c0001427547",
+    "title": "Peace Not War - a fundraiser for Stop The War at 25",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-12-02T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae356b16cc74c0001427547",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a4632d3f7948300019309b0",
+    "title": "50 Years of The Last Waltz",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-12-03T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a4632d3f7948300019309b0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aad45a0a1778500016a7053",
+    "title": "Hackney Comedy Experience with John Kearns",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-12-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aad45a0a1778500016a7053",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aad9f794b19510001c70b20",
+    "title": "HUNEE - Hunchin' All Night",
+    "venue_name": "EartH",
+    "venue_area": "Dalston",
+    "start_time": "2026-12-04T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aad9f794b19510001c70b20",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0d70833859290001c1cf80",
+    "title": "Harvey Rushmore & The Octopus",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0d70833859290001c1cf80",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6acb513175af8600012ce843",
+    "title": "LAUREL",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-05T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6acb513175af8600012ce843",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab7cba234e57f0001cb34cd",
+    "title": "Firestations + Dominie Hooper",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab7cba234e57f0001cb34cd",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0af1418c198d00016c696f",
+    "title": "Dumbo Gets Mad live in London!",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-07T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0af1418c198d00016c696f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6201d5fa4ec60001e4d7ac",
+    "title": "Pop Never Dies!",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-07T22:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6201d5fa4ec60001e4d7ac",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a5cea5256ca3c0001996576",
+    "title": "n\u00f3wn\u00f8is \u2022 TASTE IT \u2022 the album launch",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a5cea5256ca3c0001996576",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a79f82ccfaa6800019adff0",
+    "title": "su i think",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-18T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a79f82ccfaa6800019adff0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9aa0f7e7800500016b2b1f",
+    "title": "su i think (ROLL DATE)",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-19T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a9aa0f7e7800500016b2b1f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a79c725766d0a0001e5a5c8",
+    "title": "Make Friends",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a79c725766d0a0001e5a5c8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6337d55eb38e000100359c",
+    "title": "The Utopiates live in London!",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-28T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6337d55eb38e000100359c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac826500f52a40001e78242",
+    "title": "nothhingspecial",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-11-30T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac826500f52a40001e78242",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ada14cf72207d00019815ae",
+    "title": "Elf Traps x Shunya",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-12-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ada14cf72207d00019815ae",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac64b992496b60001e0bd82",
+    "title": "Them and I",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-12-10T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac64b992496b60001e0bd82",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad75a2df2e7b00001dce691",
+    "title": "Rumours Soul Club w/ Red Gregg, Rhys Webb, Valentina Savio, Taylor Woodward",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2026-12-12T22:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad75a2df2e7b00001dce691",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac66517f00e8e000118b718",
+    "title": "Mynolia",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2027-01-22T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac66517f00e8e000118b718",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae47e849bfa8e0001c440f7",
+    "title": "Cikho",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2027-02-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae47e849bfa8e0001c440f7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abbd36867721e00018bb850",
+    "title": "Youth Sector",
+    "venue_name": "The Waiting Room",
+    "venue_area": "Stoke Newington",
+    "start_time": "2027-02-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abbd36867721e00018bb850",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:690661d934cedd00010710df",
+    "title": "Joan As Police Woman",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-05T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/690661d934cedd00010710df",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:690661baf115170001a36cdf",
+    "title": "Joan As Police Woman",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/690661baf115170001a36cdf",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6f5b0651026400015d8075",
+    "title": "Live At The Chapel: Chris McCausland, Lou Sanders",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-07T19:45:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6f5b0651026400015d8075",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:698f5e3ea426db000136d7a4",
+    "title": "The Slow Show: White Water Anniversary Live Tour",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-10T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/698f5e3ea426db000136d7a4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1fdd6b8bc27a0001e91556",
+    "title": "Dave Okumu and Friends",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-15T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1fdd6b8bc27a0001e91556",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69a808f05a2357000117170a",
+    "title": "Sam Gendel and Sam Wilkes",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-17T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69a808f05a2357000117170a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a5896d325c00100012cfa63",
+    "title": "Charlotte Dos Santos",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-18T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a5896d325c00100012cfa63",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a4d0ee603919c00014385a2",
+    "title": "Bongeziwe Mabandla",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-19T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a4d0ee603919c00014385a2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69cd410dffdb8000018bb2b6",
+    "title": "Ron Pope",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-21T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69cd410dffdb8000018bb2b6",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69f30bd626b32200012e6dbb",
+    "title": "Jamie Duffy",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-26T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69f30bd626b32200012e6dbb",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69bac6da4ebecf000123aaa5",
+    "title": "An Evening with LAMBCHOP",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69bac6da4ebecf000123aaa5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69bad1c394bd2c000109062f",
+    "title": "An Evening with LAMBCHOP",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-28T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69bad1c394bd2c000109062f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1ed2043fbcc90001789e4f",
+    "title": "Ben Watt and Tracey Thorn",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-29T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1ed2043fbcc90001789e4f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1ed200e87834000152d3d0",
+    "title": "Ben Watt and Tracey Thorn",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-11-30T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1ed200e87834000152d3d0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:693085b8f6e27a0001264fc8",
+    "title": "Brian Bilston - \"How to Lay an Egg with a Horse Inside\"",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-04T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/693085b8f6e27a0001264fc8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab1387c84ab79000117a4a8",
+    "title": "Live At The Chapel with Tim Key",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-05T19:45:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab1387c84ab79000117a4a8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae349d5081cab0001c523e6",
+    "title": "Billie Marten",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-11T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae349d5081cab0001c523e6",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9ff7ce2ad8c80001e66c73",
+    "title": "Johnny & Lillie Flynn: Album Release Show (Matinee)",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-14T17:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a9ff7ce2ad8c80001e66c73",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9ff71dbe7141000149daa2",
+    "title": "Johnny & Lillie Flynn: Album Release Show",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-14T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a9ff71dbe7141000149daa2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69eb5400ad5ccc000140e2e5",
+    "title": "Cara Dillon - Upon A Winter's Night",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-18T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69eb5400ad5ccc000140e2e5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2e9a3e7aebdd000118f777",
+    "title": "The Unthanks in Winter (Matinee)",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-19T15:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2e9a3e7aebdd000118f777",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2e9dbe2b88d4000136dfcf",
+    "title": "The Unthanks in Winter",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2026-12-19T19:15:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2e9dbe2b88d4000136dfcf",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa29bb6244dda0001fcd2d0",
+    "title": "Carolina Deslandes",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-01-22T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa29bb6244dda0001fcd2d0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69d8e1a323b41300015a94bf",
+    "title": "January Blues Festival: ERIC BIBB",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-01-23T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69d8e1a323b41300015a94bf",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a355dabc559de0001821f5c",
+    "title": "Jan Blues Fest CHARLIE MUSSELWHITE & KIRK FLETCHER",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-01-24T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a355dabc559de0001821f5c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a355e0aa730ad0001250499",
+    "title": "Jan Blues Fest CHARLIE MUSSELWHITE & KIRK FLETCHER",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-01-25T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a355e0aa730ad0001250499",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae4d7b08b222700019ff444",
+    "title": "January Blues Festival: P.P. ARNOLD",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-01-28T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae4d7b08b222700019ff444",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae22ead0263c10001f3b8ba",
+    "title": "January Blues Festival: DELVON LAMARR ORGAN TRIO",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-01-30T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae22ead0263c10001f3b8ba",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac3c75e5168fb0001fcdfee",
+    "title": "Darlingside",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-02-02T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac3c75e5168fb0001fcdfee",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9e6dd3eb5ece0001277cd0",
+    "title": "Josh Rouse",
+    "venue_name": "Union Chapel",
+    "venue_area": "Islington",
+    "start_time": "2027-02-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a9e6dd3eb5ece0001277cd0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1dbefc68422a0001919b5d",
+    "title": "Rikas",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-03T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1dbefc68422a0001919b5d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a62293507595300014b03cd",
+    "title": "Children of Zeus",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-05T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a62293507595300014b03cd",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a201fde865f7c0001c35d6a",
+    "title": "Adamlar",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-08T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a201fde865f7c0001c35d6a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6cd52752840d00019748b7",
+    "title": "Ed Maverick",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6cd52752840d00019748b7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69e24971ede7ff00013297e1",
+    "title": "Elephant Sessions",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-14T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69e24971ede7ff00013297e1",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0d924a3fc2040001b3a624",
+    "title": "Zinadelphia",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-15T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0d924a3fc2040001b3a624",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a635e1a5238c70001c3b688",
+    "title": "Matt Rogers",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a635e1a5238c70001c3b688",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6860502d7bd900013431d7",
+    "title": "namesbliss",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6860502d7bd900013431d7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:693855b889bb3f0001f35266",
+    "title": "Gloryhammer",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-20T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/693855b889bb3f0001f35266",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69d376b80835eb00018cabb4",
+    "title": "Soen",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-21T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69d376b80835eb00018cabb4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1ebc743fbcc9000177e0ad",
+    "title": "Kyoto Jazz Massive",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-22T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1ebc743fbcc9000177e0ad",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a212e51f292520001c0ccaf",
+    "title": "Dea Matrona",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-23T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a212e51f292520001c0ccaf",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a492c3a1021e80001f79930",
+    "title": "Gareth",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-24T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a492c3a1021e80001f79930",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69d8b2f311ef440001b33bc2",
+    "title": "Ibibio Sound Machine",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-25T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69d8b2f311ef440001b33bc2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a3a69e15824980001947c32",
+    "title": "KILIMANJARO (Live)",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-26T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a3a69e15824980001947c32",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0f05655ffbf40001ec8af7",
+    "title": "Good Health Good Wealth",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0f05655ffbf40001ec8af7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69e24a04ae17bb00019ec69e",
+    "title": "Scott Matthews",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-28T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69e24a04ae17bb00019ec69e",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a91a39ea0dc520001ae3210",
+    "title": "Pass The Meerkat",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-11-29T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a91a39ea0dc520001ae3210",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0435131f84aa0001ad8889",
+    "title": "Benny Sings",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-01T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0435131f84aa0001ad8889",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6cd9857f53ef0001ea24f4",
+    "title": "The Men They Couldn't Hang",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-03T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6cd9857f53ef0001ea24f4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6998b8c9182afa00018e95df",
+    "title": "The Veils",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6998b8c9182afa00018e95df",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69bd6358ea2ca2000116a225",
+    "title": "Jim Bob",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-05T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69bd6358ea2ca2000116a225",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9d3e4729ff850001bcf271",
+    "title": "Ingrid Michaelson",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a9d3e4729ff850001bcf271",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2aedac83ef650001e0a4d7",
+    "title": "Dylan John Thomas",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-08T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2aedac83ef650001e0a4d7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69c9b4afef63260001983580",
+    "title": "Bilal",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-09T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69c9b4afef63260001983580",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69b95ee33a135e00019e6d4f",
+    "title": "Haven\u2019t Stopped Dancing Yet Big Xmas Disco Ball",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69b95ee33a135e00019e6d4f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69dfa802730b6c0001ecfe75",
+    "title": "SLIFT",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69dfa802730b6c0001ecfe75",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a981335cfbe7c0001c18a99",
+    "title": "Sekou",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-15T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a981335cfbe7c0001c18a99",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69a7191115bb1e0001fb5562",
+    "title": "IQ: THE LEGENDARY CHRISTMAS BASH",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2026-12-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69a7191115bb1e0001fb5562",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69dfaf051fe35800011070f3",
+    "title": "Afterhours",
+    "venue_name": "Islington Assembly Hall",
+    "venue_area": "Islington",
+    "start_time": "2027-01-15T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69dfaf051fe35800011070f3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abb99ad7cbc500001c071f8",
+    "title": "Django Django: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-03T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abb99ad7cbc500001c071f8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6b81a8a3188100014dea4b",
+    "title": "Rick Wakeman: In Conversation + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6b81a8a3188100014dea4b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aba478b25fc990001b18054",
+    "title": "The Snuts: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-05T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aba478b25fc990001b18054",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a47d9915d6def00017f0f85",
+    "title": "Do Nothing: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a47d9915d6def00017f0f85",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6accc90fa80b1500016f4837",
+    "title": "Rex Orange County 'Dream Fatigue' Album Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-07T12:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6accc90fa80b1500016f4837",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6acdff0deabb040001b2b910",
+    "title": "La Roux: Live Performance (Matinee)",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-07T16:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6acdff0deabb040001b2b910",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa009dd9173c000019b4f22",
+    "title": "La Roux: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-07T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa009dd9173c000019b4f22",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab3a9424f907a0001f632a5",
+    "title": "DIIV: Q&A with Ben Homewood + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-08T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab3a9424f907a0001f632a5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a7c8c66e28b9700013dc0f0",
+    "title": "The Wran: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-09T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a7c8c66e28b9700013dc0f0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad5f1f9f37c080001448636",
+    "title": "Melissa Auf Der Maur: In Conversation w/ Thurston Moore + Book Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-10T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad5f1f9f37c080001448636",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a7da4b2273f1800016e0afc",
+    "title": "FLO After Hours: Acoustic Set + Q&A",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-12T21:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a7da4b2273f1800016e0afc",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6acd0ac30a3d640001adc2a8",
+    "title": "His Lordship: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6acd0ac30a3d640001adc2a8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8c0492fec4480001d6cc51",
+    "title": "Swansea Sound: Live + Signing w/ opening from Railcard",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-15T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8c0492fec4480001d6cc51",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae471f8ed4a67000128b2c1",
+    "title": "Jake Bugg: Acoustic Performance (Matinee)",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-16T16:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae471f8ed4a67000128b2c1",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a97fc0d1599830001a3f88b",
+    "title": "Jake Bugg: Acoustic/Q&A + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-16T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a97fc0d1599830001a3f88b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa28df4ad970000011712cc",
+    "title": "Shygirl: Q&A + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-17T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa28df4ad970000011712cc",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8445a060d9f100010ebad1",
+    "title": "Phoebe Bridgers: 'Lost Weekend' Album Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-20T15:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8445a060d9f100010ebad1",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad9fff630a6130001564804",
+    "title": "B.B. King \u2013 The Montreux Years and the Future of the Blues",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-21T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad9fff630a6130001564804",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad0e0dcdf0b670001aff3eb",
+    "title": "BexBlu & Paul Stephan: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-22T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad0e0dcdf0b670001aff3eb",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac6693129da160001802053",
+    "title": "Rora and the Untamed: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-23T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac6693129da160001802053",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac8c0653b3cd40001277527",
+    "title": "The Blue Aeroplanes: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-24T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac8c0653b3cd40001277527",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab54447ea67fd0001e227ff",
+    "title": "B\u00f4a: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab54447ea67fd0001e227ff",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6adf8a438be4730001be130d",
+    "title": "Alewya: Live",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-29T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6adf8a438be4730001be130d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a42486e0b2c050001e30828",
+    "title": "The Pretty Reckless: Acoustic + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-11-30T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a42486e0b2c050001e30828",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace60d22f9e660001bbefaf",
+    "title": "Radie Peat (Lankum / \u00d8XN): Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-12-02T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace60d22f9e660001bbefaf",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad237c3f96d880001ca3664",
+    "title": "SikTh: In Conversation + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2026-12-03T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad237c3f96d880001ca3664",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab64fbabf2e4e0001585268",
+    "title": "Shed Seven: Live Performance (Matinee)",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2027-01-10T17:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab64fbabf2e4e0001585268",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab101e39a4091000152f326",
+    "title": "Shed Seven: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2027-01-10T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab101e39a4091000152f326",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab23ffd520aef0001262727",
+    "title": "Erol Alkan: In Conversation + Book Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2027-01-11T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab23ffd520aef0001262727",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6adf51f021ae970001076d3f",
+    "title": "The Twang: Live + Signing",
+    "venue_name": "Rough Trade East",
+    "venue_area": "Shoreditch",
+    "start_time": "2027-01-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6adf51f021ae970001076d3f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fa254ed9d3150001e31ac5",
+    "title": "World News",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-03T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fa254ed9d3150001e31ac5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69eb8be7cfc2d300012d8266",
+    "title": "Chasing Abbey",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69eb8be7cfc2d300012d8266",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fe09b7c61b75000127fd0f",
+    "title": "Josiah & The Bonnevilles",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-05T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fe09b7c61b75000127fd0f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac63c0c2348370001ec3de5",
+    "title": "Face Down - Pop Punk, Metal, Emo Night London",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-06T22:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac63c0c2348370001ec3de5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a3028d01b98d1000113fed4",
+    "title": "SPYAIR",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-07T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a3028d01b98d1000113fed4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac9159e21d6680001536dc3",
+    "title": "Diwali Vibes with RIHYA",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-07T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac9159e21d6680001536dc3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aad5e979d137100010f72c9",
+    "title": "Saturday Love Funk - The Dancefloor Reunion",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-08T14:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aad5e979d137100010f72c9",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6977aa380d0e1f00019fd4c5",
+    "title": "EYEHATEGOD",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-09T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6977aa380d0e1f00019fd4c5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2ae6ff49750d0001ee4920",
+    "title": "Chloe Slater",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-10T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2ae6ff49750d0001ee4920",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69dd149446420e0001081267",
+    "title": "Temples",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69dd149446420e0001081267",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:699ddebaf326610001c9ae4b",
+    "title": "PIG DESTROYER",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-13T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/699ddebaf326610001c9ae4b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:68c2f9752bdc7d00018bbf3f",
+    "title": "Old School Indie - Over 30s Daytime Party (w/Club de Fromage)",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-14T15:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/68c2f9752bdc7d00018bbf3f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:68c1ad8df171d50001d35553",
+    "title": "Club De Fromage - 20th Birthday Daytime Party",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-14T15:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/68c1ad8df171d50001d35553",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:697a51c779e7ed0001b4504e",
+    "title": "Back to the 90's & 00's!",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-14T22:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/697a51c779e7ed0001b4504e",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69ef856ae2b3de0001e69938",
+    "title": "DE STAAT",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-15T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69ef856ae2b3de0001e69938",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1ecfb0e878340001df20ef",
+    "title": "Boko Yout",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-16T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1ecfb0e878340001df20ef",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69dd0eab410e3b0001f1970d",
+    "title": "Widowspeak",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-17T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69dd0eab410e3b0001f1970d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a96cfe355fd120001f51320",
+    "title": "Diana Arbenina and Night Snipers: A Night of Music, Energy and Emotion",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a96cfe355fd120001f51320",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a05eab5bb597800011255f2",
+    "title": "Big Sleep",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-20T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a05eab5bb597800011255f2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aac1de949e0860001ffdf97",
+    "title": "Soca Frenzy x Hit it - Bim Takeover",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-20T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aac1de949e0860001ffdf97",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ac3ce9a5168fb0001df2080",
+    "title": "REGGAETON LATINO - BAD BUNNY CASITA EDITION",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-21T22:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ac3ce9a5168fb0001df2080",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6397a1f152bc000106471f",
+    "title": "Villanelle",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-23T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6397a1f152bc000106471f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69f377a09f5cc10001745d2b",
+    "title": "The Guest List",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-24T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69f377a09f5cc10001745d2b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69eb89664398ea00017efcd7",
+    "title": "CATTY",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-26T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69eb89664398ea00017efcd7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a20625b58e54d0001da8c0d",
+    "title": "strongboi",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-27T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a20625b58e54d0001da8c0d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aba95cc74c2870001794e7c",
+    "title": "Hungarian Retro Festival 2026",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-28T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aba95cc74c2870001794e7c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9aed8345540d0001efdb07",
+    "title": "Ernia",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-29T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a9aed8345540d0001efdb07",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a17202920468200011f4bbe",
+    "title": "Martin Luke Brown",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-12-02T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a17202920468200011f4bbe",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69f4da543b94d80001c100f8",
+    "title": "Garage Nation Christmas Brunch & Day Party",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-12-05T12:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69f4da543b94d80001c100f8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69b9923aaa3e9c0001a20c93",
+    "title": "The House Of Love",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-12-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69b9923aaa3e9c0001a20c93",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0ed6dc72656e00013f705c",
+    "title": "The Avalanches",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-06T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0ed6dc72656e00013f705c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6889d25327232d00010e8027",
+    "title": "Infinity Song",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-08T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6889d25327232d00010e8027",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a27e532f460ba0001dc1fee",
+    "title": "Wasia Project",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-11T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a27e532f460ba0001dc1fee",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a7af4ec6a2e01000120ca7c",
+    "title": "Labyrinth presents: Marsh extended set",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a7af4ec6a2e01000120ca7c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6939830ecb73ba00019358f7",
+    "title": "Fatoumata Diawara",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6939830ecb73ba00019358f7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8825ae6c92660001ff6b26",
+    "title": "Calibre",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-21T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8825ae6c92660001ff6b26",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a005d7d16df6100019fccd5",
+    "title": "Gotts Street Park and Friends",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-25T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a005d7d16df6100019fccd5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a33a2545d2c5800015e4d04",
+    "title": "The Avalanches",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a33a2545d2c5800015e4d04",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a722220882c9d00018ace4a",
+    "title": "Notion",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-11-28T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a722220882c9d00018ace4a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a88091ba815170001a9264e",
+    "title": "Gang of Youths",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-02T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a88091ba815170001a9264e",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad899e43a5e00000117804d",
+    "title": "Hyperactive World presents TeeDee Extended Set",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad899e43a5e00000117804d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a901763abd2de00019e50b2",
+    "title": "Labyrinth presents: Sasha & John Digweed Open to Close",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-05T18:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a901763abd2de00019e50b2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a0b02cbd3861b0001fed0a4",
+    "title": "Getdown Services",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-08T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a0b02cbd3861b0001fed0a4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a1eb09e279dd10001145b55",
+    "title": "Getdown Services",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-09T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a1eb09e279dd10001145b55",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:699f33f4f1b9a40001ea189b",
+    "title": "New Model Army",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-13T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/699f33f4f1b9a40001ea189b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a54c05696e32f000179298f",
+    "title": "Blondshell",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-15T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a54c05696e32f000179298f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a6384db117f8300018890ec",
+    "title": "Kurupt FM",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2026-12-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a6384db117f8300018890ec",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae096bb89bee600015196df",
+    "title": "Malugi: Jumping Around at the Roundhouse",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-02-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae096bb89bee600015196df",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aba7ab3c89c950001931b84",
+    "title": "Labyrinth presents: Ember by Dlala Thukzin",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-02-12T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aba7ab3c89c950001931b84",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae4a0d19cc6d30001b8e48d",
+    "title": "Labyrinth presents: Ember by Dlala Thukzin Added Date",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-02-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae4a0d19cc6d30001b8e48d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae2346a00259b00012d47ee",
+    "title": "Jesse Welles",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-02-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae2346a00259b00012d47ee",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a18144b9bd705000163d2b7",
+    "title": "Dominguinho: Jo\u00e3o Gomes, Jota.p\u00ea, Mestrinho",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-02-26T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a18144b9bd705000163d2b7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ace4f85d416af00018b9917",
+    "title": "Korolova",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-02-27T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ace4f85d416af00018b9917",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad1d596e868640001615b9a",
+    "title": "Raleigh Ritchie",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-03-10T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad1d596e868640001615b9a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abbebad6d6f32000103e6a9",
+    "title": "4am Kru - FROM THE GROUND UP TOUR",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-03-12T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abbebad6d6f32000103e6a9",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa3cd45f3f3980001b35f3c",
+    "title": "Lambrini Girls",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-03-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa3cd45f3f3980001b35f3c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a9af80fbe717100018f5e96",
+    "title": "Ang\u00e8le",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-05-01T19:00:00+01:00",
+    "ticket_url": "https://dice.fm/event/6a9af80fbe717100018f5e96",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6adb42b1f984ed000146560a",
+    "title": "Ang\u00e8le",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-05-02T19:00:00+01:00",
+    "ticket_url": "https://dice.fm/event/6adb42b1f984ed000146560a",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a91b0c3b63d4a00010d9b0d",
+    "title": "DESERTFEST 2027 (Weekend Tickets)",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-05-21T12:00:00+01:00",
+    "ticket_url": "https://dice.fm/event/6a91b0c3b63d4a00010d9b0d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae998de2c812b0001dd47b5",
+    "title": "The Interrupters",
+    "venue_name": "Roundhouse",
+    "venue_area": "Camden / Chalk Farm",
+    "start_time": "2027-06-01T19:00:00+01:00",
+    "ticket_url": "https://dice.fm/event/6ae998de2c812b0001dd47b5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae8b1db3239e70001e3e25c",
+    "title": "Hyphen",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-03T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae8b1db3239e70001e3e25c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a84e45e53e76b0001151b3d",
+    "title": "club night - Confessions [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-03T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a84e45e53e76b0001151b3d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a5f46f737b4b60001034a0f",
+    "title": "Avery Friedman + Jack Kaye",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-04T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a5f46f737b4b60001034a0f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a84e4c08e0c810001af12c6",
+    "title": "club night - It's All Popped Up [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-04T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a84e4c08e0c810001af12c6",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abadee5cfb4f200015e38c0",
+    "title": "So Young at The Elephants Head: Delivery + Vehicle",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-05T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abadee5cfb4f200015e38c0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a84e52432798c0001871a2c",
+    "title": "club night - Loose Ends [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-05T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a84e52432798c0001871a2c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad3e83caadbc900016ba995",
+    "title": "Fishwife + Luggs",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad3e83caadbc900016ba995",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a84e581e296d50001732a42",
+    "title": "club night - Anything Goes [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-06T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a84e581e296d50001732a42",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a84e5e3498e5d0001297810",
+    "title": "club night - Fool Me Once [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-07T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a84e5e3498e5d0001297810",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa869de343eba00011250c3",
+    "title": "paddy maloney",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-09T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa869de343eba00011250c3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6abe31f9562faf00012a8756",
+    "title": "People In Trees",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-10T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6abe31f9562faf00012a8756",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a859c1b4b2ad00001e77f51",
+    "title": "club night - Confessions [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-10T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a859c1b4b2ad00001e77f51",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa2bc4015504c00012106b0",
+    "title": "Aqualine + Rose Villas",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-11T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa2bc4015504c00012106b0",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a859cfc4c8cbc000137b9df",
+    "title": "club night - It's All Popped Up [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-11T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a859cfc4c8cbc000137b9df",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ae885085c571e00019cba9e",
+    "title": "Kevin!",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ae885085c571e00019cba9e",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a859e0f5c0a5900019f9b33",
+    "title": "club night - Loose Ends [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-12T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a859e0f5c0a5900019f9b33",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab13842aa05a20001b8d6d6",
+    "title": "Aerial Salad",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-13T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab13842aa05a20001b8d6d6",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a859fad9af54f0001cd632d",
+    "title": "club night - Anything Goes [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-13T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a859fad9af54f0001cd632d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a85a08b9af54f0001a24f64",
+    "title": "club night - Fool Me Once [club night]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-14T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a85a08b9af54f0001a24f64",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6acd685ad5c4bd00018f6ec3",
+    "title": "Lazyitis : The Kitchen Sink Band / DAAY",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-15T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6acd685ad5c4bd00018f6ec3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad5ff861d865800016cf2dd",
+    "title": "Courds + Highstone",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-16T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad5ff861d865800016cf2dd",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a899ebefec448000173a4db",
+    "title": "Pisces + Taste of Cherry",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-17T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a899ebefec448000173a4db",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a85fa4d693266000151ebb5",
+    "title": "club night - Confessions [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-17T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a85fa4d693266000151ebb5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6adf3d4b6ee33f0001c39861",
+    "title": "Danny Griffiths + The Kowloons",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6adf3d4b6ee33f0001c39861",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a85fab221cf700001ed86f3",
+    "title": "club night - It's All Popped Up [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-18T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a85fab221cf700001ed86f3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ad2377bf96d880001b3a4e2",
+    "title": "East City present: Verity Holloway, Hard Country + Opal Mag",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-19T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ad2377bf96d880001b3a4e2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a85fb11a9fab3000138798c",
+    "title": "club night - Loose Ends [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-19T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a85fb11a9fab3000138798c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab6738d73be140001de59b7",
+    "title": "special guests, Maiden Races, Alligatr + Scale",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-20T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab6738d73be140001de59b7",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a85fb5e40be330001e981a8",
+    "title": "club night - Anything Goes [free entry]",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-20T20:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a85fb5e40be330001e981a8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a7d9d36273f1800019fb1a1",
+    "title": "hollowwaves",
+    "venue_name": "The Elephants Head",
+    "venue_area": "Camden",
+    "start_time": "2026-11-21T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a7d9d36273f1800019fb1a1",
+    "platform": "dice"
+  },
+  {
+    "id": "songkick:songkick_5593738040133035823",
+    "title": "Buena Vista Orchestra @ Hanover Theatre",
+    "venue_name": "Wembley Stadium",
+    "venue_area": "Wembley",
+    "start_time": "2026-10-06T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43158081-buena-vista-orchestra-at-hanover-theatre?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_8984413270315462506",
+    "title": "Brit Floyd @ Hanover Theatre",
+    "venue_name": "Wembley Stadium",
+    "venue_area": "Wembley",
+    "start_time": "2026-09-18T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43379996-brit-floyd-at-hanover-theatre?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_2302376791547181530",
+    "title": "Herb Alpert @ Hanover Theatre",
+    "venue_name": "Wembley Stadium",
+    "venue_area": "Wembley",
+    "start_time": "2026-08-02T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43100845-herb-alpert-at-hanover-theatre?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_3490019153818649430",
+    "title": "The Timewriter @ Nlo Club",
+    "venue_name": "London Stadium",
+    "venue_area": "Stratford / Olympic Park",
+    "start_time": "2012-05-19T00:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/12455978-timewriter-at-nlo-club?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_4132193664600740816",
+    "title": "Kelela @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-11-04T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43246014-kelela-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_933108039232624755",
+    "title": "Tove Lo @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-11-07T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43213997-tove-lo-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_7313893132698219219",
+    "title": "Freya Skye @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-11-08T18:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43058495-freya-skye-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_1998668371982652820",
+    "title": "Freya Skye @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-11-09T18:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43070622-freya-skye-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_115129814738510491",
+    "title": "Skye Newman @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-11-12T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43182150-skye-newman-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_8201485550606866200",
+    "title": "The Mary Wallopers @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-10-30T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43256609-mary-wallopers-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_190867031501550856",
+    "title": "Jalen Ngonda @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-10-28T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43079149-jalen-ngonda-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_1556789331142375863",
+    "title": "Fat Dog @ O2 Academy Brixton",
+    "venue_name": "The O2 Arena",
+    "venue_area": "Greenwich",
+    "start_time": "2026-10-24T18:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43190339-fat-dog-at-o2-academy-brixton?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5770116288361431491",
+    "title": "Presley & Taylor @ Stoney's",
+    "venue_name": "Alexandra Palace",
+    "venue_area": "Alexandra Palace",
+    "start_time": "2024-07-18T22:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/41981518-presley-and-taylor-at-stoneys?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_7855955747249260055",
+    "title": "Avi Angel @ Stoney's",
+    "venue_name": "Alexandra Palace",
+    "venue_area": "Alexandra Palace",
+    "start_time": "2021-07-12T12:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/39924927-avi-angel-at-stoneys?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_1884808813138539885",
+    "title": "Rocket @ Stoney's",
+    "venue_name": "Alexandra Palace",
+    "venue_area": "Alexandra Palace",
+    "start_time": "2008-02-13T00:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/924418-rocket-at-stoneys?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_974626186440090620",
+    "title": "London Philharmonic Orchestra @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-11-04T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43460014-london-philharmonic-orchestra-at-royal-festival-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_8295671312636966445",
+    "title": "London Philharmonic Orchestra @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-11-06T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43460015-london-philharmonic-orchestra-at-royal-festival-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_1439619713909792639",
+    "title": "Alceu Valen\u00e7a @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-11-07T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/42951202-alceu-valenca-at-royal-festival-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_2797326956339636465",
+    "title": "Hania Rani @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-11-08T00:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43413728-hania-rani-at-royal-festival-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_4690252779811472616",
+    "title": "Hania Rani 2026 @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-11-08T19:00:00",
+    "ticket_url": "http://www.songkick.com/festivals/3591172-hania-rani/id/43261668-hania-rani-2026?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5558650037041478029",
+    "title": "London Philharmonic Orchestra @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-10-23T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43460012-london-philharmonic-orchestra-at-royal-festival-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_891532802585150258",
+    "title": "London Philharmonic Orchestra @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-10-21T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43460010-london-philharmonic-orchestra-at-royal-festival-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_70292975794993497",
+    "title": "London Sinfonietta @ Royal Festival Hall",
+    "venue_name": "Hyde Park",
+    "venue_area": "Central London",
+    "start_time": "2026-09-27T15:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43311237-london-sinfonietta-at-royal-festival-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5294241598772398598",
+    "title": "Rebekah @ Hbar & Club",
+    "venue_name": "Copper Box Arena",
+    "venue_area": "Stratford / Olympic Park",
+    "start_time": "2012-05-19T00:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/12455973-rebekah-at-hbar-and-club?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5893511266737530052",
+    "title": "SMKKPM @ Obiecana Cafe",
+    "venue_name": "Drumsheds",
+    "venue_area": "Tottenham / Meridian Water",
+    "start_time": "2024-02-09T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/41668994-smkkpm-at-obiecana-cafe?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_7780511308888231639",
+    "title": "Sara Kordowska @ Obiecana Cafe",
+    "venue_name": "Drumsheds",
+    "venue_area": "Tottenham / Meridian Water",
+    "start_time": "2023-11-25T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/41508824-sara-kordowska-at-obiecana-cafe?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_3783159313157535605",
+    "title": "IVO_oficjalnie @ Obiecana Cafe",
+    "venue_name": "Drumsheds",
+    "venue_area": "Tottenham / Meridian Water",
+    "start_time": "2023-11-24T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/41535627-ivooficjalnie-at-obiecana-cafe?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_4685688755804850982",
+    "title": "Pain of Truth @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-11-04T18:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43353725-pain-of-truth-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_7987692465702031999",
+    "title": "Danny L Harle @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-11-05T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43388109-danny-l-harle-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5170067019312191179",
+    "title": "Foy Vance @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-11-08T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43057744-foy-vance-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_2364831042280323692",
+    "title": "Rio Amor @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-11-10T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43417755-rio-amor-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_7719603941781522946",
+    "title": "Jake Xerxes Fussell @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-11-11T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43201846-jake-xerxes-fussell-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_2389957476531843456",
+    "title": "Los Gaiteros De San Jacinto @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-11-02T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/43364161-los-gaiteros-de-san-jacinto-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5415273854384176528",
+    "title": "Frankie & The Witch Fingers @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-11-01T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43367534-frankie-and-the-witch-fingers-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_204178385291967018",
+    "title": "Gasolina Party @ Great American Music Hall",
+    "venue_name": "O2 Forum Kentish Town",
+    "venue_area": "Kentish Town",
+    "start_time": "2026-10-31T21:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/43447317-gasolina-party-at-great-american-music-hall?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_7700726629463801834",
+    "title": "Matt Rife @ Carlson Center",
+    "venue_name": "O2 Shepherd's Bush Empire",
+    "venue_area": "Shepherd's Bush",
+    "start_time": "2026-08-23T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/42883620-matt-rife-at-carlson-center?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_1098586108553902035",
+    "title": "Parker McCollum @ Carlson Center",
+    "venue_name": "O2 Shepherd's Bush Empire",
+    "venue_area": "Shepherd's Bush",
+    "start_time": "2023-10-06T19:30:00",
+    "ticket_url": "http://www.songkick.com/concerts/41032242-parker-mccollum-at-carlson-center?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_5911022306903613620",
+    "title": "Casey Smith Project @ Carlson Center",
+    "venue_name": "O2 Shepherd's Bush Empire",
+    "venue_area": "Shepherd's Bush",
+    "start_time": "2022-12-09T19:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/40746669-casey-smith-project-at-carlson-center?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_1854532928357229794",
+    "title": "Mona Diamond @ Faces Ultra Lounge",
+    "venue_name": "Electric Brixton",
+    "venue_area": "Brixton",
+    "start_time": "2014-06-29T21:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/20989403-mona-diamond-at-faces-ultra-lounge?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_4643299082036017099",
+    "title": "Reggie Jamz @ Faces Ultra Lounge",
+    "venue_name": "Electric Brixton",
+    "venue_area": "Brixton",
+    "start_time": "2012-08-17T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/13489724-reggie-jamz-at-faces-ultra-lounge?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "songkick:songkick_2269758173469066602",
+    "title": "Reggie Jamz @ Faces Ultra Lounge",
+    "venue_name": "Electric Brixton",
+    "venue_area": "Brixton",
+    "start_time": "2012-08-10T20:00:00",
+    "ticket_url": "http://www.songkick.com/concerts/13489464-reggie-jamz-at-faces-ultra-lounge?utm_medium=organic&utm_source=microformat",
+    "platform": "songkick"
+  },
+  {
+    "id": "dice:6aea213c73dd350001ada423",
+    "title": "Sports\u00a0Night",
+    "venue_name": "Scala",
+    "venue_area": "King's Cross",
+    "start_time": "2026-11-11T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aea213c73dd350001ada423",
+    "platform": "dice"
   }
 ]

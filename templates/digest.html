@@ -503,7 +503,7 @@
                         </div>
 
                         <div class="events-container">
-                        {% for event in digest.other_events[:50] %}
+                        {% for event in digest.other_events %}
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 12px 14px;">
