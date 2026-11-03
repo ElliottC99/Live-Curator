@@ -12,3 +12,4 @@
 2026-11-03T11:48:57 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/explorations/live-curator-engine-20261103.md
 2026-11-03T11:50:09 compound-search live curator
 2026-11-03T11:56:17 compound-search dice scraper
+2026-11-03T12:20:26 compound-search spotify oauth
