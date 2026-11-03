@@ -1,7 +1,7 @@
 ---
 pattern_number: 11
 title: "Explore Before Plan"
-last_referenced: "2025-12-27"
+last_referenced: "2026-11-03"
 tags: [patterns, critical-patterns]
 ---
 

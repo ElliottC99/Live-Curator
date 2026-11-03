@@ -3,3 +3,11 @@
 2025-12-27T10:07:31 suggest-skills
 2025-12-27T10:07:39 suggest-skills
 2026-11-03T11:38:21 compound-search test
+2026-11-03T11:42:50 compound-search exploration
+2026-11-03T11:42:50 compound-search scraper
+2026-11-03T11:42:54 update-solution-ref docs/explorations/templates/exploration-template.md docs/solutions/patterns/individual/pattern-11-explore-before-plan.md
+2026-11-03T11:47:20 compound-search dice scraper
+2026-11-03T11:47:27 update-solution-ref docs/explorations/live-curator-engine-20261103.md
+2026-11-03T11:48:54 compound-search live curator
+2026-11-03T11:48:57 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/explorations/live-curator-engine-20261103.md
+2026-11-03T11:50:09 compound-search live curator

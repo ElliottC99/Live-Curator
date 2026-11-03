@@ -1,0 +1,63 @@
+app:
+  name: "Live Curator Engine"
+  target_timezone: "Europe/London"
+  cache_dir: "data/cache"
+
+scraping:
+  headless: true
+  page_timeout_ms: 30000
+  polite_delay_seconds_min: 2.0
+  polite_delay_seconds_max: 4.0
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+
+reviews:
+  min_aggregate_score_10: 7.5
+  min_stars_5: 4.0
+  cache_retention_days: 90
+  publications:
+    - name: "The Guardian"
+      type: "guardian_api"
+      enabled: true
+    - name: "AnyDecentMusic?"
+      type: "anydecentmusic_scraper"
+      enabled: true
+    - name: "DIY Magazine"
+      type: "rss"
+      feed_url: "https://diymag.com/feed"
+      enabled: true
+    - name: "Dork"
+      type: "rss"
+      feed_url: "https://readdork.com/feed"
+      enabled: true
+    - name: "The Line of Best Fit"
+      type: "rss"
+      feed_url: "https://www.thelineofbestfit.com/reviews/feed"
+      enabled: true
+    - name: "NME"
+      type: "rss"
+      feed_url: "https://www.nme.com/reviews/music-reviews/feed"
+      enabled: true
+    - name: "Loud & Quiet"
+      type: "html_scraper"
+      url: "https://www.loudandquiet.com/reviews/"
+      enabled: true
+
+classification:
+  comedy_keywords:
+    - "comedy"
+    - "stand-up"
+    - "stand up"
+    - "comedian"
+    - "improv"
+    - "cabaret"
+    - "sketch"
+    - "fringe"
+    - "work-in-progress"
+    - "wip"
+    - "open mic comedy"
+
+delivery:
+  subject_prefix: "[Live Curator East London]"
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 587
+  use_tls: true

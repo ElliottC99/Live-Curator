@@ -1,0 +1,22 @@
+# Python Virtualenv & Cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Environment Variables & Secrets
+.env
+*.local.yaml
+
+# Data Cache & Scraped Output
+data/cache/*.sqlite
+data/cache/*.db
+output/
+*.log
+
+# macOS
+.DS_Store

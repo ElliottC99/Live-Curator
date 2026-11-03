@@ -5,6 +5,7 @@ component: "{area}"
 status: active|concluded
 time_box: "{hours/days}"
 outcome: proceed_to_plan|todo_created|no_action|needs_escalation
+last_referenced: "2026-11-03"
 tags: []
 ---
 

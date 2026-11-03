@@ -1,0 +1,54 @@
+venues:
+  - name: "The Shacklewell Arms"
+    dice_slug: "the-shacklewell-arms-v5a8"
+    area: "Dalston"
+    address: "71 Shacklewell Lane, London E8 2EB"
+    genre_focus: ["indie", "punk", "garage", "alternative", "electronic"]
+
+  - name: "Oslo Hackney"
+    dice_slug: "oslo-hackney-omv6"
+    area: "Hackney Central"
+    address: "1A Amhurst Rd, London E8 1LL"
+    genre_focus: ["indie", "electronic", "rock", "pop"]
+
+  - name: "The Waiting Room"
+    dice_slug: "the-waiting-room-6gq5"
+    area: "Stoke Newington"
+    address: "175 Stoke Newington High St, London N16 0NY"
+    genre_focus: ["electronic", "indie", "experimental", "post-punk"]
+
+  - name: "MOTH Club"
+    dice_slug: "moth-club-78yo"
+    area: "Hackney Central"
+    address: "Old Trades Hall, Valette St, London E9 6NU"
+    genre_focus: ["indie", "comedy", "alternative", "psych", "pop"]
+
+  - name: "The Victoria"
+    dice_slug: "the-victoria-dalston-2b9m"
+    area: "Dalston"
+    address: "451 Queensbridge Rd, London E8 3AS"
+    genre_focus: ["indie", "post-punk", "garage", "electronic"]
+
+  - name: "The George Tavern"
+    dice_slug: "the-george-tavern-2r3l"
+    area: "Shadwell / East London"
+    address: "373 Commercial Rd, London E1 0LA"
+    genre_focus: ["indie", "folk", "punk", "poetry", "spoken-word"]
+
+  - name: "Hand of Glory"
+    dice_slug: "hand-of-glory-wqqo"
+    area: "Dalston"
+    address: "240 Amhurst Rd, London E8 2BS"
+    genre_focus: ["indie", "folk", "acoustic", "alternative"]
+
+  - name: "EartH"
+    dice_slug: "earth-evolutionary-arts-hackney-7567"
+    area: "Dalston"
+    address: "11-17 Stoke Newington Rd, London N16 8BH"
+    genre_focus: ["alternative", "electronic", "jazz", "global", "comedy"]
+
+  - name: "Next Door Records Two"
+    dice_slug: "next-door-records-two-4o9a"
+    area: "Shepherd's Bush / East Pop-up"
+    address: "London"
+    genre_focus: ["jazz", "electronic", "vinyl", "in-store", "experimental"]
