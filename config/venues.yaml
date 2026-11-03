@@ -116,9 +116,16 @@ venues:
   - name: "The Bill Murray"
     dice_slug: "the-bill-murray-k69v"
     platform: "dice"
-    area: "Angel / Islington"
+    area: "Islington & Angel"
     address: "39 Queen's Head St, London N1 8NQ"
     genre_focus: ["comedy", "stand-up", "improv", "wip", "fringe"]
+
+  - name: "The Camden Head"
+    dice_slug: "the-camden-head-p37v"
+    platform: "dice"
+    area: "Islington & Angel"
+    address: "2 Camden Walk, London N1 8DY"
+    genre_focus: ["comedy", "stand-up", "angel comedy", "pub-gigs"]
 
   - name: "Union Chapel"
     dice_slug: "union-chapel-jx9a"
@@ -216,13 +223,6 @@ venues:
     area: "Camden"
     address: "49 Chalk Farm Rd, London NW1 8AN"
     genre_focus: ["indie", "rock", "pop", "club"]
-
-  - name: "The Camden Head"
-    dice_slug: "the-camden-head-p37v"
-    platform: "dice"
-    area: "Camden / Angel"
-    address: "100 Camden High St, London NW1 0LU"
-    genre_focus: ["comedy", "stand-up", "pub-gigs"]
 
   - name: "The Elephants Head"
     dice_slug: "the-elephants-head-6dd93"

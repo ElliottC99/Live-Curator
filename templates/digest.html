@@ -122,12 +122,18 @@
               </td>
             </tr>
 
-            <!-- Interactive Tab Bar Controller -->
+            <!-- Interactive Tab Bar Controller & Filter Bar -->
             <tr>
-              <td style="padding: 20px 24px 8px 24px; background-color: #12151e; border-bottom: 1px solid #283046;">
-                <p style="margin: 0 0 10px 0; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b;">
-                  CYCLE BY TIER:
-                </p>
+              <td style="padding: 20px 24px 16px 24px; background-color: #12151e; border-bottom: 1px solid #283046;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                  <p style="margin: 0; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b;">
+                    CYCLE BY TIER:
+                  </p>
+                  <span id="filter-count" style="font-size: 11px; font-weight: 700; color: #94a3b8; background-color: #1e2433; padding: 2px 8px; border-radius: 12px; border: 1px solid #334155;">
+                    {{ digest.total_events_scraped }} shows
+                  </span>
+                </div>
+
                 <div id="tab-nav">
                   <a href="#tier-1" class="tab-btn btn-t1 active" id="btn-tier1" onclick="switchTier('tier1'); return false;">
                     &#x1F525; Tier 1: Direct ({{ digest.tier_1_events|length }})
@@ -141,6 +147,36 @@
                   <a href="#tier-all" class="tab-btn btn-all" id="btn-all" onclick="switchTier('all'); return false;">
                     &#x1F4CB; All Shows ({{ digest.total_events_scraped }})
                   </a>
+                </div>
+
+                <!-- Secondary Filter & Sort Toolbar -->
+                <div id="filter-toolbar" style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed #283046; display: flex; flex-wrap: wrap; gap: 8px;">
+                  <!-- Area Filter -->
+                  <div style="flex: 1; min-width: 140px;">
+                    <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Neighbourhood</label>
+                    <select id="filter-area" onchange="applyFiltersAndSort()" style="width: 100%; background-color: #1e2433; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 12px;">
+                      <option value="all">All Neighbourhoods</option>
+                    </select>
+                  </div>
+
+                  <!-- Venue Filter -->
+                  <div style="flex: 1; min-width: 140px;">
+                    <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Venue</label>
+                    <select id="filter-venue" onchange="applyFiltersAndSort()" style="width: 100%; background-color: #1e2433; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 12px;">
+                      <option value="all">All Venues</option>
+                    </select>
+                  </div>
+
+                  <!-- Sort By -->
+                  <div style="flex: 1; min-width: 140px;">
+                    <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Sort By</label>
+                    <select id="sort-by" onchange="applyFiltersAndSort()" style="width: 100%; background-color: #1e2433; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 12px;">
+                      <option value="date-asc">Date: Soonest First</option>
+                      <option value="date-desc">Date: Furthest First</option>
+                      <option value="price-asc">Price: Low to High</option>
+                      <option value="price-desc">Price: High to Low</option>
+                    </select>
+                  </div>
                 </div>
               </td>
             </tr>
@@ -164,8 +200,9 @@
                           </p>
                         </div>
 
+                        <div class="events-container">
                         {% for event in digest.tier_1_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier1" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 18px; font-weight: 700; color: #ffffff;">
@@ -208,6 +245,7 @@
                           </tr>
                         </table>
                         {% endfor %}
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -233,8 +271,9 @@
                           </p>
                         </div>
 
+                        <div class="events-container">
                         {% for event in digest.tier_2_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier2" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
@@ -277,6 +316,7 @@
                           </tr>
                         </table>
                         {% endfor %}
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -302,8 +342,9 @@
                           </p>
                         </div>
 
+                        <div class="events-container">
                         {% for event in digest.tier_3_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 14px 16px;">
                               <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
@@ -320,6 +361,7 @@
                           </tr>
                         </table>
                         {% endfor %}
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -345,8 +387,9 @@
                           </p>
                         </div>
 
-                        {% for event in digest.other_events[:25] %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <div class="events-container">
+                        {% for event in digest.other_events[:50] %}
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 12px 14px;">
                               <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
@@ -363,6 +406,7 @@
                           </tr>
                         </table>
                         {% endfor %}
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -391,9 +435,12 @@
     </table>
   </center>
 
-  <!-- Interactive Tier Switching Script (Runs in browser preview) -->
+  <!-- Interactive Tier Switching & Multi-Way Filtering/Sorting Script -->
   <script>
+    var currentTier = 'all';
+
     function switchTier(tierKey) {
+      currentTier = tierKey;
       var sections = {
         tier1: document.getElementById('section-tier1'),
         tier2: document.getElementById('section-tier2'),
@@ -408,7 +455,7 @@
         all: document.getElementById('btn-all')
       };
 
-      // If "all" selected, show tier1, tier2, tier3 AND other shows simultaneously
+      // If "all" selected, show all tier sections
       if (tierKey === 'all') {
         for (var k in sections) {
           if (sections[k]) sections[k].style.display = 'block';
@@ -436,15 +483,105 @@
       if (history.replaceState) {
         history.replaceState(null, null, '#' + tierKey);
       }
+
+      applyFiltersAndSort();
     }
 
-    // Initialize state on page load
-    (function initTierView() {
+    function applyFiltersAndSort() {
+      var areaSelect = document.getElementById('filter-area');
+      var venueSelect = document.getElementById('filter-venue');
+      var sortSelect = document.getElementById('sort-by');
+
+      var selectedArea = areaSelect ? areaSelect.value : 'all';
+      var selectedVenue = venueSelect ? venueSelect.value : 'all';
+      var sortBy = sortSelect ? sortSelect.value : 'date-asc';
+
+      var visibleCount = 0;
+      var cards = document.querySelectorAll('.event-card');
+
+      cards.forEach(function(card) {
+        var cardTier = card.getAttribute('data-tier');
+        var cardArea = card.getAttribute('data-area') || '';
+        var cardVenue = card.getAttribute('data-venue') || '';
+
+        var matchTier = (currentTier === 'all' || cardTier === currentTier);
+        var matchArea = (selectedArea === 'all' || cardArea === selectedArea);
+        var matchVenue = (selectedVenue === 'all' || cardVenue === selectedVenue);
+
+        if (matchTier && matchArea && matchVenue) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Sort items within each events-container
+      var containers = document.querySelectorAll('.events-container');
+      containers.forEach(function(container) {
+        var items = Array.from(container.querySelectorAll('.event-card'));
+        items.sort(function(a, b) {
+          if (sortBy === 'date-asc') {
+            return parseFloat(a.getAttribute('data-timestamp') || 0) - parseFloat(b.getAttribute('data-timestamp') || 0);
+          } else if (sortBy === 'date-desc') {
+            return parseFloat(b.getAttribute('data-timestamp') || 0) - parseFloat(a.getAttribute('data-timestamp') || 0);
+          } else if (sortBy === 'price-asc') {
+            return parseFloat(a.getAttribute('data-price') || 999999) - parseFloat(b.getAttribute('data-price') || 999999);
+          } else if (sortBy === 'price-desc') {
+            return parseFloat(b.getAttribute('data-price') || 999999) - parseFloat(a.getAttribute('data-price') || 999999);
+          }
+          return 0;
+        });
+
+        items.forEach(function(item) {
+          container.appendChild(item);
+        });
+      });
+
+      // Update counter pill
+      var counter = document.getElementById('filter-count');
+      if (counter) {
+        counter.textContent = visibleCount + ' shows visible';
+      }
+    }
+
+    // Initialize state & populate dropdowns on page load
+    (function initInteractiveControls() {
+      var cards = document.querySelectorAll('.event-card');
+      var areaSet = new Set();
+      var venueSet = new Set();
+
+      cards.forEach(function(card) {
+        var a = card.getAttribute('data-area');
+        var v = card.getAttribute('data-venue');
+        if (a) areaSet.add(a);
+        if (v) venueSet.add(v);
+      });
+
+      var areaSelect = document.getElementById('filter-area');
+      if (areaSelect) {
+        Array.from(areaSet).sort().forEach(function(area) {
+          var opt = document.createElement('option');
+          opt.value = area;
+          opt.textContent = area;
+          areaSelect.appendChild(opt);
+        });
+      }
+
+      var venueSelect = document.getElementById('filter-venue');
+      if (venueSelect) {
+        Array.from(venueSet).sort().forEach(function(venue) {
+          var opt = document.createElement('option');
+          opt.value = venue;
+          opt.textContent = venue;
+          venueSelect.appendChild(opt);
+        });
+      }
+
       var t1Count = {{ digest.tier_1_events|length }};
       var t2Count = {{ digest.tier_2_events|length }};
       var t3Count = {{ digest.tier_3_events|length }};
 
-      // Check URL hash if present
       var hash = window.location.hash.replace('#', '').toLowerCase();
       if (hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'all') {
         switchTier(hash);
