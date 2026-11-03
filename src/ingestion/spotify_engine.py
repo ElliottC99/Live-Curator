@@ -4,8 +4,12 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 import requests
-import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+try:
+    import spotipy
+    from spotipy.oauth2 import SpotifyOAuth
+except ImportError:
+    spotipy = None
+    SpotifyOAuth = None
 
 from src.core.models import CombinedTasteProfile, UserTasteProfile
 from src.core.normalizer import normalize_artist_name
