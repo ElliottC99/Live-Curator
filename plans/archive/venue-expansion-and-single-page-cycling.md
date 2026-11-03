@@ -1,7 +1,7 @@
 # Plan: Venue Expansion, Ticketmaster Stadium Discovery & Single-Page Tier Cycling
 
 > Created: 2026-11-03  
-> Status: Approved ✓  
+> Status: Completed ✓  
 > Exploration Ref: [docs/explorations/venue-expansion-ticketmaster-tier-cycling-20261103.md](../docs/explorations/venue-expansion-ticketmaster-tier-cycling-20261103.md)  
 > Architectural Decision: [docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md](../docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md)
 
@@ -62,35 +62,35 @@ Expand the **Live Curator Engine** to:
 ## Acceptance Criteria
 
 ### Single-Page Tier Cycling UI
-- [ ] `templates/digest.html` includes an interactive tab controller at the top of the listings:
+- [x] `templates/digest.html` includes an interactive tab controller at the top of the listings:
   - `[🔥 Tier 1: Direct Matches (N)]`
   - `[✨ Tier 2: Discovery Matches (N)]`
   - `[🎭 Tier 3: Comedy & Alternative (N)]`
   - `[📋 All Shows (N)]`
-- [ ] Clicking any tab filters the visible events instantaneously without page reload in the browser preview.
-- [ ] Active tab displays vibrant glowing styling matching tier aesthetics (Emerald, Indigo, Amber, Blue).
-- [ ] Initial state automatically selects the highest priority tier that has events.
-- [ ] Dual email-safe fallback preserves clean navigation for email clients that strip JavaScript.
+- [x] Clicking any tab filters the visible events instantaneously without page reload in the browser preview.
+- [x] Active tab displays vibrant glowing styling matching tier aesthetics (Emerald, Indigo, Amber, Blue).
+- [x] Initial state automatically selects the highest priority tier that has events.
+- [x] Dual email-safe fallback preserves clean navigation for email clients that strip JavaScript.
 
 ### DICE Venue Expansion
-- [ ] `config/venues.yaml` expanded to include all 24 requested DICE venues organized by area:
+- [x] `config/venues.yaml` expanded to include all 24 requested DICE venues organized by area:
   - Dalston & Hackney, Stoke Newington, Islington & Angel, Shoreditch & Hoxton, Camden & King's Cross.
-- [ ] All newly added venues load and parse without breaking the existing scraper.
+- [x] All newly added venues load and parse without breaking the existing scraper.
 
 ### Ticketmaster Stadium & Arena Ingestion
-- [ ] `Venue` model updated with `platform: str = "dice"`, `tm_venue_id: Optional[str] = None`, `tm_keyword: Optional[str] = None`.
-- [ ] `src/ingestion/ticketmaster_engine.py` implemented:
+- [x] `Venue` model updated with `platform: str = "dice"`, `tm_venue_id: Optional[str] = None`, `tm_keyword: Optional[str] = None`.
+- [x] `src/ingestion/ticketmaster_engine.py` implemented:
   - Ingests events from Wembley Stadium, London Stadium, Tottenham Hotspur Stadium, The O2 Arena, Finsbury Park, Drumsheds, etc.
   - Maps Ticketmaster event payload into standard `Event` domain objects (lineup, start time, price range, venue, ticket URL).
   - Filters out sports fixtures (`classificationName=Music`).
   - Supports dry-run simulation when `TICKETMASTER_API_KEY` is not configured.
-- [ ] Unit tests for `TicketmasterEngine` in `tests/test_ticketmaster_engine.py`.
+- [x] Unit tests for `TicketmasterEngine` in `tests/test_ticketmaster_engine.py`.
 
 ### Pipeline Integration & Delivery
-- [ ] `main.py` ingests from both `DiceScraper` and `TicketmasterEngine`.
-- [ ] `TierClassifier` accurately categorizes Ticketmaster events into Tier 1, Tier 2, and Tier 3 alongside DICE events.
-- [ ] All 47+ automated tests pass cleanly with pytest.
-- [ ] Dry-run preview with `--preview-html` opens the new single-page tabbed interface in default browser.
+- [x] `main.py` ingests from both `DiceScraper` and `TicketmasterEngine`.
+- [x] `TierClassifier` accurately categorizes Ticketmaster events into Tier 1, Tier 2, and Tier 3 alongside DICE events.
+- [x] All 55 automated tests pass cleanly with pytest.
+- [x] Dry-run preview with `--preview-html` opens the new single-page tabbed interface in default browser.
 
 ---
 

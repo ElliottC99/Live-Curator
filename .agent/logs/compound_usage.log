@@ -12,3 +12,8 @@
 2026-11-03T13:14:45 compound-search reviews guardian
 2026-11-03T14:01:59 suggest-skills
 2026-11-03T14:02:14 suggest-skills
+2026-11-03T14:22:46 compound-search venues
+2026-11-03T14:22:52 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/explorations/archive/live-curator-engine-20261103.md docs/solutions/integration_issue/live-curator-engine-architecture.md
+2026-11-03T14:45:46 compound-search venues ticketmaster
+2026-11-03T14:45:51 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/explorations/archive/live-curator-engine-20261103.md docs/explorations/venue-expansion-ticketmaster-tier-cycling-20261103.md docs/solutions/integration_issue/live-curator-engine-architecture.md
+2026-11-03T15:04:53 suggest-skills

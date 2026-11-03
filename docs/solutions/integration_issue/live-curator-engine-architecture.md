@@ -11,6 +11,7 @@ root_cause:
   - "Modern event ticketing platforms utilize dynamic browser fingerprinting and client hydration (Next.js __NEXT_DATA__) requiring genuine browser rendering."
   - "Spotify deprecated seed-based algorithmic recommendation endpoints for standard apps, requiring library and playlist ingestion instead."
   - "ElementTree is strict and fails on unmapped XML namespaces; BeautifulSoup with lxml is namespace-resilient."
+last_referenced: "2026-11-03"
 tags:
   - dice-scraping
   - playwright-stealth
