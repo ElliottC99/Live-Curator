@@ -1,0 +1,299 @@
+[
+  {
+    "id": "1a10ee5c282a7eedbf795057",
+    "title": "Band A",
+    "venue_name": "MOTH Club",
+    "venue_area": "East London",
+    "start_time": "2026-11-03T16:03:01.369869",
+    "ticket_url": "https://dice.fm/event/123",
+    "platform": "dice"
+  },
+  {
+    "id": "8ccd6fa97a0db98f2051b91f",
+    "title": "Oasis Live",
+    "venue_name": "Wembley Stadium",
+    "venue_area": "East London",
+    "start_time": "2026-11-03T16:03:01.374821",
+    "ticket_url": "https://ticketmaster.co.uk/event/999",
+    "platform": "ticketmaster"
+  },
+  {
+    "id": "dice:69fddc2d38737e00014f5576",
+    "title": "Greg Mendez + Asher White + villagerrr",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-03T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fddc2d38737e00014f5576",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a5f6f7f1378d1000112aafa",
+    "title": "Rockie Rode + The Healing Power of Horses + Any Young Mechanic",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-04T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a5f6f7f1378d1000112aafa",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fddc3a95ba0e0001b1c2bb",
+    "title": "Colin Miller + lifepath99 + h pruz + Elijah Wolf",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-05T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fddc3a95ba0e0001b1c2bb",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69fddc3460f3180001a20da9",
+    "title": "Kiwi Jr + Alien Boy + Bone China",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-06T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69fddc3460f3180001a20da9",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa57b7ae4d716000175a1a3",
+    "title": "Rodeo Fever Queer Line Dancing & Country Disco Club",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-06T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa57b7ae4d716000175a1a3",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6ab3f1ea80f9a50001adf715",
+    "title": "A tribute to Leonard Cohen",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-07T18:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6ab3f1ea80f9a50001adf715",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:695f7b2e193787000113ffb9",
+    "title": "Dancing In The Dark",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-07T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/695f7b2e193787000113ffb9",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aaa2ab90e140c00013642c4",
+    "title": "Saccades (The KVB)",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-09T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aaa2ab90e140c00013642c4",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8dbc4a0c16220001788e6c",
+    "title": "Knock2Bag Comedy Night with Jamali Maddix",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-11T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8dbc4a0c16220001788e6c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa8132e74cc340001b3cc8f",
+    "title": "FIRST FIFTY: Compost Compost Compost, Dumbhead, Die Twice",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-12T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa8132e74cc340001b3cc8f",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6aa81325130c69000162640c",
+    "title": "Pretty Green Introducing (LDN) w/ Balancing Act",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-13T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6aa81325130c69000162640c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69eb49a86278380001196a8b",
+    "title": "THE CAVE CLUB",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-13T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69eb49a86278380001196a8b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a902a485cef950001a9846d",
+    "title": "PISS",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-14T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a902a485cef950001a9846d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:695f7c6b0dd5de0001089b62",
+    "title": "For The Love Of Pop",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-14T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/695f7c6b0dd5de0001089b62",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a5f8caaa0caa50001e9ff07",
+    "title": "Elephant Stone",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-16T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a5f8caaa0caa50001e9ff07",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a475fef1bd58800012e3342",
+    "title": "Keg - Relaxing Near the Hospital Album Tour",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-17T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a475fef1bd58800012e3342",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8dbc690d94ba00011f602b",
+    "title": "Knock2Bag Comedy Night with Ivo Graham",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-18T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8dbc690d94ba00011f602b",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69cfe785f418b00001eb1198",
+    "title": "Sarah Julia",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-19T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69cfe785f418b00001eb1198",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a19705567f7a90001af363c",
+    "title": "C.O.F.F.I.N + Sniffany & The Nits",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-20T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a19705567f7a90001af363c",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69bd0561b90b160001695362",
+    "title": "Deptford Northern Soul Club",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-20T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/69bd0561b90b160001695362",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:69dcb2ad2180f20001c2f24d",
+    "title": "Silver Birch (Pete Wareham, Ruth Goller, Betamax, Chris Sharkey) + O.",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-21T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/69dcb2ad2180f20001c2f24d",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:695f7b38878cc80001850380",
+    "title": "Dancing In The Dark",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-21T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/695f7b38878cc80001850380",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a2e97f57aebdd0001d2d0ac",
+    "title": "Pearl and The Oysters",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-22T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a2e97f57aebdd0001d2d0ac",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8dbc8946e2570001f63884",
+    "title": "K2B Presents... Harry Hill WIP",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-23T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8dbc8946e2570001f63884",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8dbca20c16220001378ce2",
+    "title": "K2B Presents... Harry Hill WIP",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-24T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8dbca20c16220001378ce2",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a8dbcbb0c162200014f5adb",
+    "title": "K2B Presents... Harry Hill WIP",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-25T19:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a8dbcbb0c162200014f5adb",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:693acba7e200df0001c8faa8",
+    "title": "Ella Raphael",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-26T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/693acba7e200df0001c8faa8",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:695f7a000dd5de00010d4cc5",
+    "title": "Femininomenon",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-27T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/695f7a000dd5de00010d4cc5",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6a390ed380ed6200017ac316",
+    "title": "Parviz",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-28T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6a390ed380ed6200017ac316",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:695f7c8b00191f0001270119",
+    "title": "For The Love Of Pop",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-28T23:00:00+00:00",
+    "ticket_url": "https://dice.fm/event/695f7c8b00191f0001270119",
+    "platform": "dice"
+  },
+  {
+    "id": "dice:6accc0fe06ca060001aa2cee",
+    "title": "City Slang Xmas Party: Party Dozen + Die Anstalt",
+    "venue_name": "MOTH Club",
+    "venue_area": "Hackney Central",
+    "start_time": "2026-11-29T19:30:00+00:00",
+    "ticket_url": "https://dice.fm/event/6accc0fe06ca060001aa2cee",
+    "platform": "dice"
+  }
+]

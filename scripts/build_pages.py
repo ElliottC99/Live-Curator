@@ -33,47 +33,68 @@ logger = logging.getLogger("BuildPages")
 
 
 def load_events_from_history() -> list[Event]:
-    """Load known upcoming events from historical cache."""
+    """Load known upcoming events from JSON seed file or historical SQLite cache."""
+    seed_json_path = PROJECT_ROOT / "data" / "seed_events.json"
     db_path = PROJECT_ROOT / "data" / "cache" / "digest_history.sqlite"
     events = []
-    if not db_path.exists():
-        logger.warning(f"History DB not found at {db_path}")
-        return events
 
-    try:
-        conn = sqlite3.connect(str(db_path))
-        c = conn.cursor()
-        c.execute("""
-            SELECT event_id, title, venue_name, venue_area, start_time, ticket_url, platform
-            FROM seen_events
-        """)
-        for row in c.fetchall():
-            try:
-                dt = datetime.fromisoformat(row[4])
-            except Exception:
-                dt = datetime.now()
+    # If SQLite exists locally, sync latest into seed_events.json
+    if db_path.exists():
+        try:
+            conn = sqlite3.connect(str(db_path))
+            c = conn.cursor()
+            c.execute("""
+                SELECT event_id, title, venue_name, venue_area, start_time, ticket_url, platform
+                FROM seen_events
+            """)
+            raw_list = []
+            for row in c.fetchall():
+                raw_list.append({
+                    "id": row[0],
+                    "title": row[1],
+                    "venue_name": row[2],
+                    "venue_area": row[3] or "East London",
+                    "start_time": row[4],
+                    "ticket_url": row[5] or "https://dice.fm",
+                    "platform": row[6] or "dice",
+                })
+            conn.close()
+            seed_json_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(seed_json_path, "w", encoding="utf-8") as f:
+                json.dump(raw_list, f, indent=2)
+            logger.info(f"Synchronized {len(raw_list)} events to data/seed_events.json")
+        except Exception as e:
+            logger.warning(f"Failed to sync SQLite to seed_events.json: {e}")
 
-            # Clean venue area fallback
-            area = row[3] or "East London"
-            if area.lower() == "east london" and "wembley" in row[2].lower():
-                area = "Wembley"
-
-            events.append(
-                Event(
-                    id=row[0],
-                    title=row[1],
-                    venue_name=row[2],
-                    venue_area=area,
-                    start_time=dt,
-                    date_str=dt.strftime("%a %d %b %Y, %H:%M"),
-                    ticket_url=row[5] or "https://dice.fm",
-                    platform=row[6] or "dice",
+    # Load from seed_events.json (tracked in Git, always present on GitHub Actions)
+    if seed_json_path.exists():
+        try:
+            with open(seed_json_path, "r", encoding="utf-8") as f:
+                raw_events = json.load(f)
+            for item in raw_events:
+                try:
+                    dt = datetime.fromisoformat(item["start_time"])
+                except Exception:
+                    dt = datetime.now()
+                area = item.get("venue_area") or "East London"
+                if area.lower() == "east london" and "wembley" in item.get("venue_name", "").lower():
+                    area = "Wembley"
+                events.append(
+                    Event(
+                        id=item.get("id"),
+                        title=item.get("title", ""),
+                        venue_name=item.get("venue_name", ""),
+                        venue_area=area,
+                        start_time=dt,
+                        date_str=dt.strftime("%a %d %b %Y, %H:%M"),
+                        ticket_url=item.get("ticket_url") or "https://dice.fm",
+                        platform=item.get("platform") or "dice",
+                    )
                 )
-            )
-        conn.close()
-        logger.info(f"Loaded {len(events)} events from historical database.")
-    except Exception as e:
-        logger.error(f"Error loading events from history: {e}")
+            logger.info(f"Loaded {len(events)} events from data/seed_events.json.")
+            return events
+        except Exception as ex:
+            logger.error(f"Error loading seed_events.json: {ex}")
 
     return events
 

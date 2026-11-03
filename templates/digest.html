@@ -580,10 +580,13 @@
         all: document.getElementById('btn-all')
       };
 
-      // If "all" or "new" selected, show all tier sections
+      // If "all" or "new" selected, show tier sections that have cards (hide empty placeholder boxes in All view)
       if (tierKey === 'all' || tierKey === 'new') {
         for (var k in sections) {
-          if (sections[k]) sections[k].style.display = 'block';
+          if (sections[k]) {
+            var hasCards = sections[k].querySelector('.event-card');
+            sections[k].style.display = hasCards ? 'block' : 'none';
+          }
         }
       } else {
         for (var k in sections) {
