@@ -27,7 +27,7 @@ from src.delivery.template_engine import TemplateEngine
 from src.ingestion.dice_scraper import DiceScraper
 from src.ingestion.review_parser import ReviewAggregator
 from src.ingestion.songkick_engine import SongkickEngine
-from src.ingestion.spotify_engine import SpotifyEngine
+from src.ingestion.spotify_engine import SpotifyEngine, export_seed_taste_profile
 from src.ingestion.ticketmaster_engine import TicketmasterEngine
 from src.processing.event_diff_engine import EventDiffEngine
 from src.processing.tier_classifier import TierClassifier
@@ -106,6 +106,8 @@ def run_pipeline(
     logger.info("Step 1/5: Loading Spotify taste profiles (Elliott & Chloe)...")
     spotify_engine = SpotifyEngine(config)
     taste_profile = spotify_engine.get_combined_taste_profile()
+    if taste_profile and len(taste_profile.combined_direct) > 0:
+        export_seed_taste_profile(taste_profile)
     logger.info(
         f"Spotify profiles loaded: Elliott={len(taste_profile.elliott.all_direct_artists)} direct, "
         f"Chloe={len(taste_profile.chloe.all_direct_artists)} direct artists."

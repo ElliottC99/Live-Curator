@@ -25,6 +25,8 @@ import yaml
 from src.__version__ import __version__
 from src.core.models import Event, MonthlyDigest, Venue
 from src.delivery.template_engine import TemplateEngine
+from src.ingestion.review_parser import ReviewDatabase
+from src.ingestion.spotify_engine import load_seed_taste_profile
 from src.processing.tier_classifier import TierClassifier
 from src.ui.venue_manager import HTML_DASHBOARD
 
@@ -114,9 +116,17 @@ def build_pages():
             data = yaml.safe_load(f) or {}
             venues_list = data.get("venues", [])
 
-    # 2. Build Event Digest
+    # 2. Build Event Digest with Taste Profiles and Review Insights
     events = load_events_from_history()
-    classifier = TierClassifier()
+    taste_profile = load_seed_taste_profile()
+    review_db = ReviewDatabase()
+    rec_artists = review_db.get_recommended_artists()
+
+    classifier = TierClassifier(
+        taste_profile=taste_profile,
+        review_db=review_db,
+        recommended_review_artists=rec_artists,
+    )
     now = datetime.now()
     month_name = now.strftime("%B")
     year = now.year

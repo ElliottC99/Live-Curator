@@ -74,14 +74,13 @@ def split_artist_album(title: str) -> Tuple[str, Optional[str]]:
     if quote_review_match:
         return quote_review_match.group(1).strip(), quote_review_match.group(2).strip()
 
-    # Pattern: "Artist - Album" or "Artist — Album" or "Artist – Album"
-    for dash in [" — ", " – ", " - "]:
-        if dash in clean:
-            parts = clean.split(dash, 1)
-            artist = parts[0].strip()
-            rest = parts[1].strip()
-            # Strip trailing review phrasing from album
-            rest = re.sub(r"\s+review.*$", "", rest, flags=re.IGNORECASE).strip()
+    # Pattern: "Artist - Album" or "Artist- Album" (dashes with optional spaces)
+    dash_match = re.search(r"^(.*?)\s*[-—–]\s*(.+)$", clean)
+    if dash_match:
+        artist = dash_match.group(1).strip()
+        rest = dash_match.group(2).strip()
+        rest = re.sub(r"\s+review.*$", "", rest, flags=re.IGNORECASE).strip()
+        if artist and rest:
             return artist, rest
 
     # Pattern: "Artist: Album review"
@@ -96,8 +95,10 @@ def split_artist_album(title: str) -> Tuple[str, Optional[str]]:
     if quote_match:
         return quote_match.group(1).strip(), quote_match.group(2).strip()
 
-    # Fallback: remove trailing review words
+    # Fallback: remove trailing review words, reject long sentence headlines
     fallback_artist = re.sub(r"\s+(?:album\s+)?review.*$", "", clean, flags=re.IGNORECASE).strip()
+    if len(fallback_artist.split()) > 4:
+        return "", None
     return fallback_artist, None
 
 
@@ -177,33 +178,120 @@ class ReviewDatabase:
 
     def get_recommended_artists(self) -> Set[str]:
         """Return set of normalized artist names with reviews meeting recommendation criteria."""
-        with self._get_connection() as conn:
-            cursor = conn.execute("SELECT DISTINCT normalized_artist FROM reviews WHERE is_recommended = 1")
-            return {row["normalized_artist"] for row in cursor.fetchall()}
+        artists: Set[str] = set()
+        try:
+            with self._get_connection() as conn:
+                cursor = conn.execute("SELECT DISTINCT normalized_artist FROM reviews WHERE is_recommended = 1")
+                artists = {row["normalized_artist"] for row in cursor.fetchall()}
+        except Exception as e:
+            logger.debug(f"SQLite review query fallback: {e}")
+
+        # Fallback to seed reviews if SQLite cache is empty (e.g. GitHub Actions CI)
+        if not artists:
+            seed_path = Path(__file__).resolve().parent.parent.parent / "data" / "seed_reviews.json"
+            if seed_path.exists():
+                try:
+                    import json
+                    with open(seed_path, "r", encoding="utf-8") as f:
+                        seed_data = json.load(f)
+                    artists = {
+                        item["normalized_artist"]
+                        for item in seed_data
+                        if item.get("is_recommended", True)
+                    }
+                except Exception as e:
+                    logger.warning(f"Error loading seed reviews from {seed_path}: {e}")
+
+        return artists
 
     def get_reviews_for_artist(self, normalized_artist: str) -> List[Review]:
         """Fetch all reviews for a specific normalized artist name."""
-        with self._get_connection() as conn:
-            cursor = conn.execute(
-                "SELECT * FROM reviews WHERE normalized_artist = ? ORDER BY is_recommended DESC, score DESC",
-                (normalized_artist,),
-            )
-            rows = cursor.fetchall()
-            return [
-                Review(
-                    artist_name=row["artist_name"],
-                    normalized_artist=row["normalized_artist"],
-                    publication=row["publication"],
-                    album_title=row["album_title"],
-                    score=row["score"],
-                    max_score=row["max_score"],
-                    stars=row["stars"],
-                    is_recommended=bool(row["is_recommended"]),
-                    url=row["url"],
-                    publication_date=row["publication_date"],
+        reviews: List[Review] = []
+        try:
+            with self._get_connection() as conn:
+                cursor = conn.execute(
+                    "SELECT * FROM reviews WHERE normalized_artist = ? ORDER BY is_recommended DESC, score DESC",
+                    (normalized_artist,),
                 )
-                for row in rows
-            ]
+                rows = cursor.fetchall()
+                reviews = [
+                    Review(
+                        artist_name=row["artist_name"],
+                        normalized_artist=row["normalized_artist"],
+                        publication=row["publication"],
+                        album_title=row["album_title"],
+                        score=row["score"],
+                        max_score=row["max_score"],
+                        stars=row["stars"],
+                        is_recommended=bool(row["is_recommended"]),
+                        url=row["url"],
+                        publication_date=row["publication_date"],
+                    )
+                    for row in rows
+                ]
+        except Exception as e:
+            logger.debug(f"SQLite review lookup error: {e}")
+
+        if not reviews:
+            seed_path = Path(__file__).resolve().parent.parent.parent / "data" / "seed_reviews.json"
+            if seed_path.exists():
+                try:
+                    import json
+                    with open(seed_path, "r", encoding="utf-8") as f:
+                        seed_data = json.load(f)
+                    for item in seed_data:
+                        if item.get("normalized_artist") == normalized_artist:
+                            reviews.append(
+                                Review(
+                                    artist_name=item["artist_name"],
+                                    normalized_artist=item["normalized_artist"],
+                                    publication=item["publication"],
+                                    album_title=item.get("album_title"),
+                                    score=item.get("score"),
+                                    max_score=item.get("max_score"),
+                                    stars=item.get("stars"),
+                                    is_recommended=item.get("is_recommended", True),
+                                    url=item.get("url"),
+                                    publication_date=item.get("publication_date"),
+                                )
+                            )
+                except Exception as e:
+                    logger.warning(f"Error reading seed reviews: {e}")
+
+        return reviews
+
+
+def export_seed_reviews(db: ReviewDatabase, seed_path: Optional[Path] = None):
+    """Export SQLite reviews into data/seed_reviews.json for version control and CI."""
+    import json
+    if seed_path is None:
+        project_root = Path(__file__).resolve().parent.parent.parent
+        seed_path = project_root / "data" / "seed_reviews.json"
+
+    try:
+        reviews_list = []
+        with db._get_connection() as conn:
+            cursor = conn.execute("SELECT * FROM reviews WHERE is_recommended = 1")
+            for row in cursor.fetchall():
+                reviews_list.append({
+                    "artist_name": row["artist_name"],
+                    "normalized_artist": row["normalized_artist"],
+                    "publication": row["publication"],
+                    "album_title": row["album_title"],
+                    "score": row["score"],
+                    "max_score": row["max_score"],
+                    "stars": row["stars"],
+                    "is_recommended": bool(row["is_recommended"]),
+                    "url": row["url"],
+                    "publication_date": row["publication_date"],
+                })
+
+        with open(seed_path, "w", encoding="utf-8") as f:
+            json.dump(reviews_list, f, indent=2)
+        logger.info(f"Exported {len(reviews_list)} seed reviews to {seed_path}")
+    except Exception as e:
+        logger.warning(f"Failed to export seed reviews: {e}")
+
 
 
 class ReviewAggregator:

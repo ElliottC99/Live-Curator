@@ -227,7 +227,7 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_1_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier1" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier1" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 18px; font-weight: 700; color: #ffffff;">
@@ -269,6 +269,11 @@
                                       Get Tickets &rarr;
                                     </a>
                                   </td>
+                                  <td style="padding-left: 8px;">
+                                    <button class="star-btn" data-act="{{ event.primary_act }}" onclick="toggleStarArtist(this, '{{ event.primary_act }}'); return false;" style="background: none; border: 1px solid #334155; border-radius: 6px; color: #94a3b8; padding: 6px 10px; cursor: pointer; font-size: 11px;">
+                                      ⭐ <span class="star-label">Star</span>
+                                    </button>
+                                  </td>
                                 </tr>
                               </table>
                             </td>
@@ -303,7 +308,7 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_2_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier2" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier2" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
@@ -345,6 +350,11 @@
                                       Get Tickets &rarr;
                                     </a>
                                   </td>
+                                  <td style="padding-left: 8px;">
+                                    <button class="star-btn" data-act="{{ event.primary_act }}" onclick="toggleStarArtist(this, '{{ event.primary_act }}'); return false;" style="background: none; border: 1px solid #334155; border-radius: 6px; color: #94a3b8; padding: 6px 10px; cursor: pointer; font-size: 11px;">
+                                      ⭐ <span class="star-label">Star</span>
+                                    </button>
+                                  </td>
                                 </tr>
                               </table>
                             </td>
@@ -379,7 +389,7 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_3_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 14px 16px;">
                               {% if event.is_new %}
@@ -397,6 +407,9 @@
                               <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
                                 View Tickets &rarr;
                               </a>
+                              <button class="star-btn" data-act="{{ event.primary_act }}" onclick="toggleStarArtist(this, '{{ event.primary_act }}'); return false;" style="background: none; border: 1px solid #334155; border-radius: 6px; color: #94a3b8; padding: 4px 8px; cursor: pointer; font-size: 10px; margin-left: 8px;">
+                                ⭐ <span class="star-label">Star</span>
+                              </button>
                             </td>
                           </tr>
                         </table>
@@ -429,7 +442,7 @@
 
                         <div class="events-container">
                         {% for event in digest.club_night_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-is-club="true" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-act="{{ event.primary_act }}" data-is-club="true" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
@@ -504,7 +517,7 @@
 
                         <div class="events-container">
                         {% for event in digest.other_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 12px 14px;">
                               {% if event.is_new %}
@@ -522,6 +535,9 @@
                               <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
                                 View Tickets &rarr;
                               </a>
+                              <button class="star-btn" data-act="{{ event.primary_act }}" onclick="toggleStarArtist(this, '{{ event.primary_act }}'); return false;" style="background: none; border: 1px solid #334155; border-radius: 6px; color: #94a3b8; padding: 4px 8px; cursor: pointer; font-size: 10px; margin-left: 8px;">
+                                ⭐ <span class="star-label">Star</span>
+                              </button>
                             </td>
                           </tr>
                         </table>
@@ -558,6 +574,53 @@
   <!-- Interactive Tier Switching & Multi-Way Filtering/Sorting Script -->
   <script>
     var currentTier = 'all';
+
+    function getStarredArtists() {
+      try {
+        return JSON.parse(localStorage.getItem('lc_starred_artists') || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function toggleStarArtist(btn, actName) {
+      if (!actName) return;
+      var norm = actName.toLowerCase().trim();
+      var starred = getStarredArtists();
+      var idx = starred.indexOf(norm);
+      if (idx > -1) {
+        starred.splice(idx, 1);
+      } else {
+        starred.push(norm);
+      }
+      localStorage.setItem('lc_starred_artists', JSON.stringify(starred));
+      syncStarredUI();
+    }
+
+    function syncStarredUI() {
+      var starred = getStarredArtists();
+      document.querySelectorAll('.event-card').forEach(function(card) {
+        var act = (card.getAttribute('data-act') || '').toLowerCase().trim();
+        var isStarred = (starred.indexOf(act) > -1);
+        card.setAttribute('data-starred', isStarred ? 'true' : 'false');
+        var btn = card.querySelector('.star-btn');
+        if (btn) {
+          var lbl = btn.querySelector('.star-label');
+          if (isStarred) {
+            btn.style.borderColor = '#eab308';
+            btn.style.color = '#fef08a';
+            btn.style.backgroundColor = '#854d0e';
+            if (lbl) lbl.textContent = 'Starred';
+          } else {
+            btn.style.borderColor = '#334155';
+            btn.style.color = '#94a3b8';
+            btn.style.backgroundColor = 'transparent';
+            if (lbl) lbl.textContent = 'Star';
+          }
+        }
+      });
+      applyFiltersAndSort();
+    }
 
     function switchTier(tierKey) {
       if (!tierKey) tierKey = 'all';
@@ -634,11 +697,15 @@
         var cardArea = card.getAttribute('data-area') || '';
         var cardVenue = card.getAttribute('data-venue') || '';
 
+        var cardIsStarred = card.getAttribute('data-starred') === 'true';
+
         var matchTier = false;
         if (currentTier === 'all') {
           matchTier = true;
         } else if (currentTier === 'new') {
           matchTier = cardIsNew;
+        } else if (currentTier === 'tier1') {
+          matchTier = (cardTier === 'tier1' || cardIsStarred);
         } else if (currentTier === 'club') {
           matchTier = (cardTier === 'club' || cardIsClub);
         } else {
@@ -717,6 +784,9 @@
           venueSelect.appendChild(opt);
         });
       }
+
+      // Sync starred artists from localStorage
+      syncStarredUI();
 
       var t1Count = {{ digest.tier_1_events|length }};
       var t2Count = {{ digest.tier_2_events|length }};

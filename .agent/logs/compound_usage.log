@@ -26,3 +26,9 @@
 2026-11-03T16:24:50 compound-search songkick version
 2026-11-03T16:24:54 update-solution-ref docs/explorations/archive/future-horizon-diffing-and-venue-management-20261103.md docs/explorations/preview-cap-versioning-clubnights-ticketmaster-20261103.md docs/solutions/schema.yaml
 2026-11-03T17:21:52 compound-search zero shows visible
+2026-11-03T18:16:24 compound-search tier
+2026-11-03T18:18:14 compound-search tier spotify
+2026-11-03T18:18:18 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/decisions/002-ticketmaster-discovery-and-single-page-tier-cycling.md docs/explorations/why-tier1-tier2-empty-20261103.md
+2026-11-03T18:20:32 compound-search taste spotify
+2026-11-03T18:20:36 update-solution-ref docs/decisions/001-engine-architecture-and-data-ingestion.md docs/explorations/why-tier1-tier2-empty-20261103.md
+2026-11-03T18:22:31 compound-search tier taste

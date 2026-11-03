@@ -1,6 +1,7 @@
 """Dual-user Spotify taste profiling engine using OAuth refresh tokens."""
 
 import logging
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 import requests
 import spotipy
@@ -235,4 +236,78 @@ class SpotifyEngine:
             f"✓ Combined taste profiles: {len(combined.combined_direct)} unique direct artists, "
             f"{len(combined.combined_discovery)} discovery artists."
         )
+
+        # Fallback to seed profile if no direct artists could be acquired from OAuth
+        if len(combined.combined_direct) == 0:
+            logger.info("No direct artists loaded via live Spotify API. Falling back to data/seed_tastes.json...")
+            seed_profile = load_seed_taste_profile()
+            if seed_profile and len(seed_profile.combined_direct) > 0:
+                return seed_profile
+
         return combined
+
+
+def load_seed_taste_profile(seed_path: Optional[Path] = None) -> CombinedTasteProfile:
+    """Load offline-first seed taste profile for Elliott and Chloe."""
+    import json
+    if seed_path is None:
+        project_root = Path(__file__).resolve().parent.parent.parent
+        seed_path = project_root / "data" / "seed_tastes.json"
+
+    if not seed_path.exists():
+        logger.warning(f"Seed taste profile not found at {seed_path}")
+        return CombinedTasteProfile()
+
+    try:
+        with open(seed_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        def _make_profile(user_key: str, default_name: str) -> UserTasteProfile:
+            u_data = data.get(user_key, {})
+            return UserTasteProfile(
+                user_name=u_data.get("user_name", default_name),
+                saved_artists=set(u_data.get("saved_artists", [])),
+                playlist_artists=set(u_data.get("playlist_artists", [])),
+                top_artists=set(u_data.get("top_artists", [])),
+                discovery_artists=set(u_data.get("discovery_artists", [])),
+            )
+
+        elliott = _make_profile("elliott", "Elliott")
+        chloe = _make_profile("chloe", "Chloe")
+        return CombinedTasteProfile(elliott=elliott, chloe=chloe)
+    except Exception as e:
+        logger.error(f"Error loading seed taste profile from {seed_path}: {e}")
+        return CombinedTasteProfile()
+
+
+def export_seed_taste_profile(profile: CombinedTasteProfile, seed_path: Optional[Path] = None):
+    """Persist combined taste profile to data/seed_tastes.json for static builds and CI."""
+    import json
+    if seed_path is None:
+        project_root = Path(__file__).resolve().parent.parent.parent
+        seed_path = project_root / "data" / "seed_tastes.json"
+
+    try:
+        seed_path.parent.mkdir(parents=True, exist_ok=True)
+        data = {
+            "elliott": {
+                "user_name": profile.elliott.user_name,
+                "saved_artists": sorted(list(profile.elliott.saved_artists)),
+                "playlist_artists": sorted(list(profile.elliott.playlist_artists)),
+                "top_artists": sorted(list(profile.elliott.top_artists)),
+                "discovery_artists": sorted(list(profile.elliott.discovery_artists)),
+            },
+            "chloe": {
+                "user_name": profile.chloe.user_name,
+                "saved_artists": sorted(list(profile.chloe.saved_artists)),
+                "playlist_artists": sorted(list(profile.chloe.playlist_artists)),
+                "top_artists": sorted(list(profile.chloe.top_artists)),
+                "discovery_artists": sorted(list(profile.chloe.discovery_artists)),
+            },
+        }
+        with open(seed_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        logger.info(f"Exported dynamic taste profiles to {seed_path}")
+    except Exception as e:
+        logger.warning(f"Failed to export seed taste profile: {e}")
+
