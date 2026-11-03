@@ -5,7 +5,7 @@ import logging
 import random
 import time
 from datetime import datetime
-from typing import List, Optional
+from typing import Any, List, Optional
 from playwright.sync_api import sync_playwright, Browser, Page, BrowserContext
 from playwright_stealth import Stealth
 
@@ -28,15 +28,30 @@ class DiceScraper:
         page_timeout_ms: int = 25000,
         delay_min: float = 1.5,
         delay_max: float = 3.5,
+        config: Optional[Any] = None,
     ):
-        self.headless = headless
-        self.user_agent = user_agent or (
+        # Support passing Config object as the first positional argument
+        if not isinstance(headless, bool):
+            config = headless
+            headless = getattr(getattr(config, "scraping", None), "headless", True)
+
+        default_ua = (
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
         )
-        self.page_timeout_ms = page_timeout_ms
-        self.delay_min = delay_min
-        self.delay_max = delay_max
+
+        if config is not None and hasattr(config, "scraping"):
+            self.headless = getattr(config.scraping, "headless", headless)
+            self.user_agent = getattr(config.scraping, "user_agent", None) or default_ua
+            self.page_timeout_ms = getattr(config.scraping, "page_timeout_ms", page_timeout_ms)
+            self.delay_min = getattr(config.scraping, "polite_delay_seconds_min", delay_min)
+            self.delay_max = getattr(config.scraping, "polite_delay_seconds_max", delay_max)
+        else:
+            self.headless = headless
+            self.user_agent = user_agent or default_ua
+            self.page_timeout_ms = page_timeout_ms
+            self.delay_min = delay_min
+            self.delay_max = delay_max
         self.stealth = Stealth()
 
     def _create_browser_and_context(self, p) -> tuple[Browser, BrowserContext]:
@@ -234,3 +249,5 @@ class DiceScraper:
 
         logger.info(f"Total unique events extracted across {len(venues)} venues: {len(unique_events)}")
         return list(unique_events.values())
+
+    scrape_venues = scrape_all_venues

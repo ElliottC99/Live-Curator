@@ -1,7 +1,7 @@
 """Dual-user Spotify taste profiling engine using OAuth refresh tokens."""
 
 import logging
-from typing import Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Set
 import requests
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -31,10 +31,22 @@ class SpotifyEngine:
         client_id: Optional[str] = None,
         client_secret: Optional[str] = None,
         redirect_uri: str = "http://127.0.0.1:8888/callback",
+        config: Optional[Any] = None,
     ):
-        self.client_id = client_id
-        self.client_secret = client_secret
-        self.redirect_uri = redirect_uri
+        # Support passing Config object as the first positional argument
+        if client_id is not None and not isinstance(client_id, str):
+            config = client_id
+            client_id = None
+
+        self.config = config
+        if config is not None:
+            self.client_id = client_id or getattr(config, "spotify_client_id", None)
+            self.client_secret = client_secret or getattr(config, "spotify_client_secret", None)
+            self.redirect_uri = getattr(config, "spotify_redirect_uri", redirect_uri)
+        else:
+            self.client_id = client_id
+            self.client_secret = client_secret
+            self.redirect_uri = redirect_uri
 
     @property
     def is_configured(self) -> bool:
@@ -204,12 +216,15 @@ class SpotifyEngine:
 
     def get_combined_taste_profile(
         self,
-        elliott_refresh_token: Optional[str],
-        chloe_refresh_token: Optional[str],
+        elliott_refresh_token: Optional[str] = None,
+        chloe_refresh_token: Optional[str] = None,
     ) -> CombinedTasteProfile:
         """Fetch profiles for Elliott and Chloe and return a combined aggregate."""
-        elliott_profile = self.get_user_taste_profile("Elliott", elliott_refresh_token)
-        chloe_profile = self.get_user_taste_profile("Chloe", chloe_refresh_token)
+        e_token = elliott_refresh_token or (getattr(self.config, "elliott_spotify_refresh_token", None) if self.config else None)
+        c_token = chloe_refresh_token or (getattr(self.config, "chloe_spotify_refresh_token", None) if self.config else None)
+
+        elliott_profile = self.get_user_taste_profile("Elliott", e_token)
+        chloe_profile = self.get_user_taste_profile("Chloe", c_token)
 
         combined = CombinedTasteProfile(
             elliott=elliott_profile,
