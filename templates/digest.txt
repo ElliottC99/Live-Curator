@@ -1,0 +1,60 @@
+======================================================================
+LIVE CURATOR // EAST LONDON
+Monthly Gig & Comedy Digest — {{ digest.month_name }} {{ digest.year }}
+======================================================================
+
+Surveyed 9 seed venues across {{ digest.total_events_scraped }} upcoming shows in Dalston, Hackney Central, Stoke Newington & Shoreditch.
+
+{% if digest.tier_1_events %}
+----------------------------------------------------------------------
+🔥 TIER 1: DIRECT MATCHES (Must-See Live)
+----------------------------------------------------------------------
+Artists in Elliott or Chloe's Spotify Liked Songs, Playlists, or Top Artists:
+
+{% for event in digest.tier_1_events %}
+* {{ event.title }}
+  Venue: {{ event.venue_name }} ({{ event.venue_area }})
+  Date:  {{ event.date_str }}
+  {% if event.price_str %}Price: {{ event.price_str }}{% endif %}
+  Match: {% for match in event.matches %}[{{ match.description }}] {% endfor %}
+  Tickets: {{ event.ticket_url }}
+
+{% endfor %}
+{% endif %}
+
+{% if digest.tier_2_events %}
+----------------------------------------------------------------------
+✨ TIER 2: DISCOVERY MATCHES (Top Critic & Algorithmic Picks)
+----------------------------------------------------------------------
+From Discover Weekly / Release Radar, or high-rated in DIY, Dork, NME, Guardian, or Loud & Quiet:
+
+{% for event in digest.tier_2_events %}
+* {{ event.title }}
+  Venue: {{ event.venue_name }} ({{ event.venue_area }})
+  Date:  {{ event.date_str }}
+  {% if event.price_str %}Price: {{ event.price_str }}{% endif %}
+  Match: {% for match in event.matches %}[{{ match.description }}] {% endfor %}
+  Tickets: {{ event.ticket_url }}
+
+{% endfor %}
+{% endif %}
+
+{% if digest.tier_3_events %}
+----------------------------------------------------------------------
+🎭 TIER 3: COMEDY & ALTERNATIVE
+----------------------------------------------------------------------
+Stand-up, improv, work-in-progress, and cabaret:
+
+{% for event in digest.tier_3_events %}
+* {{ event.title }}
+  Venue: {{ event.venue_name }} — {{ event.date_str }}{% if event.price_str %} ({{ event.price_str }}){% endif %}
+  Tickets: {{ event.ticket_url }}
+
+{% endfor %}
+{% endif %}
+
+======================================================================
+Live Curator Engine • Automatically curated on the 1st of every month.
+Venues: The Shacklewell Arms, MOTH Club, Oslo Hackney, The Waiting Room,
+The Victoria, The George Tavern, Hand of Glory, EartH, Next Door Records Two.
+======================================================================
