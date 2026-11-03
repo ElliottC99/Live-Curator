@@ -158,7 +158,10 @@ def run_pipeline(
     all_events = []
 
     # Ingest DICE venues
-    dice_venues = [v for v in target_venues if v.platform == "dice"]
+    dice_venues = [
+        v for v in target_venues
+        if v.platform in ("dice", "both") or (v.dice_slug and platform_filter in ("all", "dice"))
+    ]
     if dice_venues:
         logger.info(f"Scraping DICE listings ({len(dice_venues)} venues)...")
         dice_scraper = DiceScraper(config)
@@ -167,7 +170,11 @@ def run_pipeline(
         all_events.extend(dice_events)
 
     # Ingest Ticketmaster venues
-    tm_venues = [v for v in target_venues if v.platform == "ticketmaster"]
+    tm_venues = [
+        v for v in target_venues
+        if (v.platform in ("ticketmaster", "both") or v.tm_venue_id or v.tm_keyword)
+        and (platform_filter in ("all", "ticketmaster"))
+    ]
     if tm_venues:
         logger.info(f"Querying Ticketmaster Discovery API ({len(tm_venues)} stadiums/arenas)...")
         tm_engine = TicketmasterEngine(config)
@@ -175,19 +182,33 @@ def run_pipeline(
         logger.info(f"Extracted {len(tm_events)} events from Ticketmaster.")
         all_events.extend(tm_events)
 
-    # Ingest Songkick venues (Keyless Stadiums & Arenas)
+    # Ingest Songkick venues (Keyless Stadiums, Arenas & Historic Theatres)
     songkick_venues = [
         v for v in target_venues
-        if v.platform == "songkick" or (v.songkick_url and v.platform not in ["dice", "ticketmaster"])
+        if v.songkick_url and (platform_filter in ("all", "songkick", "both"))
     ]
     if songkick_venues:
-        logger.info(f"Ingesting keyless concert calendars from Songkick ({len(songkick_venues)} stadiums/arenas)...")
+        logger.info(f"Ingesting keyless concert calendars from Songkick ({len(songkick_venues)} venues)...")
         sk_engine = SongkickEngine()
         sk_events = sk_engine.fetch_all_venues(songkick_venues)
         logger.info(f"Extracted {len(sk_events)} events from Songkick.")
         all_events.extend(sk_events)
 
-    logger.info(f"Total live events harvested across all platforms: {len(all_events)}")
+    # Deduplicate events across platforms by (normalized_title, date, venue_name)
+    deduped_events = []
+    seen_dedup_keys = set()
+    from src.core.normalizer import normalize_artist_name
+    for ev in all_events:
+        d_str = ev.start_time.strftime("%Y-%m-%d") if ev.start_time else ""
+        norm_t = normalize_artist_name(ev.title)
+        v_name = ev.venue_name.lower().strip()
+        key = (norm_t, d_str, v_name)
+        if key not in seen_dedup_keys:
+            seen_dedup_keys.add(key)
+            deduped_events.append(ev)
+
+    logger.info(f"Total live events harvested across all platforms: {len(deduped_events)} (deduplicated from {len(all_events)})")
+    all_events = deduped_events
 
     # 4. 3-Tier Categorization & Historical Delta Diffing
     logger.info("Step 4/5: Categorizing events and diffing against past digests...")

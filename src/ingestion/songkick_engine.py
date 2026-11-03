@@ -192,28 +192,77 @@ class SongkickEngine:
 
         return events
 
-    def fetch_venue_events(self, venue: Venue) -> List[Event]:
-        """Fetch and extract events for a specific venue from Songkick."""
-        url = venue.songkick_url
-        if not url:
+    def fetch_venue_events(self, venue: Venue, max_pages: int = 20) -> List[Event]:
+        """
+        Fetch and extract events for a specific venue from Songkick.
+        Exhaustively paginates through /calendar until <a rel="next"> is None or max_pages is reached.
+        """
+        raw_url = (venue.songkick_url or "").rstrip("/")
+        if not raw_url:
             logger.debug(f"Venue {venue.name} has no songkick_url configured.")
             return []
 
+        # Target full /calendar view
+        calendar_url = raw_url if raw_url.endswith("/calendar") else f"{raw_url}/calendar"
+
         events: List[Event] = []
+        seen_signatures: set = set()
+        seen_page_signatures: set = set()
+        current_page = 1
+        current_url = calendar_url
+
         try:
-            resp = self.session.get(url, timeout=12)
-            if resp.status_code != 200:
-                logger.warning(f"Songkick returned HTTP {resp.status_code} for {venue.name} ({url})")
-                return []
+            while current_page <= max_pages:
+                resp = self.session.get(current_url, timeout=12)
+                if resp.status_code != 200:
+                    # If /calendar gave 404 on page 1, fallback to raw overview page
+                    if current_page == 1 and resp.status_code == 404:
+                        logger.debug(f"Venue calendar 404 for {venue.name}, falling back to overview: {raw_url}")
+                        resp = self.session.get(raw_url, timeout=12)
+                        if resp.status_code != 200:
+                            break
+                    else:
+                        break
 
-            soup = BeautifulSoup(resp.text, "html.parser")
-            scripts = soup.find_all("script", type="application/ld+json")
-            for script in scripts:
-                if script.string:
-                    parsed_events = self.parse_json_ld(script.string, venue)
-                    events.extend(parsed_events)
+                soup = BeautifulSoup(resp.text, "html.parser")
+                page_events: List[Event] = []
+                scripts = soup.find_all("script", type="application/ld+json")
+                for script in scripts:
+                    if script.string:
+                        parsed_events = self.parse_json_ld(script.string, venue)
+                        page_events.extend(parsed_events)
 
-            logger.info(f"Songkick: Harvested {len(events)} events for {venue.name}")
+                if not page_events:
+                    break
+
+                # Loop detection: check if first few events match a previous page
+                page_sig = tuple((e.title, e.start_time) for e in page_events[:3])
+                if page_sig in seen_page_signatures:
+                    break
+                seen_page_signatures.add(page_sig)
+
+                # Add new unique events
+                for ev in page_events:
+                    ev_sig = (normalize_artist_name(ev.title), ev.start_time)
+                    if ev_sig not in seen_signatures:
+                        seen_signatures.add(ev_sig)
+                        events.append(ev)
+
+                # Find next page link (rel="next" or class containing "next")
+                next_link = soup.find("a", rel="next") or soup.find("a", class_=lambda c: c and "next" in c.lower())
+                if not next_link or not next_link.get("href"):
+                    break
+
+                next_href = str(next_link["href"])
+                if next_href.startswith("http"):
+                    current_url = next_href
+                else:
+                    current_url = f"https://www.songkick.com{next_href}"
+
+                current_page += 1
+                time.sleep(1.2)  # Polite throttle between pages
+
+            logger.info(f"Songkick: Exhaustively harvested {len(events)} events across {current_page} page(s) for {venue.name}")
 
         except Exception as e:
             logger.warning(f"Failed to fetch Songkick events for {venue.name}: {e}")

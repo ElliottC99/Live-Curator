@@ -99,8 +99,21 @@ def load_events_from_history() -> list[Event]:
                         platform=item.get("platform") or "dice",
                     )
                 )
-            logger.info(f"Loaded {len(events)} events from data/seed_events.json.")
-            return events
+
+            # Deduplicate cross-platform duplicate listings
+            deduped_events = []
+            seen_signatures = set()
+            for ev in events:
+                primary = ev.normalized_performers[0] if ev.normalized_performers else normalize_artist_name(ev.title)
+                d_str = ev.start_time.strftime("%Y-%m-%d") if ev.start_time else ""
+                v_name = ev.venue_name.lower().strip()
+                sig = (primary, d_str, v_name)
+                if sig not in seen_signatures:
+                    seen_signatures.add(sig)
+                    deduped_events.append(ev)
+
+            logger.info(f"Loaded {len(deduped_events)} events from data/seed_events.json (deduplicated from {len(events)}).")
+            return deduped_events
         except Exception as ex:
             logger.error(f"Error loading seed_events.json: {ex}")
 

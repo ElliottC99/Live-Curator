@@ -2,6 +2,7 @@
 title: "Exploration: Root Cause Analysis of '0 Shows Visible' on Initial Load"
 date: "2026-11-03"
 status: "completed"
+last_referenced: "2026-11-03"
 tags:
   - exploration
   - ui

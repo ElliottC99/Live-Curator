@@ -129,7 +129,7 @@ class TierClassifier:
                         description=f"In {user_label}'s Liked Songs",
                     )
                 )
-            elif act in user_profile.playlist_artists:
+            if act in user_profile.playlist_artists:
                 rationales.append(
                     MatchRationale(
                         tier=TierCategory.TIER_1_DIRECT,
@@ -139,7 +139,7 @@ class TierClassifier:
                         description=f"In {user_label}'s Playlists",
                     )
                 )
-            elif act in user_profile.top_artists:
+            if act in user_profile.top_artists:
                 rationales.append(
                     MatchRationale(
                         tier=TierCategory.TIER_1_DIRECT,
@@ -302,6 +302,12 @@ class TierClassifier:
                         description="🔥 MUTUAL MATCH: In Both Your Playlists / Liked Songs!",
                     )
                     tier_1_matches.insert(0, mutual_rationale)
+
+                # Cumulative multi-tagging: also append high-rated critical reviews (e.g. 5★ in The Guardian)
+                review_matches = self._check_review_matches(norm_acts)
+                if review_matches:
+                    tier_1_matches.extend(review_matches)
+
                 event.matches = tier_1_matches
                 return event
 

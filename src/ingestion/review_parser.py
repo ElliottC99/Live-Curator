@@ -186,21 +186,21 @@ class ReviewDatabase:
         except Exception as e:
             logger.debug(f"SQLite review query fallback: {e}")
 
-        # Fallback to seed reviews if SQLite cache is empty (e.g. GitHub Actions CI)
-        if not artists:
-            seed_path = Path(__file__).resolve().parent.parent.parent / "data" / "seed_reviews.json"
-            if seed_path.exists():
-                try:
-                    import json
-                    with open(seed_path, "r", encoding="utf-8") as f:
-                        seed_data = json.load(f)
-                    artists = {
-                        item["normalized_artist"]
-                        for item in seed_data
-                        if item.get("is_recommended", True)
-                    }
-                except Exception as e:
-                    logger.warning(f"Error loading seed reviews from {seed_path}: {e}")
+        # Merge with version-controlled seed reviews (e.g. GitHub Actions CI and curated albums)
+        seed_path = Path(__file__).resolve().parent.parent.parent / "data" / "seed_reviews.json"
+        if seed_path.exists():
+            try:
+                import json
+                with open(seed_path, "r", encoding="utf-8") as f:
+                    seed_data = json.load(f)
+                seed_artists = {
+                    item["normalized_artist"]
+                    for item in seed_data
+                    if item.get("is_recommended", True)
+                }
+                artists.update(seed_artists)
+            except Exception as e:
+                logger.warning(f"Error loading seed reviews from {seed_path}: {e}")
 
         return artists
 

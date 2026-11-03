@@ -1,95 +1,331 @@
-# Curated Taste Profiles for Elliott & Chloe
-# When live Spotify OAuth tokens are present in .env, dynamic sync refreshes these profiles
-# each month before email delivery and updates data/seed_tastes.json.
-# In CI and offline mode, the system falls back to this seed configuration.
-
 elliott:
-  name: "Elliott"
-  # Artists specifically saved/liked by Elliott
-  saved_artists:
-    - "The Avalanches"
-    - "Fontaines D.C."
-    - "Fontaines DC"
-    - "IDLES"
-    - "LCD Soundsystem"
-    - "The Smile"
-    - "Joy Orbison"
-    - "Overmono"
-    - "Fred again.."
-    - "Bicep"
-    - "Yard Act"
-    - "Gang of Youths"
-    - "Oasis"
-  # Artists in Elliott's curated playlists (Lambrini Girls belongs here, NOT in saved_artists)
+  user_name: Elliott
+  saved_artists: []
   playlist_artists:
-    - "Lambrini Girls"
-    - "Fat Dog"
-    - "Getdown Services"
-    - "Maribou State"
-    - "Squid"
-    - "Shame"
-    - "English Teacher"
-    - "Geese"
-    - "Black Country, New Road"
-    - "Black Country New Road"
-    - "Porridge Radio"
-    - "Amyl and The Sniffers"
-    - "Calibre"
-    - "4am Kru"
-    - "Temples"
-    - "Widowspeak"
-    - "Saccades"
-    - "C.O.F.F.I.N"
-    - "Party Dozen"
+  - blondshell
+  - keo
   top_artists:
-    - "Fontaines D.C."
-    - "The Avalanches"
-    - "Overmono"
-    - "IDLES"
-    - "The Smile"
-  discovery_artists:
-    - "Greg Mendez"
-    - "Elephant Stone"
-    - "SLIFT"
-    - "Boko Yout"
-    - "Kiwi Jr"
-    - "Danny L Harle"
-
+  - '1975'
+  - amazons
+  - arctic monkeys
+  - arlo parks
+  - basht
+  - beabadoobee
+  - beach boys
+  - beatles
+  - bleachers
+  - blondshell
+  - blood orange
+  - blossoms
+  - blur
+  - bob dylan
+  - bon iver
+  - cameron winter
+  - cardinals
+  - charli xcx
+  - childhood
+  - childish gambino
+  - circa waves
+  - clash
+  - coin
+  - cruel season
+  - cruush
+  - declan mckenna
+  - djo
+  - doors
+  - dope lemon
+  - father john misty
+  - feet
+  - fontaines dc
+  - geese
+  - gorillaz
+  - hinds
+  - hot chocolate
+  - inhaler
+  - japanese house
+  - jaws
+  - jimi hendrix
+  - jo from school
+  - joy division
+  - keo
+  - kings of leon
+  - larlin
+  - last dinner party
+  - lemon twigs
+  - loyle carner
+  - magic gang
+  - maripool
+  - martial arts
+  - mj lenderman
+  - mkgee
+  - murder capital
+  - new order
+  - newdad
+  - night cafe
+  - olivia rodrigo
+  - palace
+  - peace
+  - phoebe bridgers
+  - pink floyd
+  - role model
+  - rolling stones
+  - sabrina carpenter
+  - saint clair
+  - sam fender
+  - smiths
+  - spacey jane
+  - sports team
+  - strokes
+  - suki waterhouse
+  - sundara karma
+  - swim deep
+  - tom misch
+  - tooth
+  - undertones
+  - vaccines
+  - wallice
+  - wallows
+  - war on drugs
+  - westside cowboy
+  - wolf alice
+  - wunderhorse
+  discovery_artists: []
 chloe:
-  name: "Chloe"
+  user_name: Chloe
   saved_artists:
-    - "Wasia Project"
-    - "Little Simz"
-    - "Kelela"
-    - "Tove Lo"
-    - "Blondshell"
-    - "Angèle"
-    - "Wet Leg"
-    - "Ezra Collective"
-    - "Self Esteem"
-    - "Arlo Parks"
-    - "Big Thief"
-    - "RAYE"
+  - abigail rose
+  - agnes obel
+  - alex cameron
+  - andy shauf
+  - arcade fire
+  - avalon emerson
+  - baxter dury
+  - bc camplight
+  - beach house
+  - being dead
+  - ben kidson
+  - big red machine
+  - big thief
+  - billie eilish
+  - blondshell
+  - blood orange
+  - bombay bicycle club
+  - bon iver
+  - cameron winter
+  - camille blackman
+  - caroline polachek
+  - celia kameni
+  - chanel beads
+  - charlatans
+  - chinese american bear
+  - cigarettes after sex
+  - cmat
+  - cvc
+  - david gray
+  - diiv
+  - djo
+  - dove ellis
+  - dyan
+  - echo the bunnymen
+  - ellisa sun
+  - esmeralda road
+  - faces
+  - father john misty
+  - feet
+  - feist
+  - fine young cannibals
+  - florence road
+  - florence the machine
+  - fontaines dc
+  - freak slug
+  - geese
+  - gener8ion
+  - gerry rafferty
+  - girlsweetvoiced
+  - goldie boutilier
+  - greta stanley
+  - grey dugan
+  - grogans
+  - h pruz
+  - habibi
+  - hannah cohen
+  - hatchie
+  - haute freddy
+  - hermanos gutierrez
+  - highschool
+  - holly humberstone
+  - ider
+  - jade
+  - james vincent mcmorrow
+  - japanese house
+  - jess williamson
+  - jordana
+  - julia jacklin
+  - julia stone
+  - juliasophie
+  - junior varsity
+  - just mustard
+  - justin bieber
+  - justin vernon
+  - kaeto
+  - keo
+  - kurt vile
+  - labi siffre
+  - last dinner party
+  - laurel
+  - lavender
+  - lcd soundsystem
+  - libertines
+  - lime garden
+  - ll burns
+  - lorde
+  - lykke li
+  - mallrat
+  - mannequin pussy
+  - marias
+  - marlon williams
+  - minna
+  - mj lenderman
+  - mkgee
+  - mouseatouille
+  - mustafa
+  - national
+  - nell mescal
+  - nick ward
+  - night lunch
+  - nilufer yanya
+  - nu genea
+  - olivia chaney
+  - olivia dean
+  - palace
+  - paper kites
+  - paul simon
+  - peace
+  - perfume genius
+  - peter bjorn and john
+  - phoenix
+  - pillow queens
+  - pixie mccann
+  - pollyfromthedirt
+  - prewn
+  - quinnie
+  - radio dept
+  - river whyless
+  - roches
+  - role model
+  - rolling blackouts coastal fever
+  - royel otis
+  - santigold
+  - searows
+  - sex week
+  - shelly
+  - sleigh bells
+  - slow pulp
+  - soda blonde
+  - sorcha richardson
+  - squirrel flower
+  - stella donnelly
+  - stevie bill
+  - still blank
+  - stone roses
+  - sunflower bean
+  - sylvie
+  - telenova
+  - tennis
+  - this is lorelei
+  - ttrruuces
+  - tv girl
+  - war on drugs
+  - wasuremono
+  - water from your eyes
+  - waterboys
+  - way dynamic
+  - westside cowboy
+  - wet leg
+  - wolf alice
+  - wolf parade
+  - woody
+  - yeah yeah yeahs
+  - yellow house
+  - yenkee
+  - yolanda adams
+  - yung lean
   playlist_artists:
-    - "The Mary Wallopers"
-    - "The Japanese House"
-    - "HAIM"
-    - "The Last Dinner Party"
-    - "Olivia Dean"
-    - "Ibibio Sound Machine"
-    - "Sarah Julia"
-    - "Pearl and The Oysters"
-    - "Kurupt FM"
-    - "Ella Raphael"
+  - blondshell
   top_artists:
-    - "Wasia Project"
-    - "Little Simz"
-    - "Wet Leg"
-    - "Blondshell"
-  discovery_artists:
-    - "Chloe Slater"
-    - "Zinadelphia"
-    - "Dea Matrona"
-    - "Ingrid Michaelson"
-    - "Infinity Song"
-    - "Sekou"
+  - '1975'
+  - agnes obel
+  - akon
+  - angus julia stone
+  - arctic monkeys
+  - ariana grande
+  - beabadoobee
+  - beach house
+  - big thief
+  - billie eilish
+  - blondshell
+  - blood orange
+  - bon iver
+  - cameron winter
+  - charli xcx
+  - childish gambino
+  - cigarettes after sex
+  - clairo
+  - declan mckenna
+  - dolly parton
+  - dope lemon
+  - eau claire memorial jazz i
+  - echo the bunnymen
+  - father john misty
+  - fleetwood mac
+  - florence road
+  - florence the machine
+  - fontaines dc
+  - frank ocean
+  - geese
+  - greg freeman
+  - harry styles
+  - hozier
+  - jade
+  - julia jacklin
+  - justin vernon
+  - kanye west
+  - kendrick lamar
+  - keo
+  - kid cudi
+  - king krule
+  - kings of leon
+  - lana del rey
+  - last dinner party
+  - lcd soundsystem
+  - lorde
+  - loyle carner
+  - lykke li
+  - madra salach
+  - michael jackson
+  - mumford sons
+  - national
+  - olivia dean
+  - olivia rodrigo
+  - palace
+  - phoebe bridgers
+  - pnk
+  - radio free alice
+  - radiohead
+  - role model
+  - royel otis
+  - sabrina carpenter
+  - saint clair
+  - sam fender
+  - sharon van etten
+  - smiths
+  - sufjan stevens
+  - suki waterhouse
+  - taylor swift
+  - this is lorelei
+  - velvet underground
+  - wallows
+  - westside cowboy
+  - wolf alice
+  - wunderhorse
+  discovery_artists: []

@@ -149,3 +149,47 @@ def test_fetch_all_venues_skips_venues_without_songkick_url():
         # Only v2 should be queried
         assert mock_fetch.call_count == 1
         assert mock_fetch.call_args[0][0].name == "Venue B"
+
+
+def test_fetch_venue_events_paginates_until_no_next_link(sample_venue):
+    engine = SongkickEngine()
+
+    page1_json = json.dumps([{
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Band Page 1 @ Venue",
+        "startDate": "2027-03-01T19:00:00",
+        "url": "https://songkick.com/concerts/1",
+        "performer": [{"name": "Band Page 1"}],
+    }])
+    page2_json = json.dumps([{
+        "@context": "http://schema.org",
+        "@type": "MusicEvent",
+        "name": "Keo @ Venue",
+        "startDate": "2027-03-12T19:00:00",
+        "url": "https://songkick.com/concerts/2",
+        "performer": [{"name": "Keo"}],
+    }])
+
+    page1_html = f"""
+    <html><head><script type="application/ld+json">{page1_json}</script></head>
+    <body><a rel="next" href="/calendar?page=2">Next</a></body></html>
+    """
+    page2_html = f"""
+    <html><head><script type="application/ld+json">{page2_json}</script></head>
+    <body><div>No more pages</div></body></html>
+    """
+
+    resp1 = MagicMock(status_code=200, text=page1_html)
+    resp2 = MagicMock(status_code=200, text=page2_html)
+
+    with patch.object(engine.session, "get", side_effect=[resp1, resp2]) as mock_get:
+        with patch("time.sleep"):  # Fast execution in tests
+            events = engine.fetch_venue_events(sample_venue)
+
+        assert mock_get.call_count == 2
+        assert len(events) == 2
+        assert events[0].title == "Band Page 1 @ Venue"
+        assert events[1].title == "Keo @ Venue"
+        assert "Keo" in events[1].performers
+

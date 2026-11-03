@@ -85,7 +85,7 @@ class SpotifyEngine:
 
     def create_client(self, access_token: str) -> spotipy.Spotify:
         """Create an authenticated spotipy client instance."""
-        return spotipy.Spotify(auth=access_token, requests_timeout=15, retries=3)
+        return spotipy.Spotify(auth=access_token, requests_timeout=15, retries=0)
 
     def _fetch_saved_artists(self, sp: spotipy.Spotify, limit_batches: int = 4) -> Set[str]:
         """
@@ -172,6 +172,11 @@ class SpotifyEngine:
                                     else:
                                         playlist_artists.add(norm)
                 except Exception as ex:
+                    # If Spotify returns rate limit 429, exit playlist loop gracefully
+                    err_msg = str(ex)
+                    if "429" in err_msg or "rate" in err_msg.lower():
+                        logger.warning(f"Spotify rate limit encountered on playlist '{name}'. Preserving {len(playlist_artists)} artists harvested so far.")
+                        break
                     logger.debug(f"Could not load tracks for playlist '{name}': {ex}")
 
         except Exception as e:

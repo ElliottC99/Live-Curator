@@ -124,6 +124,27 @@ class TestTierClassifier:
         assert "Elliott" in users
         assert "Chloe" in users
 
+    def test_tier_1_multi_tag_with_reviews(self, sample_taste_profile, sample_review_db):
+        from src.core.models import Review
+        sample_review_db.save_reviews([
+            Review(
+                artist_name="The Smile",
+                normalized_artist="the smile",
+                publication="The Guardian",
+                album_title="Wall of Eyes",
+                stars=5.0,
+                is_recommended=True,
+            )
+        ])
+        classifier = TierClassifier(taste_profile=sample_taste_profile, review_db=sample_review_db)
+        event = create_event("The Smile in Concert", ["The Smile"])
+        classified = classifier.classify_event(event)
+
+        assert classified.tier == TierCategory.TIER_1_DIRECT
+        descriptions = [m.description for m in classified.matches]
+        assert any("Elliott" in d for d in descriptions)
+        assert any("5★ review in The Guardian" in d for d in descriptions)
+
     def test_tier_2_discovery_spotify(self, sample_taste_profile):
         classifier = TierClassifier(taste_profile=sample_taste_profile)
         event = create_event("English Teacher + Guests", ["English Teacher"])
