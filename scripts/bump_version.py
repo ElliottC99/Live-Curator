@@ -12,6 +12,8 @@ import sys
 from pathlib import Path
 
 VERSION_FILE = Path(__file__).resolve().parent.parent / "src" / "__version__.py"
+MODELS_FILE = Path(__file__).resolve().parent.parent / "src" / "core" / "models.py"
+DIGEST_TEMPLATE_FILE = Path(__file__).resolve().parent.parent / "templates" / "digest.html"
 
 
 def read_current_version() -> str:
@@ -27,6 +29,24 @@ def read_current_version() -> str:
 def write_version(new_version: str):
     content = f'"""Live Curator version specification."""\n\n__version__ = "{new_version}"\n'
     VERSION_FILE.write_text(content, encoding="utf-8")
+
+    if MODELS_FILE.exists():
+        models_content = MODELS_FILE.read_text(encoding="utf-8")
+        models_content = re.sub(
+            r'version:\s*str\s*=\s*["\'][^"\']+["\']',
+            f'version: str = "{new_version}"',
+            models_content,
+        )
+        MODELS_FILE.write_text(models_content, encoding="utf-8")
+
+    if DIGEST_TEMPLATE_FILE.exists():
+        tmpl_content = DIGEST_TEMPLATE_FILE.read_text(encoding="utf-8")
+        tmpl_content = re.sub(
+            r"v\{\{\s*version\s+or\s+['\"][^'\"]+['\"]\s*\}\}",
+            f"v{{{{ version or '{new_version}' }}}}",
+            tmpl_content,
+        )
+        DIGEST_TEMPLATE_FILE.write_text(tmpl_content, encoding="utf-8")
 
 
 def bump(current: str, part: str) -> str:

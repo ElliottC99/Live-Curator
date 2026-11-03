@@ -16,6 +16,7 @@ from src.core.models import (
     UserTasteProfile,
 )
 from src.core.normalizer import matches_artist_set, normalize_artist_name
+from unidecode import unidecode
 from src.ingestion.review_parser import ReviewDatabase
 from src.processing.event_diff_engine import EventDiffEngine
 from src.processing.user_tag_engine import UserTagEngine
@@ -61,6 +62,26 @@ DEFAULT_CLUB_KEYWORDS = [
     "electronic night",
 ]
 
+DEFAULT_PREFERRED_GENRES = [
+    "indie",
+    "indie rock",
+    "post-punk",
+    "nu-disco",
+    "electronic",
+    "techno",
+    "house",
+    "shoegaze",
+    "synthpop",
+    "new wave",
+    "hyperpop",
+    "garage rock",
+    "afrobeat",
+    "jazz",
+    "disco",
+    "ambient",
+    "psych",
+]
+
 
 class TierClassifier:
     """
@@ -79,12 +100,14 @@ class TierClassifier:
         recommended_review_artists: Optional[Set[str]] = None,
         comedy_keywords: Optional[List[str]] = None,
         club_keywords: Optional[List[str]] = None,
+        preferred_genres: Optional[List[str]] = None,
         user_tag_engine: Optional[UserTagEngine] = None,
     ):
         self.taste_profile = taste_profile
         self.review_db = review_db
         self.comedy_keywords = comedy_keywords or DEFAULT_COMEDY_KEYWORDS
         self.club_keywords = club_keywords or DEFAULT_CLUB_KEYWORDS
+        self.preferred_genres = preferred_genres or DEFAULT_PREFERRED_GENRES
         self.user_tag_engine = user_tag_engine
         self.user_tags: Dict[str, str] = {}
         if self.user_tag_engine:
@@ -243,6 +266,90 @@ class TierClassifier:
         text_to_search = f"{event.title} {event.description or ''}"
         return bool(self.club_regex.search(text_to_search))
 
+    def _check_club_night_taste_matches(self, event: Event) -> List[MatchRationale]:
+        """
+        Scan club night title and description for artist names either user likes
+        or preferred genres, avoiding false positives.
+        """
+        matches: List[MatchRationale] = []
+        text_to_search = f"{event.title} {event.description or ''}"
+        if not text_to_search.strip():
+            return matches
+
+        # Normalized version of search text with punctuation stripped for robust matching
+        norm_text = re.sub(r"[^\w\s]", "", unidecode(text_to_search).lower())
+        norm_text = re.sub(r"\s+", " ", norm_text).strip()
+
+        matched_artists_seen: Set[str] = set()
+
+        if self.taste_profile:
+            elliott_artists = self.taste_profile.elliott.all_direct_artists
+            chloe_artists = self.taste_profile.chloe.all_direct_artists
+            all_artists = elliott_artists | chloe_artists
+
+            # Check longer artist names first to avoid sub-match conflicts
+            sorted_artists = sorted(all_artists, key=len, reverse=True)
+
+            for raw_artist in sorted_artists:
+                norm_artist = normalize_artist_name(raw_artist)
+                if not norm_artist or len(norm_artist) < 3 or norm_artist in matched_artists_seen:
+                    continue
+
+                pattern_raw = rf"\b{re.escape(raw_artist)}\b"
+                pattern_norm = rf"\b{re.escape(norm_artist)}\b"
+
+                matched = bool(re.search(pattern_raw, text_to_search, re.IGNORECASE)) or bool(
+                    re.search(pattern_norm, norm_text, re.IGNORECASE)
+                )
+
+                if matched:
+                    matched_artists_seen.add(norm_artist)
+                    in_elliott = (norm_artist in elliott_artists) or (raw_artist in elliott_artists)
+                    in_chloe = (norm_artist in chloe_artists) or (raw_artist in chloe_artists)
+
+                    display_name = raw_artist.title() if raw_artist.islower() else raw_artist
+
+                    if in_elliott and in_chloe:
+                        user = "Mutual"
+                        desc = f"🎧 Features mutual artist: {display_name}"
+                    elif in_elliott:
+                        user = "Elliott"
+                        desc = f"🎧 Features Elliott's favorite artist: {display_name}"
+                    else:
+                        user = "Chloe"
+                        desc = f"🎧 Features Chloe's favorite artist: {display_name}"
+
+                    matches.append(
+                        MatchRationale(
+                            tier=TierCategory.CLUB_NIGHT,
+                            source=MatchSource.CLUB_TASTE_MATCH,
+                            matched_act=display_name,
+                            user=user,
+                            description=desc,
+                        )
+                    )
+                    if len(matches) >= 3:
+                        break
+
+        # Check preferred genres
+        genre_count = 0
+        for genre in self.preferred_genres:
+            if re.search(rf"\b{re.escape(genre)}\b", text_to_search, re.IGNORECASE):
+                matches.append(
+                    MatchRationale(
+                        tier=TierCategory.CLUB_NIGHT,
+                        source=MatchSource.GENRE_MATCH,
+                        matched_act=genre,
+                        user=None,
+                        description=f"🎧 Genre: {genre}",
+                    )
+                )
+                genre_count += 1
+                if genre_count >= 3:
+                    break
+
+        return matches
+
     def classify_event(self, event: Event) -> Event:
         """
         Classify a single event into Tier 1, Tier 2, Tier 3, Club Night, or Unmatched,
@@ -264,6 +371,7 @@ class TierClassifier:
                     description="User tagged as Club Night",
                 )
             ]
+            event.matches.extend(self._check_club_night_taste_matches(event))
             return event
         elif user_tag == "live_gig":
             event.is_club_night = False
@@ -308,6 +416,9 @@ class TierClassifier:
                 if review_matches:
                     tier_1_matches.extend(review_matches)
 
+                if event.is_club_night:
+                    tier_1_matches.extend(self._check_club_night_taste_matches(event))
+
                 event.matches = tier_1_matches
                 return event
 
@@ -326,6 +437,8 @@ class TierClassifier:
 
         if tier_2_matches:
             event.tier = TierCategory.TIER_2_DISCOVERY
+            if event.is_club_night:
+                tier_2_matches.extend(self._check_club_night_taste_matches(event))
             event.matches = tier_2_matches
             return event
 
@@ -348,6 +461,7 @@ class TierClassifier:
                     description=reason,
                 )
             ]
+            event.matches.extend(self._check_club_night_taste_matches(event))
             return event
 
         # 5. Unmatched

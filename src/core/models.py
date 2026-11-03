@@ -31,6 +31,8 @@ class MatchSource(str, Enum):
     COMEDY_KEYWORD = "comedy_keyword"
     USER_TAG = "user_tag"
     CLUB_NIGHT_HEURISTIC = "club_night_heuristic"
+    CLUB_TASTE_MATCH = "club_taste_match"
+    GENRE_MATCH = "genre_match"
 
 
 class MatchRationale(BaseModel):
@@ -93,6 +95,7 @@ class Event(BaseModel):
     matches: List[MatchRationale] = Field(default_factory=list)
     is_new: bool = False
     is_club_night: bool = False
+    is_sold_out: bool = False
     first_seen_at: Optional[datetime] = None
 
     @property
@@ -132,7 +135,7 @@ class MonthlyDigest(BaseModel):
     month_name: str
     year: int
     generated_at: datetime
-    version: str = "0.0.1"
+    version: str = "0.0.2"
     tier_1_events: List[Event] = Field(default_factory=list)
     tier_2_events: List[Event] = Field(default_factory=list)
     tier_3_events: List[Event] = Field(default_factory=list)

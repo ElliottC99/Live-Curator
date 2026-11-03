@@ -193,3 +193,28 @@ def test_fetch_venue_events_paginates_until_no_next_link(sample_venue):
         assert events[1].title == "Keo @ Venue"
         assert "Keo" in events[1].performers
 
+
+def test_parse_json_ld_sold_out_and_aggregate_offer(sample_venue):
+    engine = SongkickEngine()
+    json_ld = json.dumps([
+        {
+            "@context": "http://schema.org",
+            "@type": "MusicEvent",
+            "name": "Fontaines D.C. (Sold Out)",
+            "startDate": "2026-07-10T19:00:00Z",
+            "url": "https://www.songkick.com/concerts/999",
+            "offers": {
+                "@type": "AggregateOffer",
+                "lowPrice": "45.00",
+                "highPrice": "65.00",
+                "priceCurrency": "GBP",
+                "availability": "http://schema.org/SoldOut",
+            },
+        }
+    ])
+    events = engine.parse_json_ld(json_ld, sample_venue)
+    assert len(events) == 1
+    ev = events[0]
+    assert ev.is_sold_out is True
+    assert ev.price_str == "£45.00 - £65.00"
+

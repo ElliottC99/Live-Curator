@@ -45,10 +45,20 @@ class EventDiffEngine:
                     platform TEXT NOT NULL,
                     first_seen_at TEXT NOT NULL,
                     last_seen_at TEXT NOT NULL,
-                    first_digest_label TEXT NOT NULL
+                    first_digest_label TEXT NOT NULL,
+                    price_str TEXT,
+                    is_sold_out INTEGER DEFAULT 0
                 )
                 """
             )
+            # Idempotent migration for existing databases
+            cursor = conn.execute("PRAGMA table_info(seen_events)")
+            existing_cols = {row["name"] for row in cursor.fetchall()}
+            if "price_str" not in existing_cols:
+                conn.execute("ALTER TABLE seen_events ADD COLUMN price_str TEXT")
+            if "is_sold_out" not in existing_cols:
+                conn.execute("ALTER TABLE seen_events ADD COLUMN is_sold_out INTEGER DEFAULT 0")
+
             conn.execute(
                 "CREATE INDEX IF NOT EXISTS idx_seen_events_platform ON seen_events(platform)"
             )
@@ -97,10 +107,12 @@ class EventDiffEngine:
                     conn.execute(
                         """
                         UPDATE seen_events
-                        SET last_seen_at = ?
+                        SET last_seen_at = ?,
+                            price_str = COALESCE(?, price_str),
+                            is_sold_out = ?
                         WHERE event_id = ?
                         """,
-                        (now_iso, fingerprint),
+                        (now_iso, event.price_str, 1 if event.is_sold_out else 0, fingerprint),
                     )
                 else:
                     # Brand new announcement!
@@ -114,8 +126,9 @@ class EventDiffEngine:
                         """
                         INSERT INTO seen_events (
                             event_id, title, venue_name, venue_area, start_time,
-                            ticket_url, platform, first_seen_at, last_seen_at, first_digest_label
-                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                            ticket_url, platform, first_seen_at, last_seen_at, first_digest_label,
+                            price_str, is_sold_out
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                         """,
                         (
                             fingerprint,
@@ -128,6 +141,8 @@ class EventDiffEngine:
                             now_iso,
                             now_iso,
                             label,
+                            event.price_str,
+                            1 if event.is_sold_out else 0,
                         ),
                     )
                     known_ids.add(fingerprint)

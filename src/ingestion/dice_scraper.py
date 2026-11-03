@@ -3,6 +3,7 @@
 import json
 import logging
 import random
+import re
 import time
 from datetime import datetime
 from typing import Any, List, Optional
@@ -110,6 +111,11 @@ class DiceScraper:
             else:
                 price_str = None
 
+            # Status & Sold out check
+            status = str(event_data.get("status") or "").lower()
+            waiting_list = bool(event_data.get("waiting_list_enabled", False))
+            is_sold_out = (status in ["sold-out", "off-sale"] or waiting_list or bool(re.search(r"\b(sold\s*out)\b", name, re.IGNORECASE)))
+
             # Images
             images = event_data.get("images") or {}
             image_url = images.get("square") or images.get("landscape")
@@ -129,6 +135,7 @@ class DiceScraper:
                 normalized_performers=normalized,
                 ticket_url=ticket_url,
                 price_str=price_str,
+                is_sold_out=is_sold_out,
                 description=event_data.get("event_tag") or None,
                 image_url=image_url,
             )

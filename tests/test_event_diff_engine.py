@@ -96,3 +96,57 @@ def test_fingerprint_generation_without_id(diff_engine):
     )
     fp = diff_engine.compute_fingerprint(event_no_id)
     assert isinstance(fp, str) and len(fp) > 10
+
+
+def test_diff_and_record_persists_price_and_sold_out(diff_engine):
+    event = Event(
+        id="dice-soldout",
+        title="Popular Show",
+        venue_name="MOTH Club",
+        start_time=datetime(2026, 11, 20, 20, 0),
+        date_str="Fri 20 Nov",
+        ticket_url="https://dice.fm/event/soldout",
+        platform="dice",
+        price_str="£17.50",
+        is_sold_out=True,
+    )
+    diff_engine.diff_and_record([event], digest_label="November 2026")
+
+    # Verify directly in SQLite
+    with diff_engine._get_connection() as conn:
+        cursor = conn.execute("SELECT price_str, is_sold_out FROM seen_events WHERE event_id = ?", ("dice:dice-soldout",))
+        row = cursor.fetchone()
+        assert row is not None
+        assert row["price_str"] == "£17.50"
+        assert row["is_sold_out"] == 1
+
+
+def test_idempotent_schema_migration_for_price_and_sold_out(tmp_path):
+    import sqlite3
+    db_file = tmp_path / "legacy.sqlite"
+    # Create legacy schema without price_str and is_sold_out
+    conn = sqlite3.connect(str(db_file))
+    conn.execute("""
+        CREATE TABLE seen_events (
+            event_id TEXT PRIMARY KEY,
+            title TEXT NOT NULL,
+            venue_name TEXT NOT NULL,
+            venue_area TEXT NOT NULL,
+            start_time TEXT,
+            ticket_url TEXT NOT NULL,
+            platform TEXT NOT NULL,
+            first_seen_at TEXT NOT NULL,
+            last_seen_at TEXT NOT NULL,
+            first_digest_label TEXT NOT NULL
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+    # Initializing EventDiffEngine should perform idempotent migration without crashing
+    engine = EventDiffEngine(db_path=db_file)
+    with engine._get_connection() as conn:
+        cursor = conn.execute("PRAGMA table_info(seen_events)")
+        cols = {row["name"] for row in cursor.fetchall()}
+        assert "price_str" in cols
+        assert "is_sold_out" in cols

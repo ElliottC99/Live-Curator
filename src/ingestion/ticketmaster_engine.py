@@ -106,6 +106,10 @@ class TicketmasterEngine:
             # Price
             price_str = self._format_price_range(item.get("priceRanges", []))
 
+            # Status & Sold out check
+            status_code = str(item.get("dates", {}).get("status", {}).get("code", "")).lower()
+            is_sold_out = (status_code in ["soldout", "offsale"] or bool(re.search(r"\b(sold\s*out)\b", title, re.IGNORECASE)))
+
             # Description
             description = item.get("info") or item.get("pleaseNote") or ""
 
@@ -121,6 +125,7 @@ class TicketmasterEngine:
                 ticket_url=ticket_url,
                 platform="ticketmaster",
                 price_str=price_str,
+                is_sold_out=is_sold_out,
                 description=description[:300] if description else None,
             )
         except Exception as e:

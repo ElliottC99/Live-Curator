@@ -270,3 +270,50 @@ class TestTierClassifier:
         assert c3.is_club_night is False
         assert c3.tier != TierCategory.CLUB_NIGHT
 
+    def test_club_night_taste_matches_artist_and_genre(self, sample_taste_profile):
+        classifier = TierClassifier(taste_profile=sample_taste_profile)
+
+        dt_late = datetime.now().replace(hour=23, minute=0, second=0, microsecond=0)
+        # Event mentions Elliott's favorite "Fontaines D.C." and genre "post-punk"
+        club_event = Event(
+            id="club_taste_1",
+            title="Late Night Rave with special guest Fontaines D.C. sounds",
+            venue_name="MOTH Club",
+            start_time=dt_late,
+            date_str="Tonight 23:00",
+            ticket_url="https://dice.fm/e/club1",
+            description="Playing the finest post-punk, techno and alternative indie anthems till 4am",
+        )
+
+        classified = classifier.classify_event(club_event)
+        assert classified.is_club_night is True
+        assert classified.tier == TierCategory.CLUB_NIGHT
+
+        descriptions = [m.description for m in classified.matches]
+        # Should have heuristic match
+        assert any("Late Night" in d for d in descriptions)
+        # Should flag Elliott's / mutual artist
+        assert any("Fontaines" in d for d in descriptions)
+        # Should flag preferred genre
+        assert any("post-punk" in d.lower() for d in descriptions)
+        assert any("techno" in d.lower() for d in descriptions)
+
+    def test_club_night_word_boundaries_prevent_false_positives(self, sample_taste_profile):
+        classifier = TierClassifier(taste_profile=sample_taste_profile)
+        dt_late = datetime.now().replace(hour=23, minute=0, second=0, microsecond=0)
+
+        # "takeoff", "token", "airplane" should not trigger short-word artist matches
+        event = Event(
+            id="club_false_pos",
+            title="Late Night Flight",
+            venue_name="The Shacklewell Arms",
+            start_time=dt_late,
+            date_str="Tonight 23:00",
+            ticket_url="https://dice.fm/e/flight",
+            description="Fasten your seatbelts for takeoff at the airport terminal.",
+        )
+        classified = classifier.classify_event(event)
+        # Should only have heuristic match, no taste artist false positives
+        artist_matches = [m for m in classified.matches if m.source == MatchSource.CLUB_TASTE_MATCH]
+        assert len(artist_matches) == 0
+

@@ -30,6 +30,9 @@ def harvest():
 
     db_path = PROJECT_ROOT / "data" / "cache" / "digest_history.sqlite"
     db_path.parent.mkdir(parents=True, exist_ok=True)
+    # Ensure database and columns are migrated
+    diff_engine = EventDiffEngine(db_path)
+
     conn = sqlite3.connect(str(db_path))
     c = conn.cursor()
 
@@ -41,13 +44,19 @@ def harvest():
         start_iso = ev.start_time.isoformat() if ev.start_time else ""
         try:
             c.execute("""
-                INSERT OR REPLACE INTO seen_events (
+                INSERT INTO seen_events (
                     event_id, title, venue_name, venue_area, start_time,
-                    ticket_url, platform, first_seen_at, last_seen_at, first_digest_label
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ticket_url, platform, first_seen_at, last_seen_at, first_digest_label,
+                    price_str, is_sold_out
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(event_id) DO UPDATE SET
+                    last_seen_at = excluded.last_seen_at,
+                    price_str = COALESCE(excluded.price_str, seen_events.price_str),
+                    is_sold_out = excluded.is_sold_out
             """, (
                 fp, ev.title, ev.venue_name, ev.venue_area, start_iso,
-                ev.ticket_url, ev.platform, now_iso, now_iso, "November 2026"
+                ev.ticket_url, ev.platform, now_iso, now_iso, "November 2026",
+                ev.price_str, 1 if ev.is_sold_out else 0
             ))
             inserted += 1
         except Exception as ex:

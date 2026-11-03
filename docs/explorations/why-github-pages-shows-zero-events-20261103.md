@@ -2,6 +2,7 @@
 title: "Exploration: Root Cause of Zero Events on GitHub Pages Deployment"
 date: "2026-11-03"
 status: "completed"
+last_referenced: "2026-11-03"
 tags:
   - exploration
   - github-actions

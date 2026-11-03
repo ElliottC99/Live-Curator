@@ -77,3 +77,20 @@ def test_parse_missing_dates():
 
     event = scraper._parse_event_from_dict(raw_event, venue)
     assert event is None
+
+
+def test_parse_sold_out_dice_event():
+    scraper = DiceScraper(headless=True)
+    venue = Venue(name="MOTH Club", dice_slug="moth-club-43ox")
+
+    raw_event = {
+        "id": "dice_sold_out",
+        "name": "Fontaines D.C. Special Show",
+        "dates": {"event_start_date": "2026-11-20T20:00:00+00:00"},
+        "status": "sold-out",
+        "price": {"currency": "GBP", "amount": 2500},
+    }
+    event = scraper._parse_event_from_dict(raw_event, venue)
+    assert event is not None
+    assert event.is_sold_out is True
+    assert event.price_str == "£25.00"

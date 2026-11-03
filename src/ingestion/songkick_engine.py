@@ -98,12 +98,46 @@ class SongkickEngine:
         if isinstance(offers, list) and offers:
             off = offers[0]
             if isinstance(off, dict):
-                price = off.get("price")
                 curr = off.get("priceCurrency", "GBP")
                 symbol = "£" if curr in ["GBP", None] else f"{curr} "
+
+                # Check for lowPrice/highPrice (AggregateOffer)
+                low_price = off.get("lowPrice")
+                high_price = off.get("highPrice")
+                if low_price is not None and high_price is not None:
+                    if low_price == high_price:
+                        return f"{symbol}{low_price}"
+                    return f"{symbol}{low_price} - {symbol}{high_price}"
+                elif low_price is not None:
+                    return f"From {symbol}{low_price}"
+
+                price = off.get("price")
                 if price is not None:
-                    return f"{symbol}{price}"
+                    try:
+                        f_price = float(price)
+                        if f_price == 0:
+                            return "Free"
+                        return f"{symbol}{f_price:.2f}"
+                    except (ValueError, TypeError):
+                        return f"{symbol}{price}"
         return None
+
+    def _extract_is_sold_out(self, item: Dict[str, Any], title: str = "") -> bool:
+        """Determine if event is sold out from Schema.org availability or title."""
+        if re.search(r"\b(sold\s*out)\b", title, re.IGNORECASE):
+            return True
+
+        offers = item.get("offers")
+        if isinstance(offers, dict):
+            offers = [offers]
+        if isinstance(offers, list):
+            for off in offers:
+                if isinstance(off, dict):
+                    avail = str(off.get("availability", "")).lower()
+                    if "soldout" in avail:
+                        return True
+
+        return False
 
     def parse_json_ld(self, json_ld_text: str, venue: Venue) -> List[Event]:
         """Parse raw JSON-LD text into Event domain entities."""
@@ -165,6 +199,7 @@ class SongkickEngine:
             performers = self._extract_performers(item, title)
             norm_performers = [normalize_artist_name(p) for p in performers if p]
             price_str = self._extract_price(item)
+            is_sold_out = self._extract_is_sold_out(item, title)
             image_url = item.get("image")
             if isinstance(image_url, list) and image_url:
                 image_url = str(image_url[0])
@@ -185,6 +220,7 @@ class SongkickEngine:
                 ticket_url=ticket_url,
                 platform="songkick",
                 price_str=price_str,
+                is_sold_out=is_sold_out,
                 description=item.get("description"),
                 image_url=image_url,
             )

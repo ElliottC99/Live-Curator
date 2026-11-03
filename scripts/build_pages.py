@@ -29,6 +29,7 @@ from src.delivery.template_engine import TemplateEngine
 from src.ingestion.review_parser import ReviewDatabase
 from src.ingestion.spotify_engine import load_seed_taste_profile
 from src.processing.tier_classifier import TierClassifier
+from src.processing.event_diff_engine import EventDiffEngine
 from src.ui.venue_manager import HTML_DASHBOARD
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -44,10 +45,13 @@ def load_events_from_history() -> list[Event]:
     # If SQLite exists locally, sync latest into seed_events.json
     if db_path.exists():
         try:
+            # Ensure DB schema has price_str and is_sold_out
+            EventDiffEngine(db_path)
+
             conn = sqlite3.connect(str(db_path))
             c = conn.cursor()
             c.execute("""
-                SELECT event_id, title, venue_name, venue_area, start_time, ticket_url, platform
+                SELECT event_id, title, venue_name, venue_area, start_time, ticket_url, platform, price_str, is_sold_out
                 FROM seen_events
             """)
             raw_list = []
@@ -60,6 +64,8 @@ def load_events_from_history() -> list[Event]:
                     "start_time": row[4],
                     "ticket_url": row[5] or "https://dice.fm",
                     "platform": row[6] or "dice",
+                    "price_str": row[7],
+                    "is_sold_out": bool(row[8]) if row[8] is not None else False,
                 })
             conn.close()
             seed_json_path.parent.mkdir(parents=True, exist_ok=True)
@@ -97,20 +103,28 @@ def load_events_from_history() -> list[Event]:
                         normalized_performers=norm_performers,
                         ticket_url=item.get("ticket_url") or "https://dice.fm",
                         platform=item.get("platform") or "dice",
+                        price_str=item.get("price_str"),
+                        is_sold_out=bool(item.get("is_sold_out", False)),
                     )
                 )
 
             # Deduplicate cross-platform duplicate listings
             deduped_events = []
-            seen_signatures = set()
+            sig_map = {}
             for ev in events:
                 primary = ev.normalized_performers[0] if ev.normalized_performers else normalize_artist_name(ev.title)
                 d_str = ev.start_time.strftime("%Y-%m-%d") if ev.start_time else ""
                 v_name = ev.venue_name.lower().strip()
                 sig = (primary, d_str, v_name)
-                if sig not in seen_signatures:
-                    seen_signatures.add(sig)
+                if sig not in sig_map:
+                    sig_map[sig] = ev
                     deduped_events.append(ev)
+                else:
+                    existing = sig_map[sig]
+                    if not existing.price_str and ev.price_str:
+                        existing.price_str = ev.price_str
+                    if ev.is_sold_out:
+                        existing.is_sold_out = True
 
             logger.info(f"Loaded {len(deduped_events)} events from data/seed_events.json (deduplicated from {len(events)}).")
             return deduped_events

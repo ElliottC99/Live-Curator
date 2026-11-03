@@ -120,7 +120,7 @@
             <tr>
               <td style="padding: 32px 28px 24px 28px; background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border-bottom: 2px solid #3b82f6;">
                 <p style="margin: 0 0 6px 0; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #60a5fa;">
-                  LIVE CURATOR // LONDON &bull; v{{ version or '0.0.1' }}
+                  LIVE CURATOR // LONDON &bull; v{{ version or '0.0.2' }}
                 </p>
                 <h1 style="margin: 0 0 8px 0; font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">
                   Monthly Gig & Comedy Digest
@@ -192,6 +192,16 @@
                     </select>
                   </div>
 
+                  <!-- Availability Filter -->
+                  <div style="flex: 1; min-width: 140px;">
+                    <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Availability</label>
+                    <select id="filter-availability" onchange="applyFiltersAndSort()" style="width: 100%; background-color: #1e2433; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 12px;">
+                      <option value="all">All Availability</option>
+                      <option value="available">Tickets Available Only</option>
+                      <option value="soldout">Sold Out Only</option>
+                    </select>
+                  </div>
+
                   <!-- Sort By -->
                   <div style="flex: 1; min-width: 140px;">
                     <label style="display: block; font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 3px;">Sort By</label>
@@ -227,7 +237,7 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_1_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier1" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier1" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-is-sold-out="{{ 'true' if event.is_sold_out else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 18px; font-weight: 700; color: #ffffff;">
@@ -244,6 +254,11 @@
                                   &#x1F525; JUST ANNOUNCED
                                 </span>
                                 {% endif %}
+                                {% if event.is_sold_out %}
+                                <span style="display: inline-block; background-color: #450a0a; color: #fecaca; border: 1px solid #dc2626; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; letter-spacing: 0.5px;">
+                                  &#x1F6AB; SOLD OUT
+                                </span>
+                                {% endif %}
                                 {% for match in event.matches %}
                                 <span style="display: inline-block; background-color: {% if match.user == 'Mutual' %}#991b1b; border: 1px solid #ef4444; color: #fef2f2; font-weight: 800;{% elif match.user == 'Elliott' %}#065f46; color: #d1fae5; border: 1px solid #047857;{% elif match.user == 'Chloe' %}#581c87; color: #f3e8ff; border: 1px solid #7e22ce;{% else %}#3730a3; color: #e0e7ff; border: 1px solid #6366f1;{% endif %} font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
                                   {% if match.user == 'Mutual' %}&#x1F525; Both of You &bull;{% elif match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB;{% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8;{% else %}&#x2605;{% endif %} {{ match.description }}
@@ -251,22 +266,22 @@
                                 {% endfor %}
 
                                 {% if event.price_str %}
-                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                  {{ event.price_str }}
+                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #334155;">
+                                  &#x1F4B0; {{ event.price_str }}
                                 </span>
                                 {% endif %}
 
                                 <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
-                                  {% if event.platform == 'ticketmaster' %}&#x1F3DF;&#xFE0F; Ticketmaster{% else %}&#x1F39F;&#xFE0F; DICE{% endif %}
+                                  {% if event.platform == 'ticketmaster' %}&#x1F3DF;&#xFE0F; Ticketmaster{% elif event.platform == 'songkick' %}&#x1F3DF;&#xFE0F; Songkick / Stadium{% else %}&#x1F39F;&#xFE0F; DICE{% endif %}
                                 </span>
                               </div>
 
                               <!-- CTA Button -->
                               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
-                                  <td align="center" style="border-radius: 6px; background-color: #10b981;">
+                                  <td align="center" style="border-radius: 6px; background-color: {% if event.is_sold_out %}#7f1d1d{% else %}#10b981{% endif %};">
                                     <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
-                                      Get Tickets &rarr;
+                                      {% if event.is_sold_out %}Sold Out &bull; View &rarr;{% else %}Get Tickets &rarr;{% endif %}
                                     </a>
                                   </td>
                                   <td style="padding-left: 8px;">
@@ -308,7 +323,7 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_2_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier2" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier2" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-is-sold-out="{{ 'true' if event.is_sold_out else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
@@ -325,29 +340,34 @@
                                   &#x1F525; JUST ANNOUNCED
                                 </span>
                                 {% endif %}
+                                {% if event.is_sold_out %}
+                                <span style="display: inline-block; background-color: #450a0a; color: #fecaca; border: 1px solid #dc2626; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; letter-spacing: 0.5px;">
+                                  &#x1F6AB; SOLD OUT
+                                </span>
+                                {% endif %}
                                 {% for match in event.matches %}
-                                <span style="display: inline-block; background-color: #3730a3; color: #e0e7ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                  &#x2605; {{ match.description }}
+                                <span style="display: inline-block; background-color: {% if match.user == 'Mutual' %}#991b1b; border: 1px solid #ef4444; color: #fef2f2; font-weight: 800;{% elif match.user == 'Elliott' %}#065f46; color: #d1fae5; border: 1px solid #047857;{% elif match.user == 'Chloe' %}#581c87; color: #f3e8ff; border: 1px solid #7e22ce;{% else %}#3730a3; color: #e0e7ff; border: 1px solid #6366f1;{% endif %} font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  {% if match.user == 'Mutual' %}&#x1F525; Both of You &bull;{% elif match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB;{% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8;{% else %}&#x2605;{% endif %} {{ match.description }}
                                 </span>
                                 {% endfor %}
 
                                 {% if event.price_str %}
-                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                  {{ event.price_str }}
+                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #334155;">
+                                  &#x1F4B0; {{ event.price_str }}
                                 </span>
                                 {% endif %}
 
                                 <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
-                                  {% if event.platform == 'ticketmaster' %}&#x1F3DF;&#xFE0F; Ticketmaster{% else %}&#x1F39F;&#xFE0F; DICE{% endif %}
+                                  {% if event.platform == 'ticketmaster' %}&#x1F3DF;&#xFE0F; Ticketmaster{% elif event.platform == 'songkick' %}&#x1F3DF;&#xFE0F; Songkick / Stadium{% else %}&#x1F39F;&#xFE0F; DICE{% endif %}
                                 </span>
                               </div>
 
                               <!-- CTA Button -->
                               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
-                                  <td align="center" style="border-radius: 6px; background-color: #6366f1;">
+                                  <td align="center" style="border-radius: 6px; background-color: {% if event.is_sold_out %}#7f1d1d{% else %}#6366f1{% endif %};">
                                     <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
-                                      Get Tickets &rarr;
+                                      {% if event.is_sold_out %}Sold Out &bull; View &rarr;{% else %}Get Tickets &rarr;{% endif %}
                                     </a>
                                   </td>
                                   <td style="padding-left: 8px;">
@@ -389,12 +409,17 @@
 
                         <div class="events-container">
                         {% for event in digest.tier_3_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="tier3" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-is-sold-out="{{ 'true' if event.is_sold_out else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 14px 16px;">
                               {% if event.is_new %}
-                              <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
+                              <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; margin-right: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
                                 &#x1F525; JUST ANNOUNCED
+                              </span>
+                              {% endif %}
+                              {% if event.is_sold_out %}
+                              <span style="display: inline-block; background-color: #450a0a; color: #fecaca; border: 1px solid #dc2626; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; margin-right: 4px; letter-spacing: 0.5px;">
+                                &#x1F6AB; SOLD OUT
                               </span>
                               {% endif %}
                               <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
@@ -402,10 +427,10 @@
                               </h3>
                               <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
                                 <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; {{ event.date_str }}
-                                {% if event.price_str %}&bull; <span style="color: #f59e0b;">{{ event.price_str }}</span>{% endif %}
+                                {% if event.price_str %}&bull; <span style="color: #f59e0b; font-weight: 600;">&#x1F4B0; {{ event.price_str }}</span>{% endif %}
                               </p>
-                              <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
-                                View Tickets &rarr;
+                              <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 600; color: {% if event.is_sold_out %}#f87171{% else %}#fbbf24{% endif %}; text-decoration: none;">
+                                {% if event.is_sold_out %}Sold Out &bull; View &rarr;{% else %}View Tickets &rarr;{% endif %}
                               </a>
                               <button class="star-btn" data-act="{{ event.primary_act }}" onclick="toggleStarArtist(this, '{{ event.primary_act }}'); return false;" style="background: none; border: 1px solid #334155; border-radius: 6px; color: #94a3b8; padding: 4px 8px; cursor: pointer; font-size: 10px; margin-left: 8px;">
                                 ⭐ <span class="star-label">Star</span>
@@ -442,7 +467,7 @@
 
                         <div class="events-container">
                         {% for event in digest.club_night_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-act="{{ event.primary_act }}" data-is-club="true" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="club" data-act="{{ event.primary_act }}" data-is-club="true" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-is-sold-out="{{ 'true' if event.is_sold_out else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 12px; background-color: #1a162b; border: 1px solid #4c1d95; border-radius: 8px;">
                           <tr>
                             <td style="padding: 16px 18px;">
                               <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
@@ -459,17 +484,22 @@
                                   &#x1F525; JUST ANNOUNCED
                                 </span>
                                 {% endif %}
+                                {% if event.is_sold_out %}
+                                <span style="display: inline-block; background-color: #450a0a; color: #fecaca; border: 1px solid #dc2626; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; letter-spacing: 0.5px;">
+                                  &#x1F6AB; SOLD OUT
+                                </span>
+                                {% endif %}
                                 <span style="display: inline-block; background-color: #581c87; color: #f3e8ff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #a855f7;">
                                   &#x1F3A7; CLUB NIGHT
                                 </span>
                                 {% for match in event.matches %}
-                                <span style="display: inline-block; background-color: #3b0764; color: #e9d5ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                  &#x2605; {{ match.description }}
+                                <span style="display: inline-block; background-color: {% if match.user == 'Mutual' %}#991b1b; border: 1px solid #ef4444; color: #fef2f2; font-weight: 800;{% elif match.user == 'Elliott' %}#065f46; color: #d1fae5; border: 1px solid #047857;{% elif match.user == 'Chloe' %}#581c87; color: #f3e8ff; border: 1px solid #7e22ce;{% elif match.source == 'genre_match' %}#1e1b4b; color: #a5b4fc; border: 1px solid #6366f1;{% else %}#3b0764; color: #e9d5ff; border: 1px solid #7e22ce;{% endif %} font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  {% if match.user == 'Mutual' %}&#x1F525; Both of You &bull; {% elif match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB; {% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8; {% elif match.source == 'genre_match' %}&#x1F3B6; {% else %}&#x2605; {% endif %}{{ match.description }}
                                 </span>
                                 {% endfor %}
                                 {% if event.price_str %}
-                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                  {{ event.price_str }}
+                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; border: 1px solid #334155;">
+                                  &#x1F4B0; {{ event.price_str }}
                                 </span>
                                 {% endif %}
                                 <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
@@ -478,8 +508,8 @@
                               </div>
 
                               <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-                                <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: #9333ea; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
-                                  Get Tickets &rarr;
+                                <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; background-color: {% if event.is_sold_out %}#7f1d1d{% else %}#9333ea{% endif %}; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                  {% if event.is_sold_out %}Sold Out &bull; View &rarr;{% else %}Get Tickets &rarr;{% endif %}
                                 </a>
                                 <button type="button" onclick="toggleUserTag('{{ event.id or event.title }}', 'live_gig', this); return false;" style="cursor: pointer; background-color: #1e2433; color: #cbd5e1; border: 1px solid #475569; font-size: 11px; font-weight: 700; padding: 7px 12px; border-radius: 6px;">
                                   &#x1F3B8; Mark as Live Gig
@@ -517,12 +547,17 @@
 
                         <div class="events-container">
                         {% for event in digest.other_events %}
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="event-card" data-tier="other" data-act="{{ event.primary_act }}" data-is-new="{{ 'true' if event.is_new else 'false' }}" data-is-sold-out="{{ 'true' if event.is_sold_out else 'false' }}" data-venue="{{ event.venue_name }}" data-area="{{ event.venue_area }}" data-timestamp="{{ event.start_time.timestamp() if event.start_time else 0 }}" data-price="{% if not event.price_str or 'free' in event.price_str|lower %}0{% else %}{{ event.price_str|replace('£','')|replace('€','')|replace('$','')|trim }}{% endif %}" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
                           <tr>
                             <td style="padding: 12px 14px;">
                               {% if event.is_new %}
-                              <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
+                              <span style="display: inline-block; background-color: #831843; color: #fbcfe8; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; margin-right: 4px; border: 1px solid #db2777; letter-spacing: 0.5px;">
                                 &#x1F525; JUST ANNOUNCED
+                              </span>
+                              {% endif %}
+                              {% if event.is_sold_out %}
+                              <span style="display: inline-block; background-color: #450a0a; color: #fecaca; border: 1px solid #dc2626; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; margin-right: 4px; letter-spacing: 0.5px;">
+                                &#x1F6AB; SOLD OUT
                               </span>
                               {% endif %}
                               <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
@@ -530,10 +565,10 @@
                               </p>
                               <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
                                 <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; {{ event.date_str }}
-                                {% if event.price_str %}&bull; <span style="color: #94a3b8;">{{ event.price_str }}</span>{% endif %}
+                                {% if event.price_str %}&bull; <span style="color: #94a3b8; font-weight: 600;">&#x1F4B0; {{ event.price_str }}</span>{% endif %}
                               </p>
-                              <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
-                                View Tickets &rarr;
+                              <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 11px; font-weight: 600; color: {% if event.is_sold_out %}#f87171{% else %}#60a5fa{% endif %}; text-decoration: none;">
+                                {% if event.is_sold_out %}Sold Out &bull; View &rarr;{% else %}View Tickets &rarr;{% endif %}
                               </a>
                               <button class="star-btn" data-act="{{ event.primary_act }}" onclick="toggleStarArtist(this, '{{ event.primary_act }}'); return false;" style="background: none; border: 1px solid #334155; border-radius: 6px; color: #94a3b8; padding: 4px 8px; cursor: pointer; font-size: 10px; margin-left: 8px;">
                                 ⭐ <span class="star-label">Star</span>
@@ -681,10 +716,12 @@
     function applyFiltersAndSort() {
       var areaSelect = document.getElementById('filter-area');
       var venueSelect = document.getElementById('filter-venue');
+      var availSelect = document.getElementById('filter-availability');
       var sortSelect = document.getElementById('sort-by');
 
       var selectedArea = areaSelect ? areaSelect.value : 'all';
       var selectedVenue = venueSelect ? venueSelect.value : 'all';
+      var selectedAvail = availSelect ? availSelect.value : 'all';
       var sortBy = sortSelect ? sortSelect.value : 'date-asc';
 
       var visibleCount = 0;
@@ -694,6 +731,7 @@
         var cardTier = card.getAttribute('data-tier');
         var cardIsNew = card.getAttribute('data-is-new') === 'true';
         var cardIsClub = card.getAttribute('data-is-club') === 'true';
+        var cardIsSoldOut = card.getAttribute('data-is-sold-out') === 'true';
         var cardArea = card.getAttribute('data-area') || '';
         var cardVenue = card.getAttribute('data-venue') || '';
 
@@ -715,7 +753,14 @@
         var matchArea = (selectedArea === 'all' || cardArea === selectedArea);
         var matchVenue = (selectedVenue === 'all' || cardVenue === selectedVenue);
 
-        if (matchTier && matchArea && matchVenue) {
+        var matchAvail = true;
+        if (selectedAvail === 'available') {
+          matchAvail = !cardIsSoldOut;
+        } else if (selectedAvail === 'soldout') {
+          matchAvail = cardIsSoldOut;
+        }
+
+        if (matchTier && matchArea && matchVenue && matchAvail) {
           card.style.display = '';
           visibleCount++;
         } else {
