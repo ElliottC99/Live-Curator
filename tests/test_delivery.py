@@ -98,7 +98,7 @@ class TestTemplateEngine:
         html = engine.render_html(sample_digest)
 
         assert "November 2026" in html
-        assert "LIVE CURATOR // EAST LONDON" in html
+        assert "LIVE CURATOR // LONDON" in html
         assert "Fontaines D.C." in html
         assert "The Shacklewell Arms" in html
         assert "In Elliott&#39;s Liked Songs" in html or "In Elliott's Liked Songs" in html
@@ -106,6 +106,13 @@ class TestTemplateEngine:
         assert "Dalston Comedy Club" in html
         assert "https://dice.fm/event/fontaines-shacklewell" in html
         assert "£18.50" in html
+
+        # Verify interactive single-page tab cycling controller
+        assert "id=\"tab-nav\"" in html
+        assert "switchTier('tier1')" in html
+        assert "switchTier('tier2')" in html
+        assert "switchTier('tier3')" in html
+        assert "switchTier('all')" in html
 
     def test_render_text_contains_critical_data(self, sample_digest):
         engine = TemplateEngine()

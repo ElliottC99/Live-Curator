@@ -14,7 +14,7 @@
       margin: 0;
       padding: 0;
       width: 100% !important;
-      background-color: #0f1117;
+      background-color: #0c0e14;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #e2e8f0;
     }
@@ -28,46 +28,120 @@
     table {
       border-collapse: collapse !important;
     }
+
+    /* Interactive Tab Bar Styles */
+    .tab-btn {
+      cursor: pointer;
+      border: 1px solid #334155;
+      background-color: #1e2433;
+      color: #94a3b8;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
+      outline: none;
+      display: inline-block;
+      text-decoration: none;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+    .tab-btn:hover {
+      background-color: #283046;
+      color: #ffffff;
+    }
+    .tab-btn.active.btn-t1 {
+      background-color: #064e3b !important;
+      color: #a7f3d0 !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+    }
+    .tab-btn.active.btn-t2 {
+      background-color: #312e81 !important;
+      color: #c7d2fe !important;
+      border-color: #6366f1 !important;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.35);
+    }
+    .tab-btn.active.btn-t3 {
+      background-color: #78350f !important;
+      color: #fde68a !important;
+      border-color: #f59e0b !important;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
+    }
+    .tab-btn.active.btn-all {
+      background-color: #1e3a8a !important;
+      color: #bfdbfe !important;
+      border-color: #3b82f6 !important;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
+    }
+
     /* Mobile styles */
     @media screen and (max-width: 620px) {
       .container {
         width: 100% !important;
-        padding-left: 12px !important;
-        padding-right: 12px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
       }
       .mobile-stack {
         display: block !important;
         width: 100% !important;
       }
       .event-title {
-        font-size: 18px !important;
+        font-size: 17px !important;
+      }
+      .tab-btn {
+        font-size: 12px !important;
+        padding: 6px 10px !important;
       }
     }
   </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #0f1117;">
+<body style="margin: 0; padding: 0; background-color: #0c0e14;">
   <center>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #0f1117;">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #0c0e14;">
       <tr>
         <td align="center" style="padding: 24px 8px 40px 8px;">
           <!-- Main Container -->
-          <table role="presentation" class="container" border="0" cellpadding="0" cellspacing="0" width="600" style="max-width: 600px; width: 100%; background-color: #181c27; border-radius: 12px; overflow: hidden; border: 1px solid #2d3748;">
+          <table role="presentation" class="container" border="0" cellpadding="0" cellspacing="0" width="620" style="max-width: 620px; width: 100%; background-color: #161a24; border-radius: 12px; overflow: hidden; border: 1px solid #2d3748;">
             
-            <!-- Header -->
+            <!-- Header Banner -->
             <tr>
               <td style="padding: 32px 28px 24px 28px; background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border-bottom: 2px solid #3b82f6;">
                 <p style="margin: 0 0 6px 0; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #60a5fa;">
-                  MONTHLY MUSIC & COMEDY DIGEST
+                  LIVE CURATOR // LONDON
                 </p>
                 <h1 style="margin: 0 0 8px 0; font-size: 26px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">
-                  LIVE CURATOR // EAST LONDON
+                  Monthly Gig & Comedy Digest
                 </h1>
                 <p style="margin: 0; font-size: 14px; color: #94a3b8; line-height: 1.5;">
-                  <strong>{{ digest.month_name }} {{ digest.year }}</strong> &bull; Dalston, Hackney Central, Stoke Newington & Shoreditch
+                  <strong>{{ digest.month_name }} {{ digest.year }}</strong> &bull; Dalston, Stoke Newington, Camden, Islington & Major Stadiums
                 </p>
                 <p style="margin: 8px 0 0 0; font-size: 12px; color: #64748b;">
-                  Surveyed 9 seed venues across {{ digest.total_events_scraped }} upcoming shows.
+                  Surveyed {{ digest.total_events_scraped }} upcoming events across DICE and Ticketmaster.
                 </p>
+              </td>
+            </tr>
+
+            <!-- Interactive Tab Bar Controller -->
+            <tr>
+              <td style="padding: 20px 24px 8px 24px; background-color: #12151e; border-bottom: 1px solid #283046;">
+                <p style="margin: 0 0 10px 0; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #64748b;">
+                  CYCLE BY TIER:
+                </p>
+                <div id="tab-nav">
+                  <a href="#tier-1" class="tab-btn btn-t1 active" id="btn-tier1" onclick="switchTier('tier1'); return false;">
+                    &#x1F525; Tier 1: Direct ({{ digest.tier_1_events|length }})
+                  </a>
+                  <a href="#tier-2" class="tab-btn btn-t2" id="btn-tier2" onclick="switchTier('tier2'); return false;">
+                    &#x2728; Tier 2: Discovery ({{ digest.tier_2_events|length }})
+                  </a>
+                  <a href="#tier-3" class="tab-btn btn-t3" id="btn-tier3" onclick="switchTier('tier3'); return false;">
+                    &#x1F3AD; Tier 3: Comedy ({{ digest.tier_3_events|length }})
+                  </a>
+                  <a href="#tier-all" class="tab-btn btn-all" id="btn-all" onclick="switchTier('all'); return false;">
+                    &#x1F4CB; All Shows ({{ digest.total_events_scraped }})
+                  </a>
+                </div>
               </td>
             </tr>
 
@@ -75,170 +149,225 @@
             <tr>
               <td style="padding: 24px 24px 16px 24px;">
 
-                <!-- TIER 1: DIRECT MATCHES -->
-                {% if digest.tier_1_events %}
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 28px;">
-                  <tr>
-                    <td>
-                      <div style="background-color: #064e3b; border-left: 4px solid #10b981; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
-                        <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #a7f3d0; text-transform: uppercase; letter-spacing: 1px;">
-                          &#x1F525; Tier 1: Direct Matches (Must-See)
-                        </h2>
-                        <p style="margin: 2px 0 0 0; font-size: 12px; color: #6ee7b7;">
-                          Artists in Elliott or Chloe's Spotify Liked Songs, Playlists, or Top Artists.
-                        </p>
-                      </div>
+                <!-- TIER 1 CONTAINER -->
+                <div id="section-tier1" class="tier-section">
+                  {% if digest.tier_1_events %}
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #064e3b; border-left: 4px solid #10b981; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #a7f3d0; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x1F525; Tier 1: Direct Matches (Must-See)
+                          </h2>
+                          <p style="margin: 2px 0 0 0; font-size: 12px; color: #6ee7b7;">
+                            Artists in Elliott or Chloe's Spotify Liked Songs, Playlists, or Top Artists.
+                          </p>
+                        </div>
 
-                      {% for event in digest.tier_1_events %}
-                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
-                        <tr>
-                          <td style="padding: 16px 18px;">
-                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                              <tr>
-                                <td>
-                                  <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 18px; font-weight: 700; color: #ffffff;">
-                                    {{ event.title }}
-                                  </h3>
-                                  <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
-                                    <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; <span style="color: #60a5fa;">{{ event.date_str }}</span>
-                                  </p>
+                        {% for event in digest.tier_1_events %}
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 18px; font-weight: 700; color: #ffffff;">
+                                {{ event.title }}
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; <span style="color: #60a5fa;">{{ event.date_str }}</span>
+                              </p>
 
-                                  <!-- Match Rationales -->
-                                  <div style="margin-bottom: 12px;">
-                                    {% for match in event.matches %}
-                                    <span style="display: inline-block; background-color: #065f46; color: #d1fae5; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                      {% if match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB;{% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8;{% else %}&#x2728;{% endif %} {{ match.description }}
-                                    </span>
-                                    {% endfor %}
-                                    {% if event.price_str %}
-                                    <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 4px;">
-                                      {{ event.price_str }}
-                                    </span>
-                                    {% endif %}
-                                  </div>
+                              <!-- Badges & Matches -->
+                              <div style="margin-bottom: 12px;">
+                                {% for match in event.matches %}
+                                <span style="display: inline-block; background-color: #065f46; color: #d1fae5; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  {% if match.user == 'Elliott' %}&#x1F468;&#x200D;&#x1F4BB;{% elif match.user == 'Chloe' %}&#x1F469;&#x200D;&#x1F3A8;{% else %}&#x2728;{% endif %} {{ match.description }}
+                                </span>
+                                {% endfor %}
 
-                                  <!-- CTA Button -->
-                                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td align="center" style="border-radius: 6px; background-color: #10b981;">
-                                        <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
-                                          Get Tickets on DICE &rarr;
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                      {% endfor %}
-                    </td>
-                  </tr>
-                </table>
-                {% endif %}
+                                {% if event.price_str %}
+                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  {{ event.price_str }}
+                                </span>
+                                {% endif %}
 
-                <!-- TIER 2: DISCOVERY MATCHES -->
-                {% if digest.tier_2_events %}
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 28px;">
-                  <tr>
-                    <td>
-                      <div style="background-color: #312e81; border-left: 4px solid #6366f1; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
-                        <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #c7d2fe; text-transform: uppercase; letter-spacing: 1px;">
-                          &#x2728; Tier 2: Discovery Matches
-                        </h2>
-                        <p style="margin: 2px 0 0 0; font-size: 12px; color: #a5b4fc;">
-                          In Discover Weekly/Release Radar, or high-rated in DIY, Dork, NME, Guardian, or Loud & Quiet.
-                        </p>
-                      </div>
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+                                  {% if event.platform == 'ticketmaster' %}&#x1F3DF;&#xFE0F; Ticketmaster{% else %}&#x1F39F;&#xFE0F; DICE{% endif %}
+                                </span>
+                              </div>
 
-                      {% for event in digest.tier_2_events %}
-                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
-                        <tr>
-                          <td style="padding: 16px 18px;">
-                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                              <tr>
-                                <td>
-                                  <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
-                                    {{ event.title }}
-                                  </h3>
-                                  <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
-                                    <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; <span style="color: #818cf8;">{{ event.date_str }}</span>
-                                  </p>
+                              <!-- CTA Button -->
+                              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                  <td align="center" style="border-radius: 6px; background-color: #10b981;">
+                                    <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                      Get Tickets &rarr;
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        {% endfor %}
+                      </td>
+                    </tr>
+                  </table>
+                  {% else %}
+                  <div style="background-color: #1e2433; border: 1px dashed #334155; padding: 24px; text-align: center; border-radius: 8px; margin-bottom: 24px;">
+                    <p style="margin: 0; color: #94a3b8; font-size: 14px;">No Tier 1 Direct Matches found for this month yet.</p>
+                  </div>
+                  {% endif %}
+                </div>
 
-                                  <!-- Match Rationales -->
-                                  <div style="margin-bottom: 12px;">
-                                    {% for match in event.matches %}
-                                    <span style="display: inline-block; background-color: #3730a3; color: #e0e7ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
-                                      &#x2605; {{ match.description }}
-                                    </span>
-                                    {% endfor %}
-                                    {% if event.price_str %}
-                                    <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-bottom: 4px;">
-                                      {{ event.price_str }}
-                                    </span>
-                                    {% endif %}
-                                  </div>
+                <!-- TIER 2 CONTAINER -->
+                <div id="section-tier2" class="tier-section">
+                  {% if digest.tier_2_events %}
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #312e81; border-left: 4px solid #6366f1; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #c7d2fe; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x2728; Tier 2: Discovery Matches
+                          </h2>
+                          <p style="margin: 2px 0 0 0; font-size: 12px; color: #a5b4fc;">
+                            In Discover Weekly / Release Radar, or high-rated in DIY, Dork, NME, Guardian, or Loud & Quiet.
+                          </p>
+                        </div>
 
-                                  <!-- CTA Button -->
-                                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                      <td align="center" style="border-radius: 6px; background-color: #6366f1;">
-                                        <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
-                                          Get Tickets on DICE &rarr;
-                                        </a>
-                                      </td>
-                                    </tr>
-                                  </table>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                      {% endfor %}
-                    </td>
-                  </tr>
-                </table>
-                {% endif %}
+                        {% for event in digest.tier_2_events %}
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 14px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px; overflow: hidden;">
+                          <tr>
+                            <td style="padding: 16px 18px;">
+                              <h3 class="event-title" style="margin: 0 0 4px 0; font-size: 17px; font-weight: 700; color: #ffffff;">
+                                {{ event.title }}
+                              </h3>
+                              <p style="margin: 0 0 10px 0; font-size: 13px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; <span style="color: #818cf8;">{{ event.date_str }}</span>
+                              </p>
 
-                <!-- TIER 3: COMEDY & ALTERNATIVE -->
-                {% if digest.tier_3_events %}
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
-                  <tr>
-                    <td>
-                      <div style="background-color: #78350f; border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
-                        <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #fde68a; text-transform: uppercase; letter-spacing: 1px;">
-                          &#x1F3AD; Tier 3: Comedy & Alternative
-                        </h2>
-                        <p style="margin: 2px 0 0 0; font-size: 12px; color: #fcd34d;">
-                          Stand-up, improv, work-in-progress, and cabaret across East London.
-                        </p>
-                      </div>
+                              <!-- Badges & Matches -->
+                              <div style="margin-bottom: 12px;">
+                                {% for match in event.matches %}
+                                <span style="display: inline-block; background-color: #3730a3; color: #e0e7ff; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  &#x2605; {{ match.description }}
+                                </span>
+                                {% endfor %}
 
-                      {% for event in digest.tier_3_events %}
-                      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
-                        <tr>
-                          <td style="padding: 14px 16px;">
-                            <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
-                              {{ event.title }}
-                            </h3>
-                            <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
-                              <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> &bull; {{ event.date_str }}
-                              {% if event.price_str %}&bull; <span style="color: #f59e0b;">{{ event.price_str }}</span>{% endif %}
-                            </p>
-                            <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
-                              View on DICE &rarr;
-                            </a>
-                          </td>
-                        </tr>
-                      </table>
-                      {% endfor %}
-                    </td>
-                  </tr>
-                </table>
-                {% endif %}
+                                {% if event.price_str %}
+                                <span style="display: inline-block; background-color: #1e293b; color: #94a3b8; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px;">
+                                  {{ event.price_str }}
+                                </span>
+                                {% endif %}
+
+                                <span style="display: inline-block; background-color: #0f172a; color: #38bdf8; font-size: 10px; font-weight: 700; padding: 3px 6px; border-radius: 4px; border: 1px solid #0284c7; text-transform: uppercase;">
+                                  {% if event.platform == 'ticketmaster' %}&#x1F3DF;&#xFE0F; Ticketmaster{% else %}&#x1F39F;&#xFE0F; DICE{% endif %}
+                                </span>
+                              </div>
+
+                              <!-- CTA Button -->
+                              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                  <td align="center" style="border-radius: 6px; background-color: #6366f1;">
+                                    <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 700; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                      Get Tickets &rarr;
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        {% endfor %}
+                      </td>
+                    </tr>
+                  </table>
+                  {% else %}
+                  <div style="background-color: #1e2433; border: 1px dashed #334155; padding: 24px; text-align: center; border-radius: 8px; margin-bottom: 24px;">
+                    <p style="margin: 0; color: #94a3b8; font-size: 14px;">No Tier 2 Discovery Matches found for this month yet.</p>
+                  </div>
+                  {% endif %}
+                </div>
+
+                <!-- TIER 3 CONTAINER -->
+                <div id="section-tier3" class="tier-section">
+                  {% if digest.tier_3_events %}
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #78350f; border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #fde68a; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x1F3AD; Tier 3: Comedy & Alternative
+                          </h2>
+                          <p style="margin: 2px 0 0 0; font-size: 12px; color: #fcd34d;">
+                            Stand-up, improv, work-in-progress (WIP), and cabaret across London.
+                          </p>
+                        </div>
+
+                        {% for event in digest.tier_3_events %}
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 12px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 14px 16px;">
+                              <h3 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #ffffff;">
+                                {{ event.title }}
+                              </h3>
+                              <p style="margin: 0 0 8px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; {{ event.date_str }}
+                                {% if event.price_str %}&bull; <span style="color: #f59e0b;">{{ event.price_str }}</span>{% endif %}
+                              </p>
+                              <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 12px; font-weight: 600; color: #fbbf24; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        {% endfor %}
+                      </td>
+                    </tr>
+                  </table>
+                  {% else %}
+                  <div style="background-color: #1e2433; border: 1px dashed #334155; padding: 24px; text-align: center; border-radius: 8px; margin-bottom: 24px;">
+                    <p style="margin: 0; color: #94a3b8; font-size: 14px;">No Tier 3 Comedy events found for this month.</p>
+                  </div>
+                  {% endif %}
+                </div>
+
+                <!-- ALL SHOWS CONTAINER (Shows all 3 tiers + other shows) -->
+                <div id="section-all" class="tier-section">
+                  {% if digest.other_events %}
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <div style="background-color: #1e293b; border-left: 4px solid #64748b; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px;">
+                          <h2 style="margin: 0; font-size: 16px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px;">
+                            &#x1F3B6; Other Upcoming Shows
+                          </h2>
+                          <p style="margin: 2px 0 0 0; font-size: 12px; color: #94a3b8;">
+                            General lineup across surveyed London venues.
+                          </p>
+                        </div>
+
+                        {% for event in digest.other_events[:25] %}
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 10px; background-color: #1e2433; border: 1px solid #334155; border-radius: 8px;">
+                          <tr>
+                            <td style="padding: 12px 14px;">
+                              <p style="margin: 0 0 2px 0; font-size: 15px; font-weight: 700; color: #ffffff;">
+                                {{ event.title }}
+                              </p>
+                              <p style="margin: 0 0 6px 0; font-size: 12px; color: #94a3b8;">
+                                <strong style="color: #cbd5e1;">{{ event.venue_name }}</strong> ({{ event.venue_area }}) &bull; {{ event.date_str }}
+                                {% if event.price_str %}&bull; <span style="color: #94a3b8;">{{ event.price_str }}</span>{% endif %}
+                              </p>
+                              <a href="{{ event.ticket_url }}" target="_blank" style="font-size: 11px; font-weight: 600; color: #60a5fa; text-decoration: none;">
+                                View Tickets &rarr;
+                              </a>
+                            </td>
+                          </tr>
+                        </table>
+                        {% endfor %}
+                      </td>
+                    </tr>
+                  </table>
+                  {% endif %}
+                </div>
 
               </td>
             </tr>
@@ -247,11 +376,11 @@
             <tr>
               <td style="padding: 24px 28px; background-color: #111520; border-top: 1px solid #2d3748; text-align: center;">
                 <p style="margin: 0 0 6px 0; font-size: 12px; color: #64748b; font-weight: 600;">
-                  LIVE CURATOR ENGINE &bull; DALSTON & EAST LONDON
+                  LIVE CURATOR ENGINE &bull; LONDON MUSIC & COMEDY RADAR
                 </p>
                 <p style="margin: 0; font-size: 11px; color: #475569; line-height: 1.5;">
-                  Covering The Shacklewell Arms, MOTH Club, Oslo, The Waiting Room, The Victoria, The George Tavern, Hand of Glory, EartH, and Next Door Records Two.<br>
-                  Automatically curated on the 1st of every month.
+                  Automatically curated on the 1st of every month across grassroots clubs & major stadiums.<br>
+                  Dispatched for Elliott & Chloe.
                 </p>
               </td>
             </tr>
@@ -261,5 +390,74 @@
       </tr>
     </table>
   </center>
+
+  <!-- Interactive Tier Switching Script (Runs in browser preview) -->
+  <script>
+    function switchTier(tierKey) {
+      var sections = {
+        tier1: document.getElementById('section-tier1'),
+        tier2: document.getElementById('section-tier2'),
+        tier3: document.getElementById('section-tier3'),
+        all: document.getElementById('section-all')
+      };
+
+      var buttons = {
+        tier1: document.getElementById('btn-tier1'),
+        tier2: document.getElementById('btn-tier2'),
+        tier3: document.getElementById('btn-tier3'),
+        all: document.getElementById('btn-all')
+      };
+
+      // If "all" selected, show tier1, tier2, tier3 AND other shows simultaneously
+      if (tierKey === 'all') {
+        for (var k in sections) {
+          if (sections[k]) sections[k].style.display = 'block';
+        }
+      } else {
+        for (var k in sections) {
+          if (sections[k]) {
+            sections[k].style.display = (k === tierKey) ? 'block' : 'none';
+          }
+        }
+      }
+
+      // Update button active states
+      for (var b in buttons) {
+        if (buttons[b]) {
+          if (b === tierKey) {
+            buttons[b].classList.add('active');
+          } else {
+            buttons[b].classList.remove('active');
+          }
+        }
+      }
+
+      // Update URL hash without scroll jump
+      if (history.replaceState) {
+        history.replaceState(null, null, '#' + tierKey);
+      }
+    }
+
+    // Initialize state on page load
+    (function initTierView() {
+      var t1Count = {{ digest.tier_1_events|length }};
+      var t2Count = {{ digest.tier_2_events|length }};
+      var t3Count = {{ digest.tier_3_events|length }};
+
+      // Check URL hash if present
+      var hash = window.location.hash.replace('#', '').toLowerCase();
+      if (hash === 'tier1' || hash === 'tier2' || hash === 'tier3' || hash === 'all') {
+        switchTier(hash);
+      } else if (t1Count > 0) {
+        switchTier('tier1');
+      } else if (t2Count > 0) {
+        switchTier('tier2');
+      } else if (t3Count > 0) {
+        switchTier('tier3');
+      } else {
+        switchTier('all');
+      }
+    })();
+  </script>
 </body>
 </html>
