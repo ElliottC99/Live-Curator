@@ -24,9 +24,14 @@ class TicketmasterEngine:
 
     def __init__(
         self,
-        api_key: Optional[str] = None,
+        api_key: Optional[Any] = None,
         config: Optional[Any] = None,
     ):
+        # Support passing Config object as the first positional argument
+        if api_key is not None and not isinstance(api_key, str):
+            config = api_key
+            api_key = None
+
         if config is not None:
             self.api_key = api_key or getattr(config, "ticketmaster_api_key", None)
         else:
@@ -40,7 +45,7 @@ class TicketmasterEngine:
 
     @property
     def is_configured(self) -> bool:
-        return bool(self.api_key and self.api_key.strip())
+        return bool(isinstance(self.api_key, str) and self.api_key.strip())
 
     def _format_price_range(self, price_ranges: List[Dict[str, Any]]) -> Optional[str]:
         """Format Ticketmaster price ranges into readable string."""

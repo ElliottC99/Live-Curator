@@ -59,6 +59,18 @@ class TestTicketmasterEngine:
         engine_with_key = TicketmasterEngine(api_key="valid-test-key")
         assert engine_with_key.is_configured is True
 
+    def test_init_with_config_object(self):
+        from src.core.config import Config
+        cfg_without_key = Config(ticketmaster_api_key=None)
+        engine1 = TicketmasterEngine(cfg_without_key)
+        assert engine1.is_configured is False
+        assert engine1.fetch_all_venues([Venue(name="Wembley Stadium", platform="ticketmaster")]) == []
+
+        cfg_with_key = Config(ticketmaster_api_key="test-key-123")
+        engine2 = TicketmasterEngine(cfg_with_key)
+        assert engine2.is_configured is True
+        assert engine2.api_key == "test-key-123"
+
     def test_format_price_range(self):
         engine = TicketmasterEngine(api_key="test")
         pr_range = [{"currency": "GBP", "min": 45.0, "max": 95.0}]
