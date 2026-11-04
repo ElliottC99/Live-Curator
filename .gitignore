@@ -20,3 +20,8 @@ output/
 
 # macOS
 .DS_Store
+
+# Antigravity agent workflows & local tooling
+.agent/
+.agents/
+

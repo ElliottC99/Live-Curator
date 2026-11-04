@@ -2,28 +2,30 @@
 
 ## Project Overview
 
-This project implements the Compound Learning System for Live Curator - a self-improving knowledge system based on the "Compounding Engineering" philosophy.
+This project implements the official **Compound Engineering Plugin** (`EveryInc/compound-engineering-plugin`) for Live Curator - a self-improving knowledge system based on the "Compounding Engineering" philosophy.
 
 ## Core Principle
 
 > **Each unit of engineering work should make subsequent units of work easier—not harder.**
 
-## Workflows Available
+## Skills & Workflows Available
 
-> **Full index:** See [.agent/workflows/README.md](.agent/workflows/README.md) for all commands and quick start guide.
+> **Full catalog:** Located in `.agent/skills/`.
 
 Use these commands for systematic development:
 
 | Command | When |
 |---------|------|
-| `/explore` | Deep investigation before planning |
-| `/specs` | Before multi-week initiatives |
-| `/plan` | Before starting significant work |
-| `/work` | Execute plans systematically |
-| `/review` | Before merging, self-review |
-| `/compound` | After solving problems ("that worked!") |
-| `/housekeeping` | Before git push (cleanup & archive) |
-| `/tracker-routing` | Before creating or moving work between Linear and GitHub |
+| `/ce-ideate` | Early, expansive design exploration before requirements lock |
+| `/ce-brainstorm` | Interactive dialogue to define what to build and capture requirements |
+| `/ce-plan` | Architectural and technical implementation plans |
+| `/ce-work` | Systematic execution of approved implementation plans |
+| `/ce-code-review` | Multi-perspective code review (Security, Architecture, Testing, Performance) |
+| `/ce-compound` | After solving problems to capture learnings in `docs/solutions/` |
+| `/ce-debug` | Structured root cause analysis and bug investigation |
+| `/ce-resolve-pr-feedback` | Address code review and PR feedback systematically |
+| `/ce-sweep` | Tech debt and stale reference cleanup |
+| `/ce-noslop` / `/ce-optimize` | Codebase simplification, polish, and optimization |
 
 ## Knowledge Persistence
 
@@ -34,12 +36,12 @@ Solutions are documented in `docs/solutions/` and explorations in `docs/explorat
 
 **Before solving a problem:** Search `docs/solutions/` and `docs/explorations/` for prior knowledge.
 
-**After solving a problem:** Run `/compound` to document it.
+**After solving a problem:** Run `/ce-compound` to document it.
 
 ## Compounding Loop
 
 ```
-/explore (optional) → /specs (large) → /plan (per phase) → /work → /review → /compound → /housekeeping → repeat
+/ce-ideate (optional) → /ce-brainstorm → /ce-plan → /ce-work → /ce-code-review → /ce-compound → repeat
 ```
 
 ## Work-surface boundary
@@ -71,7 +73,7 @@ This is **promotion, not synchronization**. Do not mirror both boards.
 ## Important Directories
 
 ```
-.agent/workflows/     # All workflow commands
+.agent/skills/        # Official EveryInc compound skills
 docs/solutions/       # Persistent knowledge base
 docs/explorations/    # Deep investigations & research
 docs/decisions/       # Project-wide ADRs
@@ -79,13 +81,9 @@ docs/decisions/       # Project-wide ADRs
 ├── schema.yaml       # Validation schema
 └── {categories}/     # Categorized solutions
 docs/features/        # Feature documentation (New features, READMEs)
-skills/               # Modular capabilities
-├── file-todos/       # Todo management
-├── compound-docs/    # Solution documentation
-└── session-resume/   # Context resume
-plans/                # Implementation plans from /plan
+plans/                # Implementation plans from /ce-plan
 ├── archive/          # Completed plans
-todos/                # Work items from /review
+todos/                # Work items from /ce-code-review
 ├── archive/          # Completed todos
 docs/specs/           # Multi-session specifications
 ├── archive/          # Completed specs
@@ -93,17 +91,10 @@ docs/specs/           # Multi-session specifications
 
 ## Agent Behavior
 
-1. **Resume Context** - At the start of EVERY new session, read `skills/session-resume/SKILL.md` and follow the checklist to establish state.
-0. **Check active specs** - Before starting significant work, run `ls docs/specs/*/README.md` to find active multi-session initiatives
-1. **Search before solving** - Check `docs/solutions/` and `docs/explorations/` for similar problems (use `skills/compound-docs/SKILL.md`)
-2. **Deep Explore** - Use `/explore` for complex problems to avoid assumption-based planning.
-3. **Document after solving** - Trigger `/compound` on success phrases
-4. **Follow patterns** - Reference `patterns/critical-patterns.md`
-5. **Use workflows** - Prefer `/specs` (large) or `/plan` (small) → `/work` over ad-hoc coding (see `skills/` for specific domain help)
-6. **Todos for deferred work** - If you close/reject/defer work, create a todo file in `todos/` (use `skills/file-todos/SKILL.md`). Implementation plans document decisions; todos track actionable follow-up.
-7. **Housekeeping before push** - Run `/housekeeping` or the pre-push hook will block until cleanup is done.
-8. **Weekly health check** - Every Monday, run `./scripts/compound-health.sh` and address any warnings. Target: >50% coverage.
-9. **Record architectural decisions** - When making technology/pattern/schema choices, create ADRs in `docs/decisions/`. Check existing ADRs before re-debating.
-10. **Check health daily** - Run `./scripts/compound-dashboard.sh` at session start. Target: Grade B or higher.
-11. **Instrument Skills** - Every new skill MUST include an `## Instrumentation` section in `SKILL.md` calling `./scripts/log-skill.sh`.
-12. **Tracker routing** - Before creating or moving a Linear/GitHub work object, run `/tracker-routing` and search existing coverage first.
+1. **Resume Context** - At the start of EVERY new session, inspect current branch and git status to establish state.
+2. **Search before solving** - Check `docs/solutions/` and `docs/explorations/` for prior solutions before designing changes.
+3. **Brainstorm & Plan** - Use `/ce-brainstorm` for complex problems and `/ce-plan` before executing significant work.
+4. **Document after solving** - Run `/ce-compound` to capture solutions and insights in `docs/solutions/`.
+5. **Multi-Perspective Review** - Use `/ce-code-review` before finalizing or merging changes.
+6. **Follow patterns** - Reference `patterns/critical-patterns.md`.
+7. **Record architectural decisions** - When making major technology or schema choices, create ADRs in `docs/decisions/`.
